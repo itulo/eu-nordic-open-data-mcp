@@ -1,0 +1,45 @@
+{
+  "name": "eu-nordic-open-data-mcp",
+  "version": "0.1.0",
+  "description": "Unified MCP server and 10-tool suite for official European Union and Finnish open data (TED EU tenders, PRH Finnish companies, EU sanctions, VIES VAT, ECB FX & macro, ENISA EUVD CVEs, Fingrid grid signals, FMI weather warnings, FMI-Fingrid nowcast, Digitraffic port calls) with embedded legal attribution and GDPR company-level filtering.",
+  "type": "module",
+  "main": "src/index.js",
+  "bin": {
+    "eu-nordic-open-data-mcp": "./src/index.js"
+  },
+  "scripts": {
+    "start": "node src/index.js",
+    "mcp": "node src/index.js"
+  },
+  "keywords": [
+    "mcp",
+    "mcp-server",
+    "model-context-protocol",
+    "open-data",
+    "european-union",
+    "ted-tenders",
+    "eu-sanctions",
+    "vies-vat",
+    "ecb",
+    "enisa-euvd",
+    "finland",
+    "fingrid",
+    "fmi",
+    "prh",
+    "digitraffic"
+  ],
+  "author": "Italo Armenti (https://github.com/itulo)",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/itulo/eu-nordic-open-data-mcp.git"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.29.0",
+    "fast-xml-parser": "^5.3.5",
+    "zod": "^3.25.0"
+  }
+}

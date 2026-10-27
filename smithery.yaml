@@ -1,32 +1,15 @@
-# Smithery.ai MCP configuration (https://smithery.ai/docs)
 startCommand:
   type: stdio
   configSchema:
     type: object
     properties:
-      tool:
-        type: string
-        title: "Open-Data MCP Server"
-        description: "Which of the 10 EU/Nordic open-data MCP servers to launch (default: ted-tender-feed)"
-        default: "ted-tender-feed"
-        enum:
-          - ted-tender-feed
-          - prh-company-events
-          - eu-sanctions-screen
-          - fingrid-grid-signals
-          - fmi-fingrid-nowcast
-          - fmi-weather-warnings-alerts
-          - eu-vies-vat-validator
-          - ecb-fx-rates-macro
-          - digitraffic-port-calls-marine
-          - enisa-euvd-vulnerabilities
       fingridApiKey:
         type: string
-        title: "Fingrid Open Data API Key (optional, only for fingrid-grid-signals and fmi-fingrid-nowcast)"
-        default: ""
-  commandFunction: |-
+        description: Optional free CC BY 4.0 API key from data.fingrid.fi (required only for fingrid_* tools).
+  commandFunction:
+    |-
     (config) => ({
       command: 'node',
-      args: [`tools/${config.tool || 'ted-tender-feed'}/src/mcp-server.js`],
+      args: ['src/index.js'],
       env: config.fingridApiKey ? { FINGRID_API_KEY: config.fingridApiKey } : {}
     })
