@@ -1,0 +1,42 @@
+{
+  "title": "Baltic & Finland Vessel Port Calls & Port Congestion (Digitraffic) Input",
+  "type": "object",
+  "schemaVersion": 1,
+  "properties": {
+    "modes": {
+      "title": "Output modes",
+      "type": "array",
+      "description": "Select output modes: port_calls (individual vessel port calls) and/or port_congestion_summary (aggregated per-port traffic & turnaround stats).",
+      "editor": "stringList",
+      "default": ["port_calls", "port_congestion_summary"]
+    },
+    "ports": {
+      "title": "Port UN/LOCODE filter (empty = all ports)",
+      "type": "array",
+      "description": "Filter by port UN/LOCODEs (e.g. FIHEL Helsinki, FITKU Turku, FIHKO Hanko, FIKTK Kotka, FIRAU Rauma, FIOUL Oulu). Leave empty for all ports.",
+      "editor": "stringList",
+      "default": ["FIHEL", "FITKU", "FIHKO", "FIKTK"]
+    },
+    "cargoOnly": {
+      "title": "Cargo vessels only",
+      "type": "boolean",
+      "description": "When true, filters to port calls where arrivalWithCargo is true.",
+      "default": false
+    },
+    "vesselQuery": {
+      "title": "Vessel name, IMO, or callsign search (optional)",
+      "type": "string",
+      "description": "Optional substring filter matching vesselName, IMO number, or radio callsign.",
+      "editor": "textfield",
+      "default": ""
+    },
+    "maxResults": {
+      "title": "Max port call records",
+      "type": "integer",
+      "description": "Maximum number of individual port_call records to output.",
+      "default": 30,
+      "minimum": 1,
+      "maximum": 500
+    }
+  }
+}

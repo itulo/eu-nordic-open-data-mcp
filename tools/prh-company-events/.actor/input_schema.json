@@ -1,0 +1,17 @@
+{
+  "title": "PRH company events input",
+  "type": "object",
+  "schemaVersion": 1,
+  "properties": {
+    "eventTypes": { "title": "Event types", "type": "array", "editor": "stringList", "description": "new_company, name_change, liquidation, liquidation_ended, bankruptcy, bankruptcy_ended, restructuring, dissolution, removal, merger, demerger, registered_office_change, articles_amended, industry_change", "default": ["new_company", "name_change", "liquidation", "bankruptcy", "restructuring", "dissolution", "industry_change"] },
+    "dateFrom": { "title": "From (YYYY-MM-DD)", "type": "string", "editor": "textfield", "description": "Registration date window start (YYYY-MM-DD). Default: yesterday (or since last run in alert mode).", "pattern": "^\\d{4}-\\d{2}-\\d{2}$" },
+    "dateTo": { "title": "To (YYYY-MM-DD)", "type": "string", "editor": "textfield", "description": "Registration date window end (YYYY-MM-DD). Default: today.", "pattern": "^\\d{4}-\\d{2}-\\d{2}$" },
+    "location": { "title": "Town / city", "type": "string", "editor": "textfield", "description": "Optional registered-office town filter, e.g. Helsinki." },
+    "companyForm": { "title": "Company form", "type": "string", "editor": "textfield", "description": "Optional PRH company form code: OY, OYJ, OK, KY, AY, SÄÄ, ..." },
+    "maxPerEvent": { "title": "Max records per event type", "type": "integer", "description": "Maximum number of company events to fetch per requested event type.", "minimum": 1, "maximum": 5000, "default": 500 },
+    "watchBusinessIds": { "title": "Watchlist Business IDs", "type": "array", "editor": "stringList", "description": "Optional list of Y-tunnus (1234567-8). Each run compares with the previous snapshot and emits change events.", "default": [] },
+    "alertMode": { "title": "Alert mode (only new events)", "type": "boolean", "description": "Return only events not seen in previous runs with the same alert key.", "default": false },
+    "alertStateKey": { "title": "Alert / watchlist key", "type": "string", "editor": "textfield", "description": "State key used to isolate alert and watchlist state across saved schedules.", "default": "default" }
+  },
+  "required": []
+}

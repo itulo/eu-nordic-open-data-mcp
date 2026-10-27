@@ -1,0 +1,139 @@
+{
+  "actorSpecification": 1,
+  "name": "ted-tender-feed",
+  "title": "EU Tender Feed (TED) - CPV, country & alert mode",
+  "description": "Structured, deduplicated EU public procurement notices from the official TED Search API, filtered by CPV code, country and date, with an alert mode that returns only new notices since the last run. Organisation-level fields only. Attribution included in every record.",
+  "version": "0.1",
+  "buildTag": "latest",
+  "input": "./input_schema.json",
+  "dockerfile": "../Dockerfile",
+  "storages": {
+    "dataset": {
+      "actorSpecification": 1,
+      "views": {
+        "overview": {
+          "title": "Tenders",
+          "transformation": {
+            "fields": [
+              "publicationDate",
+              "noticeTypeLabel",
+              "title",
+              "buyerNames",
+              "buyerCountries",
+              "mainCpv",
+              "tenderDeadline",
+              "estimatedValue",
+              "url",
+              "attribution"
+            ]
+          },
+          "display": {
+            "component": "table"
+          }
+        }
+      },
+      "fields": {
+        "type": "object",
+        "properties": {
+          "publicationNumber": {
+            "type": "string",
+            "title": "Publication number",
+            "description": "Official TED notice publication number (e.g., 123456-2026)."
+          },
+          "publicationDate": {
+            "type": "string",
+            "title": "Publication date",
+            "description": "ISO date of publication in the Official Journal S."
+          },
+          "noticeType": {
+            "type": "string",
+            "title": "Notice type code",
+            "description": "TED notice type code."
+          },
+          "noticeTypeLabel": {
+            "type": "string",
+            "title": "Notice type",
+            "description": "Human-readable notice type label."
+          },
+          "title": {
+            "type": "string",
+            "title": "Title",
+            "description": "Notice title in the requested language."
+          },
+          "buyerNames": {
+            "type": "array",
+            "title": "Buyer organisations",
+            "description": "Organisation-level contracting authority names.",
+            "items": {
+              "type": "string"
+            }
+          },
+          "buyerCountries": {
+            "type": "array",
+            "title": "Buyer countries",
+            "description": "ISO 3166-1 alpha-3 country codes of buyers.",
+            "items": {
+              "type": "string"
+            }
+          },
+          "mainCpv": {
+            "type": "string",
+            "title": "Main CPV code",
+            "description": "Primary Common Procurement Vocabulary (CPV) code."
+          },
+          "cpvCodes": {
+            "type": "array",
+            "title": "All CPV codes",
+            "description": "All CPV codes attached to the notice.",
+            "items": {
+              "type": "string"
+            }
+          },
+          "tenderDeadline": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "title": "Submission deadline",
+            "description": "Deadline for receipt of tenders/requests."
+          },
+          "estimatedValue": {
+            "type": [
+              "number",
+              "null"
+            ],
+            "title": "Estimated value",
+            "description": "Estimated contract value where published."
+          },
+          "currency": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "title": "Currency",
+            "description": "Currency of the estimated value."
+          },
+          "procedureId": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "title": "Procedure ID",
+            "description": "Procedure identifier used for deduplicating corrigenda."
+          },
+          "url": {
+            "type": "string",
+            "title": "TED notice URL",
+            "description": "Official link to the notice on ted.europa.eu."
+          },
+          "attribution": {
+            "type": "string",
+            "title": "Source attribution",
+            "description": "Mandatory EU Decision 2011/833/EU source attribution."
+          }
+        }
+      }
+    }
+  },
+  "output": "./output_schema.json"
+}

@@ -1,0 +1,20 @@
+{
+  "actorOutputSchemaVersion": 1,
+  "title": "ECB Official EUR FX Rates, Policy Rates, Inflation & Invoice Converter Output",
+  "description": "Official ECB EUR reference exchange rates, policy interest rates, HICP inflation, and B2B invoice conversions.",
+  "type": "object",
+  "properties": {
+    "results": {
+      "type": "string",
+      "title": "ECB Macro & FX Records",
+      "description": "Normalized ECB FX, policy rate, HICP inflation, and invoice conversion records with ESCB attribution.",
+      "template": "{{links.apiDefaultDatasetUrl}}/items"
+    },
+    "summary": {
+      "type": "string",
+      "title": "Run summary (OUTPUT_SUMMARY)",
+      "description": "Summary metadata and mandatory ESCB attribution.",
+      "template": "{{links.apiDefaultKeyValueStoreUrl}}/records/OUTPUT_SUMMARY"
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "title": "TED tender feed input",
+  "type": "object",
+  "schemaVersion": 1,
+  "properties": {
+    "cpvCodes": { "title": "CPV codes", "type": "array", "editor": "stringList", "description": "8-digit CPV codes (e.g. 72000000 = IT services). Parent codes also match child codes.", "prefill": ["72000000"] },
+    "countries": { "title": "Countries", "type": "array", "editor": "stringList", "description": "ISO alpha-2 (FI) or alpha-3 (FIN) country codes.", "prefill": ["FI", "SE"] },
+    "countryField": { "title": "Country matches", "type": "string", "editor": "select", "description": "Filter by contracting authority (buyer) country or place of performance country.", "enum": ["buyer", "performance"], "enumTitles": ["Buyer country", "Place of performance"], "default": "buyer" },
+    "noticeTypes": { "title": "Notice types", "type": "array", "editor": "stringList", "description": "Groups: competition, planning, award, change - or raw TED notice types (cn-standard, can-standard, ...).", "default": ["competition"] },
+    "publishedFrom": { "title": "Published from (YYYY-MM-DD)", "type": "string", "editor": "textfield", "description": "Start of publication date window (YYYY-MM-DD). Default: 7 days ago (or since last run in alert mode).", "pattern": "^\\d{4}-\\d{2}-\\d{2}$" },
+    "publishedTo": { "title": "Published to (YYYY-MM-DD)", "type": "string", "editor": "textfield", "description": "End of publication date window (YYYY-MM-DD). Default: today.", "pattern": "^\\d{4}-\\d{2}-\\d{2}$" },
+    "maxResults": { "title": "Max results", "type": "integer", "description": "Maximum number of deduplicated tender notices to return per run.", "minimum": 1, "maximum": 5000, "default": 200 },
+    "language": { "title": "Preferred title language", "type": "string", "editor": "textfield", "description": "ISO 639-2/B code: eng, fin, swe, deu, fra ...", "default": "eng" },
+    "collapseByProcedure": { "title": "Collapse by procedure", "type": "boolean", "description": "Keep only the newest notice per procurement procedure.", "default": false },
+    "alertMode": { "title": "Alert mode (only new notices)", "type": "boolean", "description": "Return only notices not seen in previous runs with the same alert key. Schedule the actor daily.", "default": false },
+    "alertStateKey": { "title": "Alert key", "type": "string", "editor": "textfield", "description": "Separate alert states for different saved searches.", "default": "default" }
+  },
+  "required": []
+}

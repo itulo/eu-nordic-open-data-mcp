@@ -1,0 +1,144 @@
+{
+  "actorSpecification": 1,
+  "name": "digitraffic-port-calls-marine",
+  "title": "Baltic & Finland Port Calls & Congestion (Digitraffic)",
+  "description": "Real-time & scheduled Baltic Sea and Finnish port calls, vessel ETA/ETD berth schedules, cargo flags, turnaround times, and port congestion summaries from Fintraffic Digitraffic Marine Open Data (CC BY 4.0).",
+  "version": "0.1",
+  "buildTag": "latest",
+  "input": "./input_schema.json",
+  "output": "./output_schema.json",
+  "dockerfile": "../Dockerfile",
+  "storages": {
+    "dataset": {
+      "actorSpecification": 1,
+      "fields": {
+        "type": "object",
+        "properties": {
+          "recordType": {
+            "type": "string",
+            "title": "Record type",
+            "description": "port_call or port_congestion_summary"
+          },
+          "portToVisit": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "title": "Port UN/LOCODE",
+            "description": "Port code (e.g. FIHEL, FITKU, FIHKO, FIKTK)"
+          },
+          "portName": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "title": "Port Name",
+            "description": "Human-readable port name"
+          },
+          "vesselName": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "title": "Vessel Name",
+            "description": "Vessel name"
+          },
+          "imoLloyds": {
+            "type": [
+              "number",
+              "null"
+            ],
+            "title": "IMO Number",
+            "description": "IMO vessel number"
+          },
+          "prevPort": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "title": "Prev Port",
+            "description": "Previous port UN/LOCODE"
+          },
+          "nextPort": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "title": "Next Port",
+            "description": "Next port UN/LOCODE"
+          },
+          "berthName": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "title": "Berth",
+            "description": "Terminal / berth name"
+          },
+          "etaUtc": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "title": "ETA (UTC)",
+            "description": "Estimated time of arrival"
+          },
+          "etdUtc": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "title": "ETD (UTC)",
+            "description": "Estimated time of departure"
+          },
+          "plannedTurnaroundHours": {
+            "type": [
+              "number",
+              "null"
+            ],
+            "title": "Turnaround (h)",
+            "description": "Planned berth turnaround hours"
+          },
+          "totalPortCalls": {
+            "type": [
+              "number",
+              "null"
+            ],
+            "title": "Total Port Calls",
+            "description": "Port summary call count"
+          },
+          "attribution": {
+            "type": "string",
+            "title": "Digitraffic CC BY 4.0 Attribution",
+            "description": "Mandatory Fintraffic Digitraffic CC BY 4.0 attribution"
+          }
+        }
+      },
+      "views": {
+        "overview": {
+          "title": "Port Calls & Congestion Summary",
+          "transformation": {
+            "fields": [
+              "recordType",
+              "portToVisit",
+              "portName",
+              "vesselName",
+              "imoLloyds",
+              "prevPort",
+              "nextPort",
+              "berthName",
+              "etaUtc",
+              "etdUtc",
+              "plannedTurnaroundHours",
+              "totalPortCalls",
+              "attribution"
+            ]
+          },
+          "display": {
+            "component": "table"
+          }
+        }
+      }
+    }
+  }
+}

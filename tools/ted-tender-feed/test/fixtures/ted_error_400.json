@@ -1,0 +1,1 @@
+{"message":"Syntax error in expert query at line 1, col 5: extraneous input 'is' expecting {NOT, IN, '!=', '=', '~', '!~', COMPARISON_OPERATOR}","error":{"type":"QUERY_SYNTAX_ERROR","location":{"beginColumn":5,"beginLine":1,"endColumn":7,"endLine":1}}}

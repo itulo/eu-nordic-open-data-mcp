@@ -1,0 +1,65 @@
+{
+ "_recordedFrom": "https://data.fingrid.fi/en/datasets/319 (public dataset page, API-format sample)",
+ "_recordedAt": "2026-10-11T15:41:12+0300",
+ "meta": {
+  "id": 319,
+  "nameEn": "Imbalance price",
+  "nameFi": "Tasepoikkeaman hinta",
+  "unitEn": "EUR/MWh",
+  "dataPeriodEn": "15 min",
+  "updateCadenceEn": "15 min",
+  "status": "active",
+  "organization": "Fingrid",
+  "license": {
+   "name": "Creative Commons Attribution",
+   "termsLink": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "dataAvailableFromUtc": "2021-09-22T21:00:00.000Z",
+  "modifiedAtUtc": "2026-02-11T11:26:54.000Z"
+ },
+ "response": {
+  "data": [
+   {
+    "datasetId": 319,
+    "startTime": "2026-10-11T11:30:00.000Z",
+    "endTime": "2026-10-11T11:45:00.000Z",
+    "value": 101.84
+   },
+   {
+    "datasetId": 319,
+    "startTime": "2026-10-11T11:15:00.000Z",
+    "endTime": "2026-10-11T11:30:00.000Z",
+    "value": 102.3
+   },
+   {
+    "datasetId": 319,
+    "startTime": "2026-10-11T11:00:00.000Z",
+    "endTime": "2026-10-11T11:15:00.000Z",
+    "value": 98.81
+   },
+   {
+    "datasetId": 319,
+    "startTime": "2026-10-11T10:45:00.000Z",
+    "endTime": "2026-10-11T11:00:00.000Z",
+    "value": 96.05
+   },
+   {
+    "datasetId": 319,
+    "startTime": "2026-10-11T10:30:00.000Z",
+    "endTime": "2026-10-11T10:45:00.000Z",
+    "value": 99.08
+   }
+  ],
+  "pagination": {
+   "total": 85535,
+   "lastPage": 17107,
+   "nextPage": 2,
+   "prevPage": null,
+   "currentPage": 1,
+   "perPage": 5,
+   "from": 0,
+   "to": 5
+  },
+  "statusCode": 200
+ }
+}

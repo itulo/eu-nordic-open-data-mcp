@@ -1,0 +1,20 @@
+{
+  "actorOutputSchemaVersion": 1,
+  "title": "Finland Severe Weather & Baltic Marine Alerts Output",
+  "description": "Normalized FMI CAP 1.2 severe weather/marine alerts and WFS 2.0 synoptic & sea-level observations.",
+  "type": "object",
+  "properties": {
+    "results": {
+      "type": "string",
+      "title": "Alerts & Observations Dataset",
+      "description": "CAP weather/marine alerts and live station observations with mandatory FMI CC BY 4.0 attribution.",
+      "template": "{{links.apiDefaultDatasetUrl}}/items"
+    },
+    "summary": {
+      "type": "string",
+      "title": "Run summary (OUTPUT_SUMMARY)",
+      "description": "Summary counts by mode and mandatory FMI CC BY 4.0 attribution.",
+      "template": "{{links.apiDefaultKeyValueStoreUrl}}/records/OUTPUT_SUMMARY"
+    }
+  }
+}

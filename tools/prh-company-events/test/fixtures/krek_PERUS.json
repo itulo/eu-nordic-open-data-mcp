@@ -1,0 +1,1525 @@
+{
+ "totalResults": 8,
+ "companies": [
+  {
+   "businessId": {
+    "value": "3637260-7",
+    "registrationDate": "2026-07-04",
+    "source": "3"
+   },
+   "euId": {
+    "value": "FIFPRO.3637260-7",
+    "source": "1"
+   },
+   "names": [
+    {
+     "name": "North GFC Oy",
+     "type": "1",
+     "registrationDate": "2026-10-08",
+     "version": 1,
+     "source": "1"
+    },
+    {
+     "name": "Saaren Laki",
+     "type": "3",
+     "registrationDate": "2026-10-08",
+     "version": 1,
+     "source": "1"
+    }
+   ],
+   "mainBusinessLine": {
+    "type": "70200",
+    "descriptions": [
+     {
+      "languageCode": "3",
+      "description": "Business and other management consultancy activities"
+     },
+     {
+      "languageCode": "2",
+      "description": "Konsultverksamhet avseende företags organisation"
+     },
+     {
+      "languageCode": "1",
+      "description": "Liikkeenjohdon konsultointi"
+     }
+    ],
+    "typeCodeSet": "TOIMI4",
+    "registrationDate": "2026-07-04",
+    "source": "2"
+   },
+   "website": {
+    "url": "www.saarenlaki.fi",
+    "registrationDate": "2026-07-04",
+    "source": "0"
+   },
+   "companyForms": [
+    {
+     "type": "16",
+     "descriptions": [
+      {
+       "languageCode": "2",
+       "description": "Aktiebolag"
+      },
+      {
+       "languageCode": "3",
+       "description": "Limited company"
+      },
+      {
+       "languageCode": "1",
+       "description": "Osakeyhtiö"
+      }
+     ],
+     "registrationDate": "2026-10-08",
+     "version": 1,
+     "source": "1"
+    }
+   ],
+   "companySituations": [],
+   "registeredEntries": [
+    {
+     "type": "0",
+     "descriptions": [
+      {
+       "languageCode": "2",
+       "description": "Oregistrerad"
+      },
+      {
+       "languageCode": "1",
+       "description": "Rekisteröimätön"
+      },
+      {
+       "languageCode": "3",
+       "description": "Unregistered"
+      }
+     ],
+     "registrationDate": "2026-07-04",
+     "endDate": "2026-10-07",
+     "register": "1",
+     "authority": "2"
+    },
+    {
+     "type": "1",
+     "descriptions": [
+      {
+       "languageCode": "3",
+       "description": "Registered"
+      },
+      {
+       "languageCode": "2",
+       "description": "Registrerad"
+      },
+      {
+       "languageCode": "1",
+       "description": "Rekisterissä"
+      }
+     ],
+     "registrationDate": "2026-10-08",
+     "register": "1",
+     "authority": "2"
+    },
+    {
+     "type": "1",
+     "descriptions": [
+      {
+       "languageCode": "3",
+       "description": "Registered"
+      },
+      {
+       "languageCode": "2",
+       "description": "Registrerad"
+      },
+      {
+       "languageCode": "1",
+       "description": "Rekisterissä"
+      }
+     ],
+     "registrationDate": "2026-10-08",
+     "register": "4",
+     "authority": "1"
+    }
+   ],
+   "addresses": [
+    {
+     "type": 2,
+     "street": "Fixturekatu",
+     "postCode": "00840",
+     "postOffices": [
+      {
+       "city": "HELSINGFORS",
+       "languageCode": "2",
+       "municipalityCode": "091"
+      },
+      {
+       "city": "HELSINKI",
+       "languageCode": "1",
+       "municipalityCode": "091"
+      }
+     ],
+     "postOfficeBox": "",
+     "buildingNumber": "1",
+     "entrance": "C",
+     "apartmentNumber": "",
+     "apartmentIdSuffix": "",
+     "co": "c/o Matti Meikäläinen",
+     "registrationDate": "2026-07-04",
+     "source": "0"
+    }
+   ],
+   "publicNotices": [
+    {
+     "registrationDate": "2026-10-08",
+     "recordNumber": "2026/355080",
+     "typeOfRegistration": "U",
+     "entryCodes": [
+      "TMIA",
+      "TMI",
+      "TILTAR",
+      "OSLUKU",
+      "TALA",
+      "TAL",
+      "POITIL",
+      "PERUS",
+      "OPO",
+      "NORTIL",
+      "NIML",
+      "NIMA",
+      "KOTI",
+      "HAL"
+     ]
+    }
+   ],
+   "tradeRegisterStatus": "1",
+   "status": "2",
+   "registrationDate": "2026-10-08",
+   "lastModified": "2026-10-09 00:01:50"
+  },
+  {
+   "businessId": {
+    "value": "3653652-8",
+    "registrationDate": "2026-09-08",
+    "source": "3"
+   },
+   "euId": {
+    "value": "FIFPRO.3653652-8",
+    "source": "1"
+   },
+   "names": [
+    {
+     "name": "KI Ajoneuvot Oy",
+     "type": "1",
+     "registrationDate": "2026-10-08",
+     "version": 1,
+     "source": "1"
+    }
+   ],
+   "mainBusinessLine": {
+    "type": "64990",
+    "descriptions": [
+     {
+      "languageCode": "2",
+      "description": "Diverse övrig finansiell verksamhet utom försäkrings- och pensionsfondsverksamhet"
+     },
+     {
+      "languageCode": "1",
+      "description": "Muualla luokittelematon muu rahoituspalvelutoiminta pois lukien vakuutus- ja eläkevakuutustoiminta"
+     },
+     {
+      "languageCode": "3",
+      "description": "Other financial service activities, except insurance and pension funding n.e.c."
+     }
+    ],
+    "typeCodeSet": "TOIMI4",
+    "registrationDate": "2026-09-08",
+    "source": "2"
+   },
+   "companyForms": [
+    {
+     "type": "16",
+     "descriptions": [
+      {
+       "languageCode": "2",
+       "description": "Aktiebolag"
+      },
+      {
+       "languageCode": "3",
+       "description": "Limited company"
+      },
+      {
+       "languageCode": "1",
+       "description": "Osakeyhtiö"
+      }
+     ],
+     "registrationDate": "2026-10-08",
+     "version": 1,
+     "source": "1"
+    }
+   ],
+   "companySituations": [],
+   "registeredEntries": [
+    {
+     "type": "0",
+     "descriptions": [
+      {
+       "languageCode": "2",
+       "description": "Oregistrerad"
+      },
+      {
+       "languageCode": "1",
+       "description": "Rekisteröimätön"
+      },
+      {
+       "languageCode": "3",
+       "description": "Unregistered"
+      }
+     ],
+     "registrationDate": "2026-09-08",
+     "endDate": "2026-10-07",
+     "register": "1",
+     "authority": "2"
+    },
+    {
+     "type": "1",
+     "descriptions": [
+      {
+       "languageCode": "3",
+       "description": "Registered"
+      },
+      {
+       "languageCode": "2",
+       "description": "Registrerad"
+      },
+      {
+       "languageCode": "1",
+       "description": "Rekisterissä"
+      }
+     ],
+     "registrationDate": "2026-10-08",
+     "register": "1",
+     "authority": "2"
+    },
+    {
+     "type": "1",
+     "descriptions": [
+      {
+       "languageCode": "3",
+       "description": "Registered"
+      },
+      {
+       "languageCode": "2",
+       "description": "Registrerad"
+      },
+      {
+       "languageCode": "1",
+       "description": "Rekisterissä"
+      }
+     ],
+     "registrationDate": "2026-10-08",
+     "register": "4",
+     "authority": "1"
+    }
+   ],
+   "addresses": [
+    {
+     "type": 2,
+     "street": "Fixturekatu",
+     "postCode": "93600",
+     "postOffices": [
+      {
+       "city": "KUUSAMO",
+       "languageCode": "1",
+       "municipalityCode": "305"
+      },
+      {
+       "city": "KUUSAMO",
+       "languageCode": "2",
+       "municipalityCode": "305"
+      }
+     ],
+     "postOfficeBox": "",
+     "buildingNumber": "1",
+     "entrance": "",
+     "apartmentNumber": "",
+     "apartmentIdSuffix": "",
+     "co": "c/o Fixture Person-Redacted",
+     "registrationDate": "2026-09-08",
+     "source": "0"
+    }
+   ],
+   "publicNotices": [
+    {
+     "registrationDate": "2026-10-08",
+     "recordNumber": "2026/466116",
+     "typeOfRegistration": "U",
+     "entryCodes": [
+      "TILTAR",
+      "HAL",
+      "KOTI",
+      "NIMA",
+      "NIML",
+      "NORTIL",
+      "OPO",
+      "OSLUKU",
+      "PERUS",
+      "POITIL",
+      "TAL",
+      "TMI"
+     ]
+    }
+   ],
+   "tradeRegisterStatus": "1",
+   "status": "2",
+   "registrationDate": "2026-10-08",
+   "lastModified": "2026-10-09 00:00:11"
+  },
+  {
+   "businessId": {
+    "value": "3653722-1",
+    "registrationDate": "2026-09-08",
+    "source": "3"
+   },
+   "euId": {
+    "value": "FIFPRO.3653722-1",
+    "source": "1"
+   },
+   "names": [
+    {
+     "name": "Starship Holding Oy",
+     "type": "1",
+     "registrationDate": "2026-10-08",
+     "version": 1,
+     "source": "1"
+    }
+   ],
+   "mainBusinessLine": {
+    "type": "64210",
+    "descriptions": [
+     {
+      "languageCode": "3",
+      "description": "Activities of holding companies"
+     },
+     {
+      "languageCode": "2",
+      "description": "Holdingverksamhet"
+     },
+     {
+      "languageCode": "1",
+      "description": "Holdingyhtiöiden toiminta"
+     }
+    ],
+    "typeCodeSet": "TOIMI4",
+    "registrationDate": "2026-09-08",
+    "source": "2"
+   },
+   "companyForms": [
+    {
+     "type": "16",
+     "descriptions": [
+      {
+       "languageCode": "2",
+       "description": "Aktiebolag"
+      },
+      {
+       "languageCode": "3",
+       "description": "Limited company"
+      },
+      {
+       "languageCode": "1",
+       "description": "Osakeyhtiö"
+      }
+     ],
+     "registrationDate": "2026-10-08",
+     "version": 1,
+     "source": "1"
+    }
+   ],
+   "companySituations": [],
+   "registeredEntries": [
+    {
+     "type": "0",
+     "descriptions": [
+      {
+       "languageCode": "2",
+       "description": "Oregistrerad"
+      },
+      {
+       "languageCode": "1",
+       "description": "Rekisteröimätön"
+      },
+      {
+       "languageCode": "3",
+       "description": "Unregistered"
+      }
+     ],
+     "registrationDate": "2026-09-08",
+     "endDate": "2026-10-07",
+     "register": "1",
+     "authority": "2"
+    },
+    {
+     "type": "1",
+     "descriptions": [
+      {
+       "languageCode": "3",
+       "description": "Registered"
+      },
+      {
+       "languageCode": "2",
+       "description": "Registrerad"
+      },
+      {
+       "languageCode": "1",
+       "description": "Rekisterissä"
+      }
+     ],
+     "registrationDate": "2026-10-08",
+     "register": "1",
+     "authority": "2"
+    },
+    {
+     "type": "1",
+     "descriptions": [
+      {
+       "languageCode": "3",
+       "description": "Registered"
+      },
+      {
+       "languageCode": "2",
+       "description": "Registrerad"
+      },
+      {
+       "languageCode": "1",
+       "description": "Rekisterissä"
+      }
+     ],
+     "registrationDate": "2026-10-09",
+     "register": "4",
+     "authority": "1"
+    }
+   ],
+   "addresses": [
+    {
+     "type": 1,
+     "street": "Fixturekatu",
+     "postCode": "00100",
+     "postOffices": [
+      {
+       "city": "HELSINGFORS",
+       "languageCode": "2",
+       "municipalityCode": "091"
+      },
+      {
+       "city": "HELSINKI",
+       "languageCode": "1",
+       "municipalityCode": "091"
+      }
+     ],
+     "buildingNumber": "1",
+     "entrance": "",
+     "apartmentNumber": "",
+     "apartmentIdSuffix": "",
+     "co": "",
+     "registrationDate": "2026-09-08",
+     "source": "0"
+    }
+   ],
+   "publicNotices": [
+    {
+     "registrationDate": "2026-10-08",
+     "recordNumber": "2026/466465",
+     "typeOfRegistration": "U",
+     "entryCodes": [
+      "KOTI",
+      "HAL",
+      "TMI",
+      "TILTAR",
+      "TAL",
+      "POITIL",
+      "PERUS",
+      "OSLUKU",
+      "OPO",
+      "NORTIL",
+      "NIML"
+     ]
+    }
+   ],
+   "tradeRegisterStatus": "1",
+   "status": "2",
+   "registrationDate": "2026-10-08",
+   "lastModified": "2026-10-09 09:44:21"
+  },
+  {
+   "businessId": {
+    "value": "3653771-5",
+    "registrationDate": "2026-09-09",
+    "source": "3"
+   },
+   "euId": {
+    "value": "FIFPRO.3653771-5",
+    "source": "1"
+   },
+   "names": [
+    {
+     "name": "Meditarean Flavours Oy",
+     "type": "1",
+     "registrationDate": "2026-10-08",
+     "version": 1,
+     "source": "1"
+    }
+   ],
+   "mainBusinessLine": {
+    "type": "46170",
+    "descriptions": [
+     {
+      "languageCode": "3",
+      "description": "Activities of agents involved in the wholesale of food, beverages and tobacco"
+     },
+     {
+      "languageCode": "1",
+      "description": "Elintarvikkeiden, juomien ja tupakan agentuuritoiminta"
+     },
+     {
+      "languageCode": "2",
+      "description": "Provisionshandel med livsmedel, drycker och tobak"
+     }
+    ],
+    "typeCodeSet": "TOIMI4",
+    "registrationDate": "2026-09-09",
+    "source": "2"
+   },
+   "companyForms": [
+    {
+     "type": "16",
+     "descriptions": [
+      {
+       "languageCode": "2",
+       "description": "Aktiebolag"
+      },
+      {
+       "languageCode": "3",
+       "description": "Limited company"
+      },
+      {
+       "languageCode": "1",
+       "description": "Osakeyhtiö"
+      }
+     ],
+     "registrationDate": "2026-10-08",
+     "version": 1,
+     "source": "1"
+    }
+   ],
+   "companySituations": [],
+   "registeredEntries": [
+    {
+     "type": "0",
+     "descriptions": [
+      {
+       "languageCode": "2",
+       "description": "Oregistrerad"
+      },
+      {
+       "languageCode": "1",
+       "description": "Rekisteröimätön"
+      },
+      {
+       "languageCode": "3",
+       "description": "Unregistered"
+      }
+     ],
+     "registrationDate": "2026-09-09",
+     "endDate": "2026-10-07",
+     "register": "1",
+     "authority": "2"
+    },
+    {
+     "type": "1",
+     "descriptions": [
+      {
+       "languageCode": "3",
+       "description": "Registered"
+      },
+      {
+       "languageCode": "2",
+       "description": "Registrerad"
+      },
+      {
+       "languageCode": "1",
+       "description": "Rekisterissä"
+      }
+     ],
+     "registrationDate": "2026-10-08",
+     "register": "1",
+     "authority": "2"
+    },
+    {
+     "type": "1",
+     "descriptions": [
+      {
+       "languageCode": "3",
+       "description": "Registered"
+      },
+      {
+       "languageCode": "2",
+       "description": "Registrerad"
+      },
+      {
+       "languageCode": "1",
+       "description": "Rekisterissä"
+      }
+     ],
+     "registrationDate": "2026-10-08",
+     "register": "4",
+     "authority": "1"
+    },
+    {
+     "type": "55",
+     "descriptions": [
+      {
+       "languageCode": "3",
+       "description": "Registered"
+      },
+      {
+       "languageCode": "2",
+       "description": "Registrerad"
+      },
+      {
+       "languageCode": "1",
+       "description": "Rekisterissä"
+      }
+     ],
+     "registrationDate": "2026-09-09",
+     "register": "5",
+     "authority": "1"
+    },
+    {
+     "type": "80",
+     "descriptions": [
+      {
+       "languageCode": "1",
+       "description": "Liiketoiminnasta arvonlisäverovelvollinen"
+      },
+      {
+       "languageCode": "2",
+       "description": "Momsskyldig för rörelseverksamhet"
+      },
+      {
+       "languageCode": "3",
+       "description": "VAT-liable for business activity"
+      }
+     ],
+     "registrationDate": "2026-09-09",
+     "register": "6",
+     "authority": "1"
+    }
+   ],
+   "addresses": [
+    {
+     "type": 2,
+     "street": "Fixturekatu",
+     "postCode": "33870",
+     "postOffices": [
+      {
+       "city": "TAMPERE",
+       "languageCode": "1",
+       "municipalityCode": "837"
+      },
+      {
+       "city": "TAMPERE",
+       "languageCode": "2",
+       "municipalityCode": "837"
+      }
+     ],
+     "postOfficeBox": "",
+     "buildingNumber": "1",
+     "entrance": "B",
+     "apartmentNumber": "99",
+     "apartmentIdSuffix": "",
+     "co": "",
+     "registrationDate": "2026-09-09",
+     "source": "0"
+    }
+   ],
+   "publicNotices": [
+    {
+     "registrationDate": "2026-10-08",
+     "recordNumber": "2026/466644",
+     "typeOfRegistration": "U",
+     "entryCodes": [
+      "POITIL",
+      "HAL",
+      "KOTI",
+      "NIMA",
+      "NIML",
+      "NORTIL",
+      "OPO",
+      "OSLUKU",
+      "PERUS",
+      "TAL",
+      "TILTAR",
+      "TMI",
+      "TOIM"
+     ]
+    }
+   ],
+   "tradeRegisterStatus": "1",
+   "status": "2",
+   "registrationDate": "2026-10-08",
+   "lastModified": "2026-10-10 06:22:02"
+  },
+  {
+   "businessId": {
+    "value": "3655463-8",
+    "registrationDate": "2026-09-15",
+    "source": "3"
+   },
+   "euId": {
+    "value": "FIFPRO.3655463-8",
+    "source": "1"
+   },
+   "names": [
+    {
+     "name": "Aikasix Group Oy",
+     "type": "1",
+     "registrationDate": "2026-10-08",
+     "version": 1,
+     "source": "1"
+    }
+   ],
+   "mainBusinessLine": {
+    "type": "62100",
+    "descriptions": [
+     {
+      "languageCode": "3",
+      "description": "Computer programming activities"
+     },
+     {
+      "languageCode": "2",
+      "description": "Dataprogrammering"
+     },
+     {
+      "languageCode": "1",
+      "description": "Ohjelmistojen suunnittelu ja valmistus"
+     }
+    ],
+    "typeCodeSet": "TOIMI4",
+    "registrationDate": "2026-09-09",
+    "source": "2"
+   },
+   "companyForms": [
+    {
+     "type": "16",
+     "descriptions": [
+      {
+       "languageCode": "2",
+       "description": "Aktiebolag"
+      },
+      {
+       "languageCode": "3",
+       "description": "Limited company"
+      },
+      {
+       "languageCode": "1",
+       "description": "Osakeyhtiö"
+      }
+     ],
+     "registrationDate": "2026-10-08",
+     "version": 1,
+     "source": "1"
+    }
+   ],
+   "companySituations": [],
+   "registeredEntries": [
+    {
+     "type": "0",
+     "descriptions": [
+      {
+       "languageCode": "2",
+       "description": "Oregistrerad"
+      },
+      {
+       "languageCode": "1",
+       "description": "Rekisteröimätön"
+      },
+      {
+       "languageCode": "3",
+       "description": "Unregistered"
+      }
+     ],
+     "registrationDate": "2026-09-15",
+     "endDate": "2026-10-07",
+     "register": "1",
+     "authority": "2"
+    },
+    {
+     "type": "1",
+     "descriptions": [
+      {
+       "languageCode": "3",
+       "description": "Registered"
+      },
+      {
+       "languageCode": "2",
+       "description": "Registrerad"
+      },
+      {
+       "languageCode": "1",
+       "description": "Rekisterissä"
+      }
+     ],
+     "registrationDate": "2026-10-08",
+     "register": "1",
+     "authority": "2"
+    },
+    {
+     "type": "1",
+     "descriptions": [
+      {
+       "languageCode": "3",
+       "description": "Registered"
+      },
+      {
+       "languageCode": "2",
+       "description": "Registrerad"
+      },
+      {
+       "languageCode": "1",
+       "description": "Rekisterissä"
+      }
+     ],
+     "registrationDate": "2026-10-08",
+     "register": "4",
+     "authority": "1"
+    },
+    {
+     "type": "55",
+     "descriptions": [
+      {
+       "languageCode": "3",
+       "description": "Registered"
+      },
+      {
+       "languageCode": "2",
+       "description": "Registrerad"
+      },
+      {
+       "languageCode": "1",
+       "description": "Rekisterissä"
+      }
+     ],
+     "registrationDate": "2026-09-15",
+     "register": "5",
+     "authority": "1"
+    },
+    {
+     "type": "80",
+     "descriptions": [
+      {
+       "languageCode": "1",
+       "description": "Liiketoiminnasta arvonlisäverovelvollinen"
+      },
+      {
+       "languageCode": "2",
+       "description": "Momsskyldig för rörelseverksamhet"
+      },
+      {
+       "languageCode": "3",
+       "description": "VAT-liable for business activity"
+      }
+     ],
+     "registrationDate": "2026-09-15",
+     "register": "6",
+     "authority": "1"
+    }
+   ],
+   "addresses": [
+    {
+     "type": 2,
+     "street": "Fixturekatu",
+     "postCode": "04300",
+     "postOffices": [
+      {
+       "city": "TUUSULA",
+       "languageCode": "1",
+       "municipalityCode": "858"
+      },
+      {
+       "city": "TUUSULA",
+       "languageCode": "2",
+       "municipalityCode": "858"
+      }
+     ],
+     "postOfficeBox": "",
+     "buildingNumber": "1",
+     "entrance": "D",
+     "apartmentNumber": "99",
+     "apartmentIdSuffix": "",
+     "co": "",
+     "registrationDate": "2026-09-15",
+     "source": "0"
+    }
+   ],
+   "publicNotices": [
+    {
+     "registrationDate": "2026-10-08",
+     "recordNumber": "2026/477485",
+     "typeOfRegistration": "U",
+     "entryCodes": [
+      "NIML",
+      "OPO",
+      "KOTI",
+      "HAL",
+      "OSLUKU",
+      "NORTIL",
+      "PERUS",
+      "POITIL",
+      "TAL",
+      "TILTAR",
+      "TMI",
+      "TOIM"
+     ]
+    }
+   ],
+   "tradeRegisterStatus": "1",
+   "status": "2",
+   "registrationDate": "2026-10-08",
+   "lastModified": "2026-10-10 06:23:03"
+  },
+  {
+   "businessId": {
+    "value": "3655660-9",
+    "registrationDate": "2026-09-16",
+    "source": "3"
+   },
+   "euId": {
+    "value": "FIFPRO.3655660-9",
+    "source": "1"
+   },
+   "names": [
+    {
+     "name": "Mirror Angels Oy",
+     "type": "1",
+     "registrationDate": "2026-10-08",
+     "version": 1,
+     "source": "1"
+    }
+   ],
+   "mainBusinessLine": {
+    "type": "64210",
+    "descriptions": [
+     {
+      "languageCode": "3",
+      "description": "Activities of holding companies"
+     },
+     {
+      "languageCode": "2",
+      "description": "Holdingverksamhet"
+     },
+     {
+      "languageCode": "1",
+      "description": "Holdingyhtiöiden toiminta"
+     }
+    ],
+    "typeCodeSet": "TOIMI4",
+    "registrationDate": "2026-09-15",
+    "source": "2"
+   },
+   "companyForms": [
+    {
+     "type": "16",
+     "descriptions": [
+      {
+       "languageCode": "2",
+       "description": "Aktiebolag"
+      },
+      {
+       "languageCode": "3",
+       "description": "Limited company"
+      },
+      {
+       "languageCode": "1",
+       "description": "Osakeyhtiö"
+      }
+     ],
+     "registrationDate": "2026-10-08",
+     "version": 1,
+     "source": "1"
+    }
+   ],
+   "companySituations": [],
+   "registeredEntries": [
+    {
+     "type": "0",
+     "descriptions": [
+      {
+       "languageCode": "2",
+       "description": "Oregistrerad"
+      },
+      {
+       "languageCode": "1",
+       "description": "Rekisteröimätön"
+      },
+      {
+       "languageCode": "3",
+       "description": "Unregistered"
+      }
+     ],
+     "registrationDate": "2026-09-16",
+     "endDate": "2026-10-07",
+     "register": "1",
+     "authority": "2"
+    },
+    {
+     "type": "1",
+     "descriptions": [
+      {
+       "languageCode": "3",
+       "description": "Registered"
+      },
+      {
+       "languageCode": "2",
+       "description": "Registrerad"
+      },
+      {
+       "languageCode": "1",
+       "description": "Rekisterissä"
+      }
+     ],
+     "registrationDate": "2026-10-08",
+     "register": "1",
+     "authority": "2"
+    },
+    {
+     "type": "1",
+     "descriptions": [
+      {
+       "languageCode": "3",
+       "description": "Registered"
+      },
+      {
+       "languageCode": "2",
+       "description": "Registrerad"
+      },
+      {
+       "languageCode": "1",
+       "description": "Rekisterissä"
+      }
+     ],
+     "registrationDate": "2026-10-08",
+     "register": "4",
+     "authority": "1"
+    }
+   ],
+   "addresses": [
+    {
+     "type": 2,
+     "street": "Fixturekatu",
+     "postCode": "14300",
+     "postOffices": [
+      {
+       "city": "RENKO",
+       "languageCode": "1",
+       "municipalityCode": "109"
+      },
+      {
+       "city": "RENKO",
+       "languageCode": "2",
+       "municipalityCode": "109"
+      }
+     ],
+     "postOfficeBox": "",
+     "buildingNumber": "1",
+     "entrance": "",
+     "apartmentNumber": "",
+     "apartmentIdSuffix": "",
+     "co": "",
+     "registrationDate": "2026-09-16",
+     "source": "0"
+    }
+   ],
+   "publicNotices": [
+    {
+     "registrationDate": "2026-10-08",
+     "recordNumber": "2026/478488",
+     "typeOfRegistration": "U",
+     "entryCodes": [
+      "KOTI",
+      "TILTAR",
+      "TAL",
+      "POITIL",
+      "PERUS",
+      "OSLUKU",
+      "OPO",
+      "NORTIL",
+      "NIML",
+      "NIMA",
+      "HAL",
+      "TMI"
+     ]
+    }
+   ],
+   "tradeRegisterStatus": "1",
+   "status": "2",
+   "registrationDate": "2026-10-08",
+   "lastModified": "2026-10-09 00:01:18"
+  },
+  {
+   "businessId": {
+    "value": "3655693-2",
+    "registrationDate": "2026-09-16",
+    "source": "3"
+   },
+   "euId": {
+    "value": "FIFPRO.3655693-2",
+    "source": "1"
+   },
+   "names": [
+    {
+     "name": "JJK Equity Oy",
+     "type": "1",
+     "registrationDate": "2026-10-08",
+     "version": 1,
+     "source": "1"
+    }
+   ],
+   "mainBusinessLine": {
+    "type": "64210",
+    "descriptions": [
+     {
+      "languageCode": "3",
+      "description": "Activities of holding companies"
+     },
+     {
+      "languageCode": "2",
+      "description": "Holdingverksamhet"
+     },
+     {
+      "languageCode": "1",
+      "description": "Holdingyhtiöiden toiminta"
+     }
+    ],
+    "typeCodeSet": "TOIMI4",
+    "registrationDate": "2026-09-16",
+    "source": "2"
+   },
+   "companyForms": [
+    {
+     "type": "16",
+     "descriptions": [
+      {
+       "languageCode": "2",
+       "description": "Aktiebolag"
+      },
+      {
+       "languageCode": "3",
+       "description": "Limited company"
+      },
+      {
+       "languageCode": "1",
+       "description": "Osakeyhtiö"
+      }
+     ],
+     "registrationDate": "2026-10-08",
+     "version": 1,
+     "source": "1"
+    }
+   ],
+   "companySituations": [],
+   "registeredEntries": [
+    {
+     "type": "0",
+     "descriptions": [
+      {
+       "languageCode": "2",
+       "description": "Oregistrerad"
+      },
+      {
+       "languageCode": "1",
+       "description": "Rekisteröimätön"
+      },
+      {
+       "languageCode": "3",
+       "description": "Unregistered"
+      }
+     ],
+     "registrationDate": "2026-09-16",
+     "endDate": "2026-10-07",
+     "register": "1",
+     "authority": "2"
+    },
+    {
+     "type": "1",
+     "descriptions": [
+      {
+       "languageCode": "3",
+       "description": "Registered"
+      },
+      {
+       "languageCode": "2",
+       "description": "Registrerad"
+      },
+      {
+       "languageCode": "1",
+       "description": "Rekisterissä"
+      }
+     ],
+     "registrationDate": "2026-10-08",
+     "register": "1",
+     "authority": "2"
+    },
+    {
+     "type": "1",
+     "descriptions": [
+      {
+       "languageCode": "3",
+       "description": "Registered"
+      },
+      {
+       "languageCode": "2",
+       "description": "Registrerad"
+      },
+      {
+       "languageCode": "1",
+       "description": "Rekisterissä"
+      }
+     ],
+     "registrationDate": "2026-10-08",
+     "register": "4",
+     "authority": "1"
+    }
+   ],
+   "addresses": [
+    {
+     "type": 2,
+     "street": "Fixturekatu",
+     "postCode": "66300",
+     "postOffices": [
+      {
+       "city": "JURVA",
+       "languageCode": "1",
+       "municipalityCode": "301"
+      },
+      {
+       "city": "JURVA",
+       "languageCode": "2",
+       "municipalityCode": "301"
+      }
+     ],
+     "postOfficeBox": "",
+     "buildingNumber": "1",
+     "entrance": "A",
+     "apartmentNumber": "",
+     "apartmentIdSuffix": "",
+     "co": "",
+     "registrationDate": "2026-09-16",
+     "source": "0"
+    }
+   ],
+   "publicNotices": [
+    {
+     "registrationDate": "2026-10-08",
+     "recordNumber": "2026/478742",
+     "typeOfRegistration": "U",
+     "entryCodes": [
+      "HAL",
+      "OPO",
+      "OSLUKU",
+      "NORTIL",
+      "NIML",
+      "NIMA",
+      "KOTI",
+      "TMI",
+      "PERUS",
+      "POITIL",
+      "TAL",
+      "TILTAR",
+      "TOIM"
+     ]
+    }
+   ],
+   "tradeRegisterStatus": "1",
+   "status": "2",
+   "registrationDate": "2026-10-08",
+   "lastModified": "2026-10-08 23:56:34"
+  },
+  {
+   "businessId": {
+    "value": "3656196-9",
+    "registrationDate": "2026-09-17",
+    "source": "3"
+   },
+   "euId": {
+    "value": "FIFPRO.3656196-9",
+    "source": "1"
+   },
+   "names": [
+    {
+     "name": "02150 Technologies Oy",
+     "type": "1",
+     "registrationDate": "2026-10-08",
+     "version": 1,
+     "source": "1"
+    }
+   ],
+   "mainBusinessLine": {
+    "type": "72100",
+    "descriptions": [
+     {
+      "languageCode": "1",
+      "description": "Luonnontieteen ja tekniikan tutkimus ja kehittäminen"
+     },
+     {
+      "languageCode": "2",
+      "description": "Naturvetenskaplig och teknisk forskning och utveckling"
+     },
+     {
+      "languageCode": "3",
+      "description": "Research and experimental development on natural sciences and engineering"
+     }
+    ],
+    "typeCodeSet": "TOIMI4",
+    "registrationDate": "2026-09-17",
+    "source": "2"
+   },
+   "companyForms": [
+    {
+     "type": "16",
+     "descriptions": [
+      {
+       "languageCode": "2",
+       "description": "Aktiebolag"
+      },
+      {
+       "languageCode": "3",
+       "description": "Limited company"
+      },
+      {
+       "languageCode": "1",
+       "description": "Osakeyhtiö"
+      }
+     ],
+     "registrationDate": "2026-10-08",
+     "version": 1,
+     "source": "1"
+    }
+   ],
+   "companySituations": [],
+   "registeredEntries": [
+    {
+     "type": "0",
+     "descriptions": [
+      {
+       "languageCode": "2",
+       "description": "Oregistrerad"
+      },
+      {
+       "languageCode": "1",
+       "description": "Rekisteröimätön"
+      },
+      {
+       "languageCode": "3",
+       "description": "Unregistered"
+      }
+     ],
+     "registrationDate": "2026-09-17",
+     "endDate": "2026-10-07",
+     "register": "1",
+     "authority": "2"
+    },
+    {
+     "type": "1",
+     "descriptions": [
+      {
+       "languageCode": "3",
+       "description": "Registered"
+      },
+      {
+       "languageCode": "2",
+       "description": "Registrerad"
+      },
+      {
+       "languageCode": "1",
+       "description": "Rekisterissä"
+      }
+     ],
+     "registrationDate": "2026-10-08",
+     "register": "1",
+     "authority": "2"
+    },
+    {
+     "type": "1",
+     "descriptions": [
+      {
+       "languageCode": "3",
+       "description": "Registered"
+      },
+      {
+       "languageCode": "2",
+       "description": "Registrerad"
+      },
+      {
+       "languageCode": "1",
+       "description": "Rekisterissä"
+      }
+     ],
+     "registrationDate": "2026-10-08",
+     "register": "4",
+     "authority": "1"
+    }
+   ],
+   "addresses": [
+    {
+     "type": 2,
+     "street": "Fixturekatu",
+     "postCode": "00100",
+     "postOffices": [
+      {
+       "city": "HELSINGFORS",
+       "languageCode": "2",
+       "municipalityCode": "091"
+      },
+      {
+       "city": "HELSINKI",
+       "languageCode": "1",
+       "municipalityCode": "091"
+      }
+     ],
+     "postOfficeBox": "",
+     "buildingNumber": "1",
+     "entrance": "A",
+     "apartmentNumber": "99",
+     "apartmentIdSuffix": "",
+     "co": "",
+     "registrationDate": "2026-09-17",
+     "source": "0"
+    }
+   ],
+   "publicNotices": [
+    {
+     "registrationDate": "2026-10-08",
+     "recordNumber": "2026/482886",
+     "typeOfRegistration": "U",
+     "entryCodes": [
+      "NIMA",
+      "NORTIL",
+      "NIML",
+      "KOTI",
+      "HAL",
+      "OPO",
+      "OSLUKU",
+      "PERUS",
+      "POITIL",
+      "TAL",
+      "TILTAR",
+      "TMI",
+      "TOIM"
+     ]
+    }
+   ],
+   "tradeRegisterStatus": "1",
+   "status": "2",
+   "registrationDate": "2026-10-08",
+   "lastModified": "2026-10-09 00:01:02"
+  }
+ ],
+ "_fixtureNote": "Recorded from avoindata.prh.fi API on 2026-10-11 (Helsinki). Trimmed to 8 companies; street/c-o/apartment values replaced with placeholders; first company has a synthetic c/o person name to test stripping."
+}

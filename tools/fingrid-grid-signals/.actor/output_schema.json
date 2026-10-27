@@ -1,0 +1,20 @@
+{
+  "actorOutputSchemaVersion": 1,
+  "title": "Fingrid Grid Signals Output",
+  "description": "Normalized Finnish electricity grid time-series observations and regime anomalies.",
+  "type": "object",
+  "properties": {
+    "results": {
+      "type": "string",
+      "title": "Grid observations",
+      "description": "Normalized time-series observations and anomaly flags from Fingrid Open Data.",
+      "template": "{{links.apiDefaultDatasetUrl}}/items"
+    },
+    "summary": {
+      "type": "string",
+      "title": "Run summary (OUTPUT_SUMMARY)",
+      "description": "Summary metadata and licence attribution stored in the default key-value store.",
+      "template": "{{links.apiDefaultKeyValueStoreUrl}}/records/OUTPUT_SUMMARY"
+    }
+  }
+}

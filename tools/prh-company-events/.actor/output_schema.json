@@ -1,0 +1,20 @@
+{
+  "actorOutputSchemaVersion": 1,
+  "title": "Finnish Company Events (PRH) Output",
+  "description": "Normalized Finnish Trade Register company-level events and run summary.",
+  "type": "object",
+  "properties": {
+    "results": {
+      "type": "string",
+      "title": "Company events",
+      "description": "Company-level events from PRH Open Data (new companies, name changes, liquidations, bankruptcies, restructurings, watchlist diffs).",
+      "template": "{{links.apiDefaultDatasetUrl}}/items"
+    },
+    "summary": {
+      "type": "string",
+      "title": "Run summary (OUTPUT_SUMMARY)",
+      "description": "Summary metadata and licence attribution stored in the default key-value store.",
+      "template": "{{links.apiDefaultKeyValueStoreUrl}}/records/OUTPUT_SUMMARY"
+    }
+  }
+}

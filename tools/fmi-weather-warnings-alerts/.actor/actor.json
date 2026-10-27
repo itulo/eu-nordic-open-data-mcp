@@ -1,0 +1,55 @@
+{
+  "actorSpecification": 1,
+  "name": "fmi-weather-warnings-alerts",
+  "title": "Finland Severe Weather & Baltic Marine Alerts (FMI CAP/WFS)",
+  "description": "Real-time Finnish Meteorological Institute (FMI) CAP 1.2 severe weather, wind, wave & traffic alerts plus live synoptic weather and Baltic Sea mareograph sea-level observations. Keyless CC BY 4.0 open data.",
+  "version": "0.1",
+  "buildTag": "latest",
+  "input": "./input_schema.json",
+  "output": "./output_schema.json",
+  "dockerfile": "../Dockerfile",
+  "storages": {
+    "dataset": {
+      "actorSpecification": 1,
+      "fields": {
+        "type": "object",
+        "properties": {
+          "recordType": { "type": "string", "title": "Record type", "description": "weather_alert, weather_observation, or sea_level_observation" },
+          "event": { "type": ["string", "null"], "title": "Alert event", "description": "CAP warning event type" },
+          "severity": { "type": ["string", "null"], "title": "Severity", "description": "Minor, Moderate, Severe, or Extreme" },
+          "area": { "type": ["string", "null"], "title": "Area / Region", "description": "Affected Finnish region or Baltic sea area" },
+          "headline": { "type": ["string", "null"], "title": "Headline", "description": "CAP warning headline" },
+          "place": { "type": ["string", "null"], "title": "Observation station", "description": "Finnish city or coastal station" },
+          "observedAtUtc": { "type": ["string", "null"], "title": "Observed at (UTC)", "description": "Observation UTC timestamp" },
+          "temperatureC": { "type": ["number", "null"], "title": "Temp (°C)", "description": "2m air temperature (°C)" },
+          "windSpeedMs": { "type": ["number", "null"], "title": "Wind speed (m/s)", "description": "10-min mean wind speed (m/s)" },
+          "windGustMs": { "type": ["number", "null"], "title": "Wind gust (m/s)", "description": "10-min max wind gust (m/s)" },
+          "seaLevelMm": { "type": ["number", "null"], "title": "Sea level (mm)", "description": "Mareograph sea level in mm" },
+          "attribution": { "type": "string", "title": "FMI CC BY 4.0 Attribution", "description": "Required FMI CC BY 4.0 attribution with dataset name" }
+        }
+      },
+      "views": {
+        "overview": {
+          "title": "FMI Alerts & Observations",
+          "transformation": {
+            "fields": [
+              "recordType",
+              "event",
+              "severity",
+              "area",
+              "headline",
+              "place",
+              "observedAtUtc",
+              "temperatureC",
+              "windSpeedMs",
+              "windGustMs",
+              "seaLevelMm",
+              "attribution"
+            ]
+          },
+          "display": { "component": "table" }
+        }
+      }
+    }
+  }
+}

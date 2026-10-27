@@ -1,0 +1,126 @@
+{
+  "actorSpecification": 1,
+  "name": "ecb-fx-rates-macro",
+  "title": "ECB EUR FX Rates, Policy Rates, Inflation & Invoice Tool",
+  "description": "Official European Central Bank (ECB SDMX 2.1) daily & historical EUR reference exchange rates, Eurosystem key policy interest rates (DFR/MRO/MLF), Eurozone HICP inflation, and B2B cross-currency invoice converter.",
+  "version": "0.1",
+  "buildTag": "latest",
+  "input": "./input_schema.json",
+  "output": "./output_schema.json",
+  "dockerfile": "../Dockerfile",
+  "storages": {
+    "dataset": {
+      "actorSpecification": 1,
+      "fields": {
+        "type": "object",
+        "properties": {
+          "recordType": {
+            "type": "string",
+            "title": "Record type",
+            "description": "ecb_fx_rate, ecb_policy_rate, ecb_hicp_inflation, or ecb_invoice_conversion"
+          },
+          "period": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "title": "Period / Date",
+            "description": "Observation date or month"
+          },
+          "currency": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "title": "Currency",
+            "description": "ISO currency code"
+          },
+          "ratePerEur": {
+            "type": [
+              "number",
+              "null"
+            ],
+            "title": "Rate per 1 EUR",
+            "description": "Official ECB reference rate per 1 EUR"
+          },
+          "rateCode": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "title": "Policy Rate Code",
+            "description": "DFR, MRR_FR, or MLFR"
+          },
+          "ratePct": {
+            "type": [
+              "number",
+              "null"
+            ],
+            "title": "Policy Rate (%)",
+            "description": "ECB policy interest rate (%)"
+          },
+          "areaCode": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "title": "Area",
+            "description": "U2 (Euro area) or EU country code"
+          },
+          "annualInflationPct": {
+            "type": [
+              "number",
+              "null"
+            ],
+            "title": "HICP Inflation (%)",
+            "description": "Annual HICP inflation rate (%)"
+          },
+          "invoiceId": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "title": "Invoice ID",
+            "description": "Converted invoice identifier"
+          },
+          "convertedAmount": {
+            "type": [
+              "number",
+              "null"
+            ],
+            "title": "Converted Amount",
+            "description": "Converted invoice amount"
+          },
+          "attribution": {
+            "type": "string",
+            "title": "ECB Statistics Attribution",
+            "description": "Mandatory ESCB statistics attribution"
+          }
+        }
+      },
+      "views": {
+        "overview": {
+          "title": "ECB FX, Macro & Invoice Conversions",
+          "transformation": {
+            "fields": [
+              "recordType",
+              "period",
+              "currency",
+              "ratePerEur",
+              "rateCode",
+              "ratePct",
+              "areaCode",
+              "annualInflationPct",
+              "invoiceId",
+              "convertedAmount",
+              "attribution"
+            ]
+          },
+          "display": {
+            "component": "table"
+          }
+        }
+      }
+    }
+  }
+}

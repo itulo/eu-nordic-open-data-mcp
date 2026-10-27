@@ -1,0 +1,65 @@
+{
+ "_recordedFrom": "https://data.fingrid.fi/en/datasets/329 (public dataset page, API-format sample)",
+ "_recordedAt": "2026-10-11T15:41:08+0300",
+ "meta": {
+  "id": 329,
+  "nameEn": "Balancing Capacity Market (mFRR), up, hourly market, price",
+  "nameFi": "Säätökapasiteetti (mFRR), ylös, tuntimarkkina marginaalihinta",
+  "unitEn": "EUR/MW",
+  "dataPeriodEn": "1 h",
+  "updateCadenceEn": "1 d",
+  "status": "active",
+  "organization": "Fingrid",
+  "license": {
+   "name": "Creative Commons Attribution",
+   "termsLink": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "dataAvailableFromUtc": "2022-11-30T23:00:00.000Z",
+  "modifiedAtUtc": "2025-12-03T08:05:49.000Z"
+ },
+ "response": {
+  "data": [
+   {
+    "datasetId": 329,
+    "startTime": "2026-10-12T21:00:00.000Z",
+    "endTime": "2026-10-12T22:00:00.000Z",
+    "value": 7.5
+   },
+   {
+    "datasetId": 329,
+    "startTime": "2026-10-12T20:00:00.000Z",
+    "endTime": "2026-10-12T21:00:00.000Z",
+    "value": 5
+   },
+   {
+    "datasetId": 329,
+    "startTime": "2026-10-12T19:00:00.000Z",
+    "endTime": "2026-10-12T20:00:00.000Z",
+    "value": 6.02
+   },
+   {
+    "datasetId": 329,
+    "startTime": "2026-10-12T18:00:00.000Z",
+    "endTime": "2026-10-12T19:00:00.000Z",
+    "value": 7.5
+   },
+   {
+    "datasetId": 329,
+    "startTime": "2026-10-12T17:00:00.000Z",
+    "endTime": "2026-10-12T18:00:00.000Z",
+    "value": 10
+   }
+  ],
+  "pagination": {
+   "total": 33887,
+   "lastPage": 6778,
+   "nextPage": 2,
+   "prevPage": null,
+   "currentPage": 1,
+   "perPage": 5,
+   "from": 0,
+   "to": 5
+  },
+  "statusCode": 200
+ }
+}

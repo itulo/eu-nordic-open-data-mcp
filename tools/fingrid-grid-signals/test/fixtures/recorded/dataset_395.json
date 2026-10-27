@@ -1,0 +1,65 @@
+{
+ "_recordedFrom": "https://data.fingrid.fi/en/datasets/395 (public dataset page, API-format sample)",
+ "_recordedAt": "2026-10-11T15:41:23+0300",
+ "meta": {
+  "id": 395,
+  "nameEn": "Share of non-fossil electricity generation in Finland - updated every 15 minutes",
+  "nameFi": "Fossiilittoman sähköntuotannon osuus Suomessa - päivitys 15 minuutin välein",
+  "unitEn": "%",
+  "dataPeriodEn": "15 min",
+  "updateCadenceEn": "15 min",
+  "status": "active",
+  "organization": "Fingrid",
+  "license": {
+   "name": "Creative Commons Attribution",
+   "termsLink": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "dataAvailableFromUtc": "2023-12-31T22:00:00.000Z",
+  "modifiedAtUtc": "2025-12-03T10:13:50.000Z"
+ },
+ "response": {
+  "data": [
+   {
+    "datasetId": 395,
+    "startTime": "2026-10-11T12:15:00.000Z",
+    "endTime": "2026-10-11T12:30:00.000Z",
+    "value": 94.95
+   },
+   {
+    "datasetId": 395,
+    "startTime": "2026-10-11T12:00:00.000Z",
+    "endTime": "2026-10-11T12:15:00.000Z",
+    "value": 95.09
+   },
+   {
+    "datasetId": 395,
+    "startTime": "2026-10-11T11:45:00.000Z",
+    "endTime": "2026-10-11T12:00:00.000Z",
+    "value": 95.27
+   },
+   {
+    "datasetId": 395,
+    "startTime": "2026-10-11T11:30:00.000Z",
+    "endTime": "2026-10-11T11:45:00.000Z",
+    "value": 95.26
+   },
+   {
+    "datasetId": 395,
+    "startTime": "2026-10-11T11:15:00.000Z",
+    "endTime": "2026-10-11T11:30:00.000Z",
+    "value": 95.36
+   }
+  ],
+  "pagination": {
+   "total": 97401,
+   "lastPage": 19481,
+   "nextPage": 2,
+   "prevPage": null,
+   "currentPage": 1,
+   "perPage": 5,
+   "from": 0,
+   "to": 5
+  },
+  "statusCode": 200
+ }
+}

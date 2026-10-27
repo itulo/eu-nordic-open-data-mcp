@@ -1,0 +1,62 @@
+{
+  "actorSpecification": 1,
+  "name": "fmi-fingrid-nowcast",
+  "title": "FMI Weather + Fingrid Wind/Solar Nowcast Feed (Finland)",
+  "description": "Hourly joined nowcast feature feed combining Finnish Meteorological Institute (FMI) hub weather forecasts with Fingrid wind, solar & consumption forecasts and actuals for energy traders and EV-charging firms. Dual CC BY 4.0 attribution. No exchange prices.",
+  "version": "0.1",
+  "buildTag": "latest",
+  "input": "./input_schema.json",
+  "output": "./output_schema.json",
+  "dockerfile": "../Dockerfile",
+  "storages": {
+    "dataset": {
+      "actorSpecification": 1,
+      "fields": {
+        "type": "object",
+        "properties": {
+          "hourStartUtc": { "type": "string", "title": "Hour start (UTC)", "description": "ISO 8601 UTC timestamp for the hour." },
+          "hourStartHelsinki": { "type": "string", "title": "Hour start (Helsinki)", "description": "Local timestamp in Europe/Helsinki." },
+          "fmiWindSpeedWeightedMs": { "type": ["number", "null"], "title": "FMI wind-hub wind speed (m/s)", "description": "Wind-capacity-weighted hub wind speed in m/s." },
+          "fmiWindGustWeightedMs": { "type": ["number", "null"], "title": "FMI wind-hub gust (m/s)", "description": "Wind-capacity-weighted maximum gust in m/s." },
+          "fmiRadiationWeightedWm2": { "type": ["number", "null"], "title": "FMI solar radiation (W/m²)", "description": "Solar-weighted global radiation in W/m²." },
+          "fmiTempDemandWeightedC": { "type": ["number", "null"], "title": "FMI demand-hub temperature (°C)", "description": "Demand-weighted temperature across Finnish hubs in °C." },
+          "fingridWindForecastMW": { "type": ["number", "null"], "title": "Fingrid wind forecast (MW)", "description": "Fingrid wind generation forecast (dataset 245)." },
+          "fingridSolarForecastMW": { "type": ["number", "null"], "title": "Fingrid solar forecast (MW)", "description": "Fingrid solar generation forecast (dataset 248)." },
+          "fingridConsumptionForecastMW": { "type": ["number", "null"], "title": "Fingrid consumption forecast (MW)", "description": "Fingrid consumption forecast (dataset 166)." },
+          "residualLoadMW": { "type": ["number", "null"], "title": "Residual load (MW)", "description": "Consumption forecast minus wind and solar forecasts (MW)." },
+          "renewableSharePct": { "type": ["number", "null"], "title": "Wind+solar share (%)", "description": "Share of forecasted consumption covered by wind + solar (%)." },
+          "windRamp1hMW": { "type": ["number", "null"], "title": "1h wind ramp (MW)", "description": "Hour-over-hour change in wind power forecast (MW)." },
+          "rank": { "type": ["number", "null"], "title": "Residual load rank", "description": "1 = lowest residual load hour in window." },
+          "isEvChargeRecommended": { "type": "boolean", "title": "EV charge recommended", "description": "True if hour is in topN lowest residual load hours without storm cut-out risk." },
+          "attribution": { "type": "string", "title": "Dual CC BY 4.0 attribution", "description": "Mandatory Fingrid + FMI CC BY 4.0 attribution." },
+          "fingridAttribution": { "type": "string", "title": "Fingrid attribution", "description": "Mandatory Fingrid CC BY 4.0 attribution." },
+          "fmiAttribution": { "type": "string", "title": "FMI attribution", "description": "Mandatory FMI CC BY 4.0 attribution." }
+        }
+      },
+      "views": {
+        "overview": {
+          "title": "Joined Nowcast",
+          "transformation": {
+            "fields": [
+              "hourStartHelsinki",
+              "fmiWindSpeedWeightedMs",
+              "fmiRadiationWeightedWm2",
+              "fmiTempDemandWeightedC",
+              "fingridWindForecastMW",
+              "fingridSolarForecastMW",
+              "fingridConsumptionForecastMW",
+              "residualLoadMW",
+              "renewableSharePct",
+              "windRamp1hMW",
+              "rank",
+              "isEvChargeRecommended",
+              "regime",
+              "attribution"
+            ]
+          },
+          "display": { "component": "table" }
+        }
+      }
+    }
+  }
+}

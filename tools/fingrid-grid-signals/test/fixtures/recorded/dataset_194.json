@@ -1,0 +1,65 @@
+{
+ "_recordedFrom": "https://data.fingrid.fi/en/datasets/194 (public dataset page, API-format sample)",
+ "_recordedAt": "2026-10-11T15:40:58+0300",
+ "meta": {
+  "id": 194,
+  "nameEn": "Net import/export of electricity - real-time data",
+  "nameFi": "Sähkön nettotuonti/-vienti - reaaliaikatieto",
+  "unitEn": "MW",
+  "dataPeriodEn": "3 min",
+  "updateCadenceEn": "3 min",
+  "status": "active",
+  "organization": "Fingrid",
+  "license": {
+   "name": "Creative Commons Attribution",
+   "termsLink": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "dataAvailableFromUtc": "2014-01-01T00:00:00.000Z",
+  "modifiedAtUtc": "2025-10-22T08:57:07.000Z"
+ },
+ "response": {
+  "data": [
+   {
+    "datasetId": 194,
+    "startTime": "2026-10-11T12:33:00.000Z",
+    "endTime": "2026-10-11T12:36:00.000Z",
+    "value": -1681.5
+   },
+   {
+    "datasetId": 194,
+    "startTime": "2026-10-11T12:30:00.000Z",
+    "endTime": "2026-10-11T12:33:00.000Z",
+    "value": -1623.29
+   },
+   {
+    "datasetId": 194,
+    "startTime": "2026-10-11T12:27:00.000Z",
+    "endTime": "2026-10-11T12:30:00.000Z",
+    "value": -1545.74
+   },
+   {
+    "datasetId": 194,
+    "startTime": "2026-10-11T12:24:00.000Z",
+    "endTime": "2026-10-11T12:27:00.000Z",
+    "value": -1503.79
+   },
+   {
+    "datasetId": 194,
+    "startTime": "2026-10-11T12:21:00.000Z",
+    "endTime": "2026-10-11T12:24:00.000Z",
+    "value": -1570.69
+   }
+  ],
+  "pagination": {
+   "total": 2252760,
+   "lastPage": 450552,
+   "nextPage": 2,
+   "prevPage": null,
+   "currentPage": 1,
+   "perPage": 5,
+   "from": 0,
+   "to": 5
+  },
+  "statusCode": 200
+ }
+}

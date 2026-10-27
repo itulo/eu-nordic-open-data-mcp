@@ -1,0 +1,20 @@
+{
+  "actorOutputSchemaVersion": 1,
+  "title": "EU Tender Feed (TED) Output",
+  "description": "Normalized EU public procurement notices and run summary.",
+  "type": "object",
+  "properties": {
+    "results": {
+      "type": "string",
+      "title": "Tender notices",
+      "description": "Deduplicated, normalized EU public procurement notices from the official TED Search API.",
+      "template": "{{links.apiDefaultDatasetUrl}}/items"
+    },
+    "summary": {
+      "type": "string",
+      "title": "Run summary (OUTPUT_SUMMARY)",
+      "description": "Summary metadata and licence attribution stored in the default key-value store.",
+      "template": "{{links.apiDefaultKeyValueStoreUrl}}/records/OUTPUT_SUMMARY"
+    }
+  }
+}

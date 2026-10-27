@@ -1,0 +1,65 @@
+{
+ "_recordedFrom": "https://data.fingrid.fi/en/datasets/106 (public dataset page, API-format sample)",
+ "_recordedAt": "2026-10-11T15:41:20+0300",
+ "meta": {
+  "id": 106,
+  "nameEn": "Down-regulation price in the Balancing energy market",
+  "nameFi": "Alassäätöhinta säätösähkömarkkinoilla",
+  "unitEn": "EUR/MWh",
+  "dataPeriodEn": "15 min",
+  "updateCadenceEn": "15 min",
+  "status": "active",
+  "organization": "Fingrid",
+  "license": {
+   "name": "Creative Commons Attribution",
+   "termsLink": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "dataAvailableFromUtc": "2014-01-01T00:00:00.000Z",
+  "modifiedAtUtc": "2025-10-22T07:34:47.000Z"
+ },
+ "response": {
+  "data": [
+   {
+    "datasetId": 106,
+    "startTime": "2026-10-11T12:00:00.000Z",
+    "endTime": "2026-10-11T12:15:00.000Z",
+    "value": 35.01
+   },
+   {
+    "datasetId": 106,
+    "startTime": "2026-10-11T11:45:00.000Z",
+    "endTime": "2026-10-11T12:00:00.000Z",
+    "value": 41.61
+   },
+   {
+    "datasetId": 106,
+    "startTime": "2026-10-11T11:30:00.000Z",
+    "endTime": "2026-10-11T11:45:00.000Z",
+    "value": 40.78
+   },
+   {
+    "datasetId": 106,
+    "startTime": "2026-10-11T11:15:00.000Z",
+    "endTime": "2026-10-11T11:30:00.000Z",
+    "value": 38.35
+   },
+   {
+    "datasetId": 106,
+    "startTime": "2026-10-11T11:00:00.000Z",
+    "endTime": "2026-10-11T11:15:00.000Z",
+    "value": 77.85
+   }
+  ],
+  "pagination": {
+   "total": 153240,
+   "lastPage": 30648,
+   "nextPage": 2,
+   "prevPage": null,
+   "currentPage": 1,
+   "perPage": 5,
+   "from": 0,
+   "to": 5
+  },
+  "statusCode": 200
+ }
+}

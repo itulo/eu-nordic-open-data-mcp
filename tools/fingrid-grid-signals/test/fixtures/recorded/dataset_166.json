@@ -1,0 +1,65 @@
+{
+ "_recordedFrom": "https://data.fingrid.fi/en/datasets/166 (public dataset page, API-format sample)",
+ "_recordedAt": "2026-10-11T15:41:44+0300",
+ "meta": {
+  "id": 166,
+  "nameEn": "Electricity consumption forecast - updated every 15 minutes",
+  "nameFi": "Kulutusennuste - päivitys 15 min välein",
+  "unitEn": "MW",
+  "dataPeriodEn": "15 min",
+  "updateCadenceEn": "15 min",
+  "status": "active",
+  "organization": "Fingrid",
+  "license": {
+   "name": "Creative Commons Attribution",
+   "termsLink": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "dataAvailableFromUtc": "2014-01-01T00:00:00.000Z",
+  "modifiedAtUtc": "2025-10-22T07:36:00.000Z"
+ },
+ "response": {
+  "data": [
+   {
+    "datasetId": 166,
+    "startTime": "2026-10-14T12:45:00.000Z",
+    "endTime": "2026-10-14T13:00:00.000Z",
+    "value": 10200
+   },
+   {
+    "datasetId": 166,
+    "startTime": "2026-10-14T12:30:00.000Z",
+    "endTime": "2026-10-14T12:45:00.000Z",
+    "value": 10217.5
+   },
+   {
+    "datasetId": 166,
+    "startTime": "2026-10-14T12:15:00.000Z",
+    "endTime": "2026-10-14T12:30:00.000Z",
+    "value": 10235
+   },
+   {
+    "datasetId": 166,
+    "startTime": "2026-10-14T12:00:00.000Z",
+    "endTime": "2026-10-14T12:15:00.000Z",
+    "value": 10252.5
+   },
+   {
+    "datasetId": 166,
+    "startTime": "2026-10-14T11:45:00.000Z",
+    "endTime": "2026-10-14T12:00:00.000Z",
+    "value": 10296.6
+   }
+  ],
+  "pagination": {
+   "total": 1160604,
+   "lastPage": 232121,
+   "nextPage": 2,
+   "prevPage": null,
+   "currentPage": 1,
+   "perPage": 5,
+   "from": 0,
+   "to": 5
+  },
+  "statusCode": 200
+ }
+}

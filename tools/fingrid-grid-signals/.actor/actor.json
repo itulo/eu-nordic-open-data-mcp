@@ -1,0 +1,79 @@
+{
+  "actorSpecification": 1,
+  "name": "fingrid-grid-signals",
+  "title": "Finnish Grid & Reserve Signals (Fingrid) + CO2 & Cheap Hours",
+  "description": "Real-time and historical Finnish power-system data from the official Fingrid Open Data API: consumption, production, wind/solar, frequency, reserve-market prices (FCR, aFRR, mFRR, FFR), imbalance, CO2 emission factor, plus a derived cheap/low-carbon-hour ranking computed from Fingrid forecasts ",
+  "version": "0.1",
+  "buildTag": "latest",
+  "input": "./input_schema.json",
+  "dockerfile": "../Dockerfile",
+  "storages": {
+    "dataset": {
+      "actorSpecification": 1,
+      "views": {
+        "overview": {
+          "title": "Records",
+          "transformation": {
+            "fields": [
+              "mode",
+              "dataset",
+              "startTime",
+              "value",
+              "unit",
+              "hourStartHelsinki",
+              "residualLoadMW",
+              "rank",
+              "isCheapHourCandidate",
+              "emissionFactorGPerKWh",
+              "attribution"
+            ]
+          },
+          "display": {
+            "component": "table"
+          }
+        }
+      },
+      "fields": {
+        "type": "object",
+        "properties": {
+          "seriesKey": {
+            "type": "string",
+            "title": "Series key",
+            "description": "Internal series key."
+          },
+          "datasetId": {
+            "type": "number",
+            "title": "Fingrid Dataset ID",
+            "description": "Official Fingrid Open Data dataset ID."
+          },
+          "startTime": {
+            "type": "string",
+            "title": "Start time (UTC)",
+            "description": "Observation interval start timestamp."
+          },
+          "endTime": {
+            "type": "string",
+            "title": "End time (UTC)",
+            "description": "Observation interval end timestamp."
+          },
+          "value": {
+            "type": "number",
+            "title": "Value",
+            "description": "Measured or forecast value."
+          },
+          "unit": {
+            "type": "string",
+            "title": "Unit",
+            "description": "Measurement unit (MW, Hz, etc.)."
+          },
+          "attribution": {
+            "type": "string",
+            "title": "Source attribution",
+            "description": "Mandatory CC BY 4.0 Fingrid source attribution."
+          }
+        }
+      }
+    }
+  },
+  "output": "./output_schema.json"
+}

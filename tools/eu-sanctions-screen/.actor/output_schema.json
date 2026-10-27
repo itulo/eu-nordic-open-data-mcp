@@ -1,0 +1,20 @@
+{
+  "actorOutputSchemaVersion": 1,
+  "title": "EU Consolidated Financial Sanctions Screening Output",
+  "description": "Sanctions screening matches, clear results, and run summary with EU Decision 2011/833/EU attribution.",
+  "type": "object",
+  "properties": {
+    "results": {
+      "type": "string",
+      "title": "Screening results",
+      "description": "Exact and possible-match fuzzy screening results against the official DG FISMA Consolidated Financial Sanctions List (FSF).",
+      "template": "{{links.apiDefaultDatasetUrl}}/items"
+    },
+    "summary": {
+      "type": "string",
+      "title": "Run summary (OUTPUT_SUMMARY)",
+      "description": "Summary metadata and licence attribution stored in the default key-value store.",
+      "template": "{{links.apiDefaultKeyValueStoreUrl}}/records/OUTPUT_SUMMARY"
+    }
+  }
+}

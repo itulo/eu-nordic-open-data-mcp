@@ -1,0 +1,20 @@
+{
+  "actorOutputSchemaVersion": 1,
+  "title": "EU VIES VAT Number Batch Validator Output",
+  "description": "Batch EU VAT validation records with GDPR sole-trader redaction, B2B reverse-charge flags, and Commission Decision 2011/833/EU attribution.",
+  "type": "object",
+  "properties": {
+    "results": {
+      "type": "string",
+      "title": "VAT Validation Results",
+      "description": "Validated EU VAT records with corporate name/address and mandatory EC VIES attribution.",
+      "template": "{{links.apiDefaultDatasetUrl}}/items"
+    },
+    "summary": {
+      "type": "string",
+      "title": "Run summary (OUTPUT_SUMMARY)",
+      "description": "Summary counts and mandatory EC VIES attribution.",
+      "template": "{{links.apiDefaultKeyValueStoreUrl}}/records/OUTPUT_SUMMARY"
+    }
+  }
+}

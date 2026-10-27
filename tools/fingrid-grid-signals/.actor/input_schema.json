@@ -1,0 +1,14 @@
+{
+  "title": "Fingrid grid signals input",
+  "type": "object",
+  "schemaVersion": 1,
+  "properties": {
+    "fingridApiKey": { "title": "Fingrid API key", "type": "string", "editor": "textfield", "isSecret": true, "description": "Your own free key from data.fingrid.fi (developer portal > Open Data starter). Limits: 10,000 requests/24 h, 1 request / 2 s." },
+    "modes": { "title": "Modes", "type": "array", "editor": "stringList", "description": "grid_snapshot, cheap_hours, co2, consumption_production, renewables, frequency, reserves, imbalance, custom", "default": ["grid_snapshot", "cheap_hours", "co2"] },
+    "hoursBack": { "title": "Hours back (history modes)", "type": "integer", "description": "Number of hours of historical time-series data to fetch.", "minimum": 1, "maximum": 744, "default": 24 },
+    "hoursAhead": { "title": "Hours ahead (cheap_hours)", "type": "integer", "description": "Number of forecast hours ahead to rank for residual load.", "minimum": 1, "maximum": 72, "default": 36 },
+    "topN": { "title": "Cheap-hour candidates", "type": "integer", "description": "Number of lowest residual-load forecast hours to flag.", "minimum": 1, "maximum": 24, "default": 6 },
+    "datasetIds": { "title": "Dataset ids (custom mode)", "type": "array", "editor": "json", "description": "Fingrid dataset ids; only Fingrid-produced CC BY datasets are accepted.", "default": [] }
+  },
+  "required": []
+}

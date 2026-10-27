@@ -1,0 +1,98 @@
+{
+  "repository": "https://github.com/itulo/eu-nordic-open-data-mcp",
+  "author": "itulo",
+  "license": "MIT",
+  "hostedMcpCommand": {
+    "command": "npx",
+    "args": [
+      "-y",
+      "@apify/actors-mcp-server",
+      "--actors",
+      "itulo/ted-tender-feed,itulo/prh-company-events,itulo/eu-sanctions-screen,itulo/fingrid-grid-signals,itulo/fmi-fingrid-nowcast,itulo/fmi-weather-warnings-alerts,itulo/eu-vies-vat-validator,itulo/ecb-fx-rates-macro,itulo/digitraffic-port-calls-marine,itulo/enisa-euvd-vulnerabilities"
+    ]
+  },
+  "servers": [
+    {
+      "id": "ted-tender-feed",
+      "apifyActor": "itulo/ted-tender-feed",
+      "apifyStoreUrl": "https://apify.com/itulo/ted-tender-feed",
+      "stdioEntry": "tools/ted-tender-feed/src/mcp-server.js",
+      "tools": ["ted_search_tenders", "ted_new_tenders_alert", "ted_licence_info"],
+      "requiresApiKey": false
+    },
+    {
+      "id": "prh-company-events",
+      "apifyActor": "itulo/prh-company-events",
+      "apifyStoreUrl": "https://apify.com/itulo/prh-company-events",
+      "stdioEntry": "tools/prh-company-events/src/mcp-server.js",
+      "tools": ["prh_company_events", "prh_watch_companies", "prh_licence_info"],
+      "requiresApiKey": false
+    },
+    {
+      "id": "eu-sanctions-screen",
+      "apifyActor": "itulo/eu-sanctions-screen",
+      "apifyStoreUrl": "https://apify.com/itulo/eu-sanctions-screen",
+      "stdioEntry": "tools/eu-sanctions-screen/src/mcp-server.js",
+      "tools": ["eu_sanctions_screen", "eu_sanctions_lookup", "eu_sanctions_list_info"],
+      "requiresApiKey": false
+    },
+    {
+      "id": "fingrid-grid-signals",
+      "apifyActor": "itulo/fingrid-grid-signals",
+      "apifyStoreUrl": "https://apify.com/itulo/fingrid-grid-signals",
+      "stdioEntry": "tools/fingrid-grid-signals/src/mcp-server.js",
+      "tools": ["fingrid_grid_snapshot", "fingrid_cheap_hours", "fingrid_co2_intensity", "fingrid_series", "fingrid_dataset", "fingrid_licence_info"],
+      "requiresApiKey": true,
+      "envVars": ["FINGRID_API_KEY"]
+    },
+    {
+      "id": "fmi-fingrid-nowcast",
+      "apifyActor": "itulo/fmi-fingrid-nowcast",
+      "apifyStoreUrl": "https://apify.com/itulo/fmi-fingrid-nowcast",
+      "stdioEntry": "tools/fmi-fingrid-nowcast/src/mcp-server.js",
+      "tools": ["fmi_fingrid_nowcast", "fmi_station_weather", "fmi_fingrid_licence_info"],
+      "requiresApiKey": false,
+      "envVars": ["FINGRID_API_KEY"]
+    },
+    {
+      "id": "fmi-weather-warnings-alerts",
+      "apifyActor": "itulo/fmi-weather-warnings-alerts",
+      "apifyStoreUrl": "https://apify.com/itulo/fmi-weather-warnings-alerts",
+      "stdioEntry": "tools/fmi-weather-warnings-alerts/src/mcp-server.js",
+      "tools": ["fmi_active_alerts", "fmi_weather_observations", "fmi_sea_level_observations", "fmi_alerts_licence_info"],
+      "requiresApiKey": false
+    },
+    {
+      "id": "eu-vies-vat-validator",
+      "apifyActor": "itulo/eu-vies-vat-validator",
+      "apifyStoreUrl": "https://apify.com/itulo/eu-vies-vat-validator",
+      "stdioEntry": "tools/eu-vies-vat-validator/src/mcp-server.js",
+      "tools": ["vies_validate_vat_batch", "vies_member_state_status", "vies_licence_info"],
+      "requiresApiKey": false
+    },
+    {
+      "id": "ecb-fx-rates-macro",
+      "apifyActor": "itulo/ecb-fx-rates-macro",
+      "apifyStoreUrl": "https://apify.com/itulo/ecb-fx-rates-macro",
+      "stdioEntry": "tools/ecb-fx-rates-macro/src/mcp-server.js",
+      "tools": ["ecb_fx_rates", "ecb_policy_rates_and_inflation", "ecb_convert_invoices", "ecb_licence_info"],
+      "requiresApiKey": false
+    },
+    {
+      "id": "digitraffic-port-calls-marine",
+      "apifyActor": "itulo/digitraffic-port-calls-marine",
+      "apifyStoreUrl": "https://apify.com/itulo/digitraffic-port-calls-marine",
+      "stdioEntry": "tools/digitraffic-port-calls-marine/src/mcp-server.js",
+      "tools": ["digitraffic_port_calls", "digitraffic_port_congestion_summary", "digitraffic_licence_info"],
+      "requiresApiKey": false
+    },
+    {
+      "id": "enisa-euvd-vulnerabilities",
+      "apifyActor": "itulo/enisa-euvd-vulnerabilities",
+      "apifyStoreUrl": "https://apify.com/itulo/enisa-euvd-vulnerabilities",
+      "stdioEntry": "tools/enisa-euvd-vulnerabilities/src/mcp-server.js",
+      "tools": ["euvd_exploited_and_critical", "euvd_search_vulnerabilities", "euvd_lookup_by_id", "euvd_licence_info"],
+      "requiresApiKey": false
+    }
+  ]
+}

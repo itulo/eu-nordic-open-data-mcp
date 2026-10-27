@@ -1,0 +1,10 @@
+node_modules/
+**/node_modules/
+storage/
+**/storage/
+.env
+.env.*
+_evidence/
+dist/github-repo/
+*.log
+.DS_Store

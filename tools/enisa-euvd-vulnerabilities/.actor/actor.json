@@ -1,0 +1,125 @@
+{
+  "actorSpecification": 1,
+  "name": "enisa-euvd-vulnerabilities",
+  "title": "EU ENISA Vulnerability Database (EUVD) — KEV, CVSS & NIS2",
+  "description": "Query the official EU Agency for Cybersecurity (ENISA) European Vulnerability Database (EUVD) for actively exploited vulnerabilities (KEV), critical CVEs/EUVDs, EPSS probability, vendor/product filters, and NIS2 threat intelligence.",
+  "version": "0.1",
+  "buildTag": "latest",
+  "input": "./input_schema.json",
+  "output": "./output_schema.json",
+  "dockerfile": "../Dockerfile",
+  "storages": {
+    "dataset": {
+      "actorSpecification": 1,
+      "fields": {
+        "type": "object",
+        "properties": {
+          "euvdId": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "title": "EUVD ID",
+            "description": "ENISA EUVD identifier"
+          },
+          "cveId": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "title": "CVE ID",
+            "description": "Primary linked CVE identifier"
+          },
+          "severityLabel": {
+            "type": "string",
+            "title": "Severity",
+            "description": "CRITICAL, HIGH, MEDIUM, LOW, or UNKNOWN"
+          },
+          "cvssBaseScore": {
+            "type": [
+              "number",
+              "null"
+            ],
+            "title": "CVSS Score",
+            "description": "CVSS base score (0-10)"
+          },
+          "epssScorePct": {
+            "type": [
+              "number",
+              "null"
+            ],
+            "title": "EPSS (%)",
+            "description": "Exploit Prediction Scoring System percentile/probability"
+          },
+          "isExploited": {
+            "type": "boolean",
+            "title": "Exploited (KEV)",
+            "description": "Whether vulnerability is known to be exploited in the wild"
+          },
+          "exploitedSince": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "title": "Exploited Since",
+            "description": "Date added to Known Exploited Vulnerabilities"
+          },
+          "vendors": {
+            "type": "array",
+            "title": "Vendors",
+            "description": "Affected vendors"
+          },
+          "products": {
+            "type": "array",
+            "title": "Products",
+            "description": "Affected products"
+          },
+          "datePublished": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "title": "Published",
+            "description": "Publication timestamp"
+          },
+          "description": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "title": "Description",
+            "description": "Vulnerability summary"
+          },
+          "attribution": {
+            "type": "string",
+            "title": "ENISA EUVD Attribution",
+            "description": "Mandatory ENISA EUVD source attribution"
+          }
+        }
+      },
+      "views": {
+        "overview": {
+          "title": "ENISA EUVD Vulnerabilities",
+          "transformation": {
+            "fields": [
+              "euvdId",
+              "cveId",
+              "severityLabel",
+              "cvssBaseScore",
+              "epssScorePct",
+              "isExploited",
+              "exploitedSince",
+              "vendors",
+              "products",
+              "datePublished",
+              "attribution"
+            ]
+          },
+          "display": {
+            "component": "table"
+          }
+        }
+      }
+    }
+  }
+}

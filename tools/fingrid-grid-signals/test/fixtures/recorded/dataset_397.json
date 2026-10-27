@@ -1,0 +1,65 @@
+{
+ "_recordedFrom": "https://data.fingrid.fi/en/datasets/397 (public dataset page, API-format sample)",
+ "_recordedAt": "2026-10-11T15:41:17+0300",
+ "meta": {
+  "id": 397,
+  "nameEn": "Calculated imbalance",
+  "nameFi": "Laskennallinen tasevirhe",
+  "unitEn": "MW",
+  "dataPeriodEn": "1 min",
+  "updateCadenceEn": "1 min",
+  "status": "active",
+  "organization": "Fingrid",
+  "license": {
+   "name": "Creative Commons Attribution",
+   "termsLink": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "dataAvailableFromUtc": "2025-06-25T09:17:04.000Z",
+  "modifiedAtUtc": "2026-04-17T07:15:56.000Z"
+ },
+ "response": {
+  "data": [
+   {
+    "datasetId": 397,
+    "startTime": "2026-10-11T12:17:52.000Z",
+    "endTime": "2026-10-11T12:18:52.000Z",
+    "value": -16.2097
+   },
+   {
+    "datasetId": 397,
+    "startTime": "2026-10-11T12:16:52.000Z",
+    "endTime": "2026-10-11T12:17:52.000Z",
+    "value": -26.3454
+   },
+   {
+    "datasetId": 397,
+    "startTime": "2026-10-11T12:15:52.000Z",
+    "endTime": "2026-10-11T12:16:52.000Z",
+    "value": 1.87295
+   },
+   {
+    "datasetId": 397,
+    "startTime": "2026-10-11T12:14:52.000Z",
+    "endTime": "2026-10-11T12:15:52.000Z",
+    "value": -27.1178
+   },
+   {
+    "datasetId": 397,
+    "startTime": "2026-10-11T12:13:52.000Z",
+    "endTime": "2026-10-11T12:14:52.000Z",
+    "value": -127.17
+   }
+  ],
+  "pagination": {
+   "total": 680582,
+   "lastPage": 136117,
+   "nextPage": 2,
+   "prevPage": null,
+   "currentPage": 1,
+   "perPage": 5,
+   "from": 0,
+   "to": 5
+  },
+  "statusCode": 200
+ }
+}

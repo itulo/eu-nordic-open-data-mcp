@@ -1,0 +1,60 @@
+{
+  "title": "ECB Official EUR FX Rates, Policy Rates, Inflation & Invoice Converter Input",
+  "type": "object",
+  "schemaVersion": 1,
+  "properties": {
+    "modes": {
+      "title": "Modes",
+      "type": "array",
+      "description": "Select which ECB feeds/tools to run: fx_rates, policy_rates, hicp_inflation, invoice_converter.",
+      "editor": "stringList",
+      "default": ["fx_rates", "policy_rates", "hicp_inflation", "invoice_converter"]
+    },
+    "currencies": {
+      "title": "Currencies (against EUR)",
+      "type": "array",
+      "description": "ISO 4217 currency codes for ECB EUR reference exchange rates.",
+      "editor": "stringList",
+      "default": ["USD", "GBP", "SEK", "NOK", "DKK", "CHF", "JPY", "PLN", "CAD", "AUD"]
+    },
+    "lastNObservations": {
+      "title": "Last N observations per series",
+      "type": "integer",
+      "description": "Number of recent observations to retrieve per currency/indicator.",
+      "default": 5,
+      "minimum": 1,
+      "maximum": 365
+    },
+    "startPeriod": {
+      "title": "Start date (YYYY-MM-DD, optional)",
+      "type": "string",
+      "description": "Optional start date for historical FX series.",
+      "editor": "textfield",
+      "default": ""
+    },
+    "endPeriod": {
+      "title": "End date (YYYY-MM-DD, optional)",
+      "type": "string",
+      "description": "Optional end date for historical FX series.",
+      "editor": "textfield",
+      "default": ""
+    },
+    "inflationAreas": {
+      "title": "HICP Inflation Reference Areas",
+      "type": "array",
+      "description": "Euro area (U2) and EU Member State codes for monthly HICP annual inflation rates.",
+      "editor": "stringList",
+      "default": ["U2", "FI", "DE", "FR", "NL", "SE"]
+    },
+    "invoices": {
+      "title": "Invoices to convert (for invoice_converter mode)",
+      "type": "array",
+      "description": "Array of { invoiceId, amount, fromCurrency, toCurrency, date } objects to convert using official ECB reference rates.",
+      "editor": "json",
+      "default": [
+        { "invoiceId": "INV-001", "amount": 1500, "fromCurrency": "USD", "toCurrency": "EUR" },
+        { "invoiceId": "INV-002", "amount": 25000, "fromCurrency": "SEK", "toCurrency": "EUR" }
+      ]
+    }
+  }
+}

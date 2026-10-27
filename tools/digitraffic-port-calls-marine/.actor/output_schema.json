@@ -1,0 +1,20 @@
+{
+  "actorOutputSchemaVersion": 1,
+  "title": "Baltic & Finland Vessel Port Calls & Port Congestion Output",
+  "description": "Normalized Fintraffic Digitraffic vessel port call schedules and per-port congestion summaries with CC BY 4.0 attribution.",
+  "type": "object",
+  "properties": {
+    "results": {
+      "type": "string",
+      "title": "Port Calls & Congestion Dataset",
+      "description": "Normalized port call and port congestion summary rows with mandatory Fintraffic Digitraffic CC BY 4.0 attribution.",
+      "template": "{{links.apiDefaultDatasetUrl}}/items"
+    },
+    "summary": {
+      "type": "string",
+      "title": "Run summary (OUTPUT_SUMMARY)",
+      "description": "Summary metadata and mandatory Fintraffic Digitraffic CC BY 4.0 attribution.",
+      "template": "{{links.apiDefaultKeyValueStoreUrl}}/records/OUTPUT_SUMMARY"
+    }
+  }
+}

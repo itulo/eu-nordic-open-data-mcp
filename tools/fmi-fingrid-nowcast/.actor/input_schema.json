@@ -1,0 +1,64 @@
+{
+  "title": "FMI Weather + Fingrid Wind/Solar Nowcast Input",
+  "type": "object",
+  "schemaVersion": 1,
+  "properties": {
+    "fingridApiKey": {
+      "title": "Fingrid API key",
+      "type": "string",
+      "editor": "textfield",
+      "isSecret": true,
+      "description": "Your free key from data.fingrid.fi (developer portal > Open Data starter). Sent only in the x-api-key HTTP header; never logged or stored in output. Optional if mode is 'station_weather'."
+    },
+    "mode": {
+      "title": "Mode",
+      "type": "string",
+      "editor": "select",
+      "enum": ["joined_nowcast", "station_weather"],
+      "enumTitles": [
+        "Joined FMI Weather + Fingrid Wind/Solar/Consumption Nowcast Feed",
+        "FMI Hub Weather Forecast Only (no Fingrid key needed)"
+      ],
+      "description": "Select 'joined_nowcast' to join FMI weather with Fingrid wind/solar/consumption forecasts and actuals, or 'station_weather' for FMI hub forecasts only.",
+      "default": "joined_nowcast"
+    },
+    "places": {
+      "title": "Finnish energy & weather hubs",
+      "type": "array",
+      "editor": "stringList",
+      "description": "FMI forecast locations representing Finnish wind, solar, and demand hubs.",
+      "default": ["Oulu", "Vaasa", "Pori", "Helsinki", "Lappeenranta"]
+    },
+    "hoursBack": {
+      "title": "Hours back",
+      "type": "integer",
+      "description": "Hours of recent window to include for actual vs forecast wind comparison and ramp calculation.",
+      "minimum": 0,
+      "maximum": 72,
+      "default": 6
+    },
+    "hoursAhead": {
+      "title": "Hours ahead",
+      "type": "integer",
+      "description": "Forecast horizon in hours ahead (1–72).",
+      "minimum": 1,
+      "maximum": 72,
+      "default": 36
+    },
+    "topN": {
+      "title": "EV smart-charging recommended hours (top N)",
+      "type": "integer",
+      "description": "Number of lowest-residual-load hours to flag with isEvChargeRecommended=true.",
+      "minimum": 1,
+      "maximum": 24,
+      "default": 6
+    },
+    "includeStationBreakdown": {
+      "title": "Include per-hub station breakdown",
+      "type": "boolean",
+      "description": "Attach per-hub FMI weather values (Oulu, Vaasa, Pori, Helsinki, Lappeenranta) inside each hourly record.",
+      "default": false
+    }
+  },
+  "required": []
+}

@@ -1,0 +1,65 @@
+{
+ "_recordedFrom": "https://data.fingrid.fi/en/datasets/177 (public dataset page, API-format sample)",
+ "_recordedAt": "2026-10-11T15:40:49+0300",
+ "meta": {
+  "id": 177,
+  "nameEn": "Frequency - real-time data",
+  "nameFi": "Taajuus - reaaliaikatieto",
+  "unitEn": "Hz",
+  "dataPeriodEn": "3 min",
+  "updateCadenceEn": "1 min",
+  "status": "active",
+  "organization": "Fingrid",
+  "license": {
+   "name": "Creative Commons Attribution",
+   "termsLink": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "dataAvailableFromUtc": "2014-01-01T00:00:00.000Z",
+  "modifiedAtUtc": "2026-06-10T07:42:52.000Z"
+ },
+ "response": {
+  "data": [
+   {
+    "datasetId": 177,
+    "startTime": "2026-10-11T12:37:56.000Z",
+    "endTime": "2026-10-11T12:38:56.000Z",
+    "value": 50.011
+   },
+   {
+    "datasetId": 177,
+    "startTime": "2026-10-11T12:36:56.000Z",
+    "endTime": "2026-10-11T12:37:56.000Z",
+    "value": 50.005
+   },
+   {
+    "datasetId": 177,
+    "startTime": "2026-10-11T12:35:56.000Z",
+    "endTime": "2026-10-11T12:36:56.000Z",
+    "value": 50.015
+   },
+   {
+    "datasetId": 177,
+    "startTime": "2026-10-11T12:34:56.000Z",
+    "endTime": "2026-10-11T12:35:56.000Z",
+    "value": 50.016
+   },
+   {
+    "datasetId": 177,
+    "startTime": "2026-10-11T12:33:56.000Z",
+    "endTime": "2026-10-11T12:34:56.000Z",
+    "value": 50.002
+   }
+  ],
+  "pagination": {
+   "total": 2498896,
+   "lastPage": 499780,
+   "nextPage": 2,
+   "prevPage": null,
+   "currentPage": 1,
+   "perPage": 5,
+   "from": 0,
+   "to": 5
+  },
+  "statusCode": 200
+ }
+}

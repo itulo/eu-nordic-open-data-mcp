@@ -1,0 +1,48 @@
+{
+  "title": "EU VIES VAT Number Batch Validator & Reverse-Charge Check Input",
+  "type": "object",
+  "schemaVersion": 1,
+  "properties": {
+    "mode": {
+      "title": "Mode",
+      "type": "string",
+      "description": "validate_batch validates a list of EU/XI VAT numbers; member_state_status checks availability of all 28 national VAT databases.",
+      "enum": ["validate_batch", "member_state_status"],
+      "default": "validate_batch"
+    },
+    "vatNumbers": {
+      "title": "VAT numbers to validate",
+      "type": "array",
+      "description": "List of EU/XI VAT numbers with country prefix (e.g. 'FI01120389', 'FI10728943', 'DE123456789'). Spaces, dots, and hyphens are stripped automatically.",
+      "editor": "stringList",
+      "default": ["FI01120389", "FI10728943"]
+    },
+    "supplierCountryCode": {
+      "title": "Supplier country code (for reverse-charge check)",
+      "type": "string",
+      "description": "Two-letter EU country code of the seller/supplier (e.g. 'FI', 'DE') to flag cross-border B2B reverse-charge candidates.",
+      "editor": "textfield",
+      "default": "FI"
+    },
+    "requesterMemberStateCode": {
+      "title": "Requester Member State code (optional)",
+      "type": "string",
+      "description": "Optional requester EU Member State code if requesting an official VIES consultation reference identifier.",
+      "editor": "textfield",
+      "default": ""
+    },
+    "requesterNumber": {
+      "title": "Requester VAT number without prefix (optional)",
+      "type": "string",
+      "description": "Optional requester VAT number (without country prefix) to obtain a VIES consultation requestIdentifier.",
+      "editor": "textfield",
+      "default": ""
+    },
+    "includeMemberStateStatus": {
+      "title": "Also output Member State availability table",
+      "type": "boolean",
+      "description": "When true in validate_batch mode, also writes the 28 Member State VIES availability rows.",
+      "default": false
+    }
+  }
+}

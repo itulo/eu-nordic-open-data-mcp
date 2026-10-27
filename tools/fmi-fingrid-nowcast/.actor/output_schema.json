@@ -1,0 +1,20 @@
+{
+  "actorOutputSchemaVersion": 1,
+  "title": "FMI Weather + Fingrid Wind/Solar Nowcast Output",
+  "description": "Hourly joined FMI meteorological + Fingrid wind/solar/consumption nowcast feature feed and run summary.",
+  "type": "object",
+  "properties": {
+    "results": {
+      "type": "string",
+      "title": "Nowcast feature feed",
+      "description": "Hourly joined FMI weather + Fingrid wind/solar/consumption records with EV charging rankings and dual CC BY 4.0 attributions.",
+      "template": "{{links.apiDefaultDatasetUrl}}/items"
+    },
+    "summary": {
+      "type": "string",
+      "title": "Run summary (OUTPUT_SUMMARY)",
+      "description": "Summary metadata, recommended EV charging hours, and dual CC BY 4.0 attributions.",
+      "template": "{{links.apiDefaultKeyValueStoreUrl}}/records/OUTPUT_SUMMARY"
+    }
+  }
+}

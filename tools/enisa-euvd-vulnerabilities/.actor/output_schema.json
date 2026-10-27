@@ -1,0 +1,20 @@
+{
+  "actorOutputSchemaVersion": 1,
+  "title": "EU ENISA Vulnerability Database (EUVD) Output",
+  "description": "Normalized ENISA EUVD vulnerability records with CVE mapping, CVSS, EPSS, KEV status, and ENISA attribution.",
+  "type": "object",
+  "properties": {
+    "results": {
+      "type": "string",
+      "title": "EUVD Vulnerability Records",
+      "description": "Normalized EUVD vulnerabilities with mandatory ENISA source attribution.",
+      "template": "{{links.apiDefaultDatasetUrl}}/items"
+    },
+    "summary": {
+      "type": "string",
+      "title": "Run summary (OUTPUT_SUMMARY)",
+      "description": "Summary counts and mandatory ENISA source attribution.",
+      "template": "{{links.apiDefaultKeyValueStoreUrl}}/records/OUTPUT_SUMMARY"
+    }
+  }
+}

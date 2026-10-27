@@ -1,0 +1,65 @@
+{
+ "_recordedFrom": "https://data.fingrid.fi/en/datasets/209 (public dataset page, API-format sample)",
+ "_recordedAt": "2026-10-11T15:41:26+0300",
+ "meta": {
+  "id": 209,
+  "nameEn": "Power system state - real-time data",
+  "nameFi": "Sähköjärjestelmän käyttötilanne - reaaliaikatieto",
+  "unitEn": "no",
+  "dataPeriodEn": "3 min",
+  "updateCadenceEn": "3 min",
+  "status": "active",
+  "organization": "Fingrid",
+  "license": {
+   "name": "Creative Commons Attribution",
+   "termsLink": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "dataAvailableFromUtc": "2014-05-09T12:54:00.000Z",
+  "modifiedAtUtc": "2025-11-12T07:32:43.000Z"
+ },
+ "response": {
+  "data": [
+   {
+    "datasetId": 209,
+    "startTime": "2026-10-11T12:33:00.000Z",
+    "endTime": "2026-10-11T12:36:00.000Z",
+    "value": 1
+   },
+   {
+    "datasetId": 209,
+    "startTime": "2026-10-11T12:30:00.000Z",
+    "endTime": "2026-10-11T12:33:00.000Z",
+    "value": 1
+   },
+   {
+    "datasetId": 209,
+    "startTime": "2026-10-11T12:24:00.000Z",
+    "endTime": "2026-10-11T12:27:00.000Z",
+    "value": 1
+   },
+   {
+    "datasetId": 209,
+    "startTime": "2026-10-11T12:21:00.000Z",
+    "endTime": "2026-10-11T12:24:00.000Z",
+    "value": 1
+   },
+   {
+    "datasetId": 209,
+    "startTime": "2026-10-11T12:18:00.000Z",
+    "endTime": "2026-10-11T12:21:00.000Z",
+    "value": 1
+   }
+  ],
+  "pagination": {
+   "total": 2186053,
+   "lastPage": 437211,
+   "nextPage": 2,
+   "prevPage": null,
+   "currentPage": 1,
+   "perPage": 5,
+   "from": 0,
+   "to": 5
+  },
+  "statusCode": 200
+ }
+}

@@ -1,0 +1,59 @@
+{
+  "title": "EU Consolidated Financial Sanctions Screening input",
+  "type": "object",
+  "schemaVersion": 1,
+  "properties": {
+    "queries": {
+      "title": "Names / entities / IDs to screen",
+      "type": "array",
+      "editor": "stringList",
+      "description": "Names of persons, companies/entities, EU reference numbers (e.g. EU.27.28), or identification/registration numbers to screen against the EU Consolidated Financial Sanctions List.",
+      "prefill": ["Saddam Hussein Al-Tikriti", "Example Clean Company Oy"]
+    },
+    "subjectType": {
+      "title": "Subject type filter",
+      "type": "string",
+      "editor": "select",
+      "description": "Filter sanctions entries by subject classification: all, person, or enterprise.",
+      "enum": ["all", "person", "enterprise"],
+      "enumTitles": ["All (persons, groups & entities)", "Persons only", "Enterprises / groups / entities only"],
+      "default": "all"
+    },
+    "programmes": {
+      "title": "Sanctions programmes (optional)",
+      "type": "array",
+      "editor": "stringList",
+      "description": "Optional filter by EU sanctions programme codes (e.g. RUS, UKR, BLR, IRN, SYR, IRQ).",
+      "default": []
+    },
+    "country": {
+      "title": "Country ISO-2 filter (optional)",
+      "type": "string",
+      "editor": "textfield",
+      "description": "Optional 2-letter ISO country code (e.g. RU, BY, IR, IQ) to restrict candidate entities by citizenship, address, birth or ID country."
+    },
+    "fuzzyThreshold": {
+      "title": "Fuzzy similarity threshold (0.50 - 1.00)",
+      "type": "number",
+      "description": "Minimum similarity score [0.50..1.00] to report a non-exact candidate as a 'possible match'. Default: 0.78. Set to 1.0 for exact matches only.",
+      "minimum": 0.5,
+      "maximum": 1.0,
+      "default": 0.78
+    },
+    "maxMatchesPerQuery": {
+      "title": "Max matches per query",
+      "type": "integer",
+      "description": "Maximum number of candidate sanctions entries returned per screened query.",
+      "minimum": 1,
+      "maximum": 50,
+      "default": 5
+    },
+    "includeClearQueries": {
+      "title": "Include clear (no-match) rows in dataset",
+      "type": "boolean",
+      "description": "When enabled, queries with zero matches still emit a 'clear' audit row in the output dataset.",
+      "default": true
+    }
+  },
+  "required": []
+}

@@ -1,0 +1,65 @@
+{
+ "_recordedFrom": "https://data.fingrid.fi/en/datasets/247 (public dataset page, API-format sample)",
+ "_recordedAt": "2026-10-11T15:40:45+0300",
+ "meta": {
+  "id": 247,
+  "nameEn": "Solar power generation forecast - updated once a day",
+  "nameFi": "Aurinkovoiman tuotantoennuste - päivitys kerran vuorokaudessa",
+  "unitEn": "MWh/h",
+  "dataPeriodEn": "15 min",
+  "updateCadenceEn": "1 d",
+  "status": "active",
+  "organization": "Fingrid",
+  "license": {
+   "name": "Creative Commons Attribution",
+   "termsLink": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "dataAvailableFromUtc": "2017-02-24T22:00:00.000Z",
+  "modifiedAtUtc": "2025-11-12T07:36:34.000Z"
+ },
+ "response": {
+  "data": [
+   {
+    "datasetId": 247,
+    "startTime": "2026-10-12T20:45:00.000Z",
+    "endTime": "2026-10-12T21:00:00.000Z",
+    "value": 0
+   },
+   {
+    "datasetId": 247,
+    "startTime": "2026-10-12T20:30:00.000Z",
+    "endTime": "2026-10-12T20:45:00.000Z",
+    "value": 0
+   },
+   {
+    "datasetId": 247,
+    "startTime": "2026-10-12T20:15:00.000Z",
+    "endTime": "2026-10-12T20:30:00.000Z",
+    "value": 0
+   },
+   {
+    "datasetId": 247,
+    "startTime": "2026-10-12T20:00:00.000Z",
+    "endTime": "2026-10-12T20:15:00.000Z",
+    "value": 0
+   },
+   {
+    "datasetId": 247,
+    "startTime": "2026-10-12T19:45:00.000Z",
+    "endTime": "2026-10-12T20:00:00.000Z",
+    "value": 0
+   }
+  ],
+  "pagination": {
+   "total": 150932,
+   "lastPage": 30187,
+   "nextPage": 2,
+   "prevPage": null,
+   "currentPage": 1,
+   "perPage": 5,
+   "from": 0,
+   "to": 5
+  },
+  "statusCode": 200
+ }
+}

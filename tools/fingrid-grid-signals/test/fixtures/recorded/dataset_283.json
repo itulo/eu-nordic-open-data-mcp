@@ -1,0 +1,65 @@
+{
+ "_recordedFrom": "https://data.fingrid.fi/en/datasets/283 (public dataset page, API-format sample)",
+ "_recordedAt": "2026-10-11T15:41:04+0300",
+ "meta": {
+  "id": 283,
+  "nameEn": "Frequency Containment Reserve for Disturbances downwards regulation, hourly market prices",
+  "nameFi": "Taajuusohjattu häiriöreservi alassäätö, tuntimarkkinahinnat",
+  "unitEn": "EUR/MW",
+  "dataPeriodEn": "1 h",
+  "updateCadenceEn": "1 d",
+  "status": "active",
+  "organization": "Fingrid",
+  "license": {
+   "name": "Creative Commons Attribution",
+   "termsLink": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "dataAvailableFromUtc": "2021-04-21T22:00:00.000Z",
+  "modifiedAtUtc": "2025-11-12T07:39:50.000Z"
+ },
+ "response": {
+  "data": [
+   {
+    "datasetId": 283,
+    "startTime": "2026-10-11T21:00:00.000Z",
+    "endTime": "2026-10-11T22:00:00.000Z",
+    "value": 2.9
+   },
+   {
+    "datasetId": 283,
+    "startTime": "2026-10-11T20:00:00.000Z",
+    "endTime": "2026-10-11T21:00:00.000Z",
+    "value": 3.56
+   },
+   {
+    "datasetId": 283,
+    "startTime": "2026-10-11T19:00:00.000Z",
+    "endTime": "2026-10-11T20:00:00.000Z",
+    "value": 3.99
+   },
+   {
+    "datasetId": 283,
+    "startTime": "2026-10-11T18:00:00.000Z",
+    "endTime": "2026-10-11T19:00:00.000Z",
+    "value": 3.46
+   },
+   {
+    "datasetId": 283,
+    "startTime": "2026-10-11T17:00:00.000Z",
+    "endTime": "2026-10-11T18:00:00.000Z",
+    "value": 3.46
+   }
+  ],
+  "pagination": {
+   "total": 47976,
+   "lastPage": 9596,
+   "nextPage": 2,
+   "prevPage": null,
+   "currentPage": 1,
+   "perPage": 5,
+   "from": 0,
+   "to": 5
+  },
+  "statusCode": 200
+ }
+}

@@ -1,0 +1,120 @@
+{
+  "actorSpecification": 1,
+  "name": "eu-sanctions-screen",
+  "title": "EU Consolidated Financial Sanctions Screening (FSF)",
+  "description": "Screen names, companies & IDs against the official EU Consolidated Financial Sanctions List (DG FISMA FSF). Exact matches & 'possible match' fuzzy similarity, list publication date, source attribution & legal disclaimer in every record. Not legal advice.",
+  "version": "0.1",
+  "buildTag": "latest",
+  "input": "./input_schema.json",
+  "dockerfile": "../Dockerfile",
+  "storages": {
+    "dataset": {
+      "actorSpecification": 1,
+      "views": {
+        "overview": {
+          "title": "Screening Results",
+          "transformation": {
+            "fields": [
+              "query",
+              "status",
+              "matchType",
+              "matchLabel",
+              "score",
+              "primaryName",
+              "euReferenceNumber",
+              "subjectType",
+              "programme",
+              "listPublicationDate",
+              "disclaimer",
+              "attribution"
+            ]
+          },
+          "display": {
+            "component": "table"
+          }
+        }
+      },
+      "fields": {
+        "type": "object",
+        "properties": {
+          "query": {
+            "type": "string",
+            "title": "Screened query",
+            "description": "Input name, company, or identifier screened."
+          },
+          "status": {
+            "type": "string",
+            "title": "Screening status",
+            "description": "match, possible_match, or clear."
+          },
+          "matchType": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "title": "Match type",
+            "description": "exact match or possible match."
+          },
+          "matchLabel": {
+            "type": "string",
+            "title": "Match label",
+            "description": "Explicit non-distortion classification label."
+          },
+          "score": {
+            "type": "number",
+            "title": "Similarity score",
+            "description": "1.0 for exact match; < 1.0 for possible match."
+          },
+          "primaryName": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "title": "Sanctioned primary name",
+            "description": "Primary name on the EU consolidated list."
+          },
+          "euReferenceNumber": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "title": "EU Reference Number",
+            "description": "Official EU sanctions reference number (e.g. EU.27.28)."
+          },
+          "subjectType": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "title": "Subject type",
+            "description": "enterprise or person."
+          },
+          "programme": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "title": "Sanctions programme",
+            "description": "EU sanctions regime code."
+          },
+          "listPublicationDate": {
+            "type": "string",
+            "title": "List publication date",
+            "description": "Official FSF file generation date (YYYY-MM-DD)."
+          },
+          "disclaimer": {
+            "type": "string",
+            "title": "Legal disclaimer",
+            "description": "Mandatory legal disclaimer (Official Journal is sole authentic text)."
+          },
+          "attribution": {
+            "type": "string",
+            "title": "Source attribution",
+            "description": "Mandatory EU Decision 2011/833/EU source attribution."
+          }
+        }
+      }
+    }
+  },
+  "output": "./output_schema.json"
+}

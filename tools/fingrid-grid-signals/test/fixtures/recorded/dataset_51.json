@@ -1,0 +1,65 @@
+{
+ "_recordedFrom": "https://data.fingrid.fi/en/datasets/51 (public dataset page, API-format sample)",
+ "_recordedAt": "2026-10-11T15:41:07+0300",
+ "meta": {
+  "id": 51,
+  "nameEn": "Automatic Frequency Restoration Reserve, price, down",
+  "nameFi": "Automaattinen taajuuden palautusreservi, alassäätökapasiteetin hinta",
+  "unitEn": "EUR/MW",
+  "dataPeriodEn": "1 h",
+  "updateCadenceEn": "1 d",
+  "status": "active",
+  "organization": "Fingrid",
+  "license": {
+   "name": "Creative Commons Attribution",
+   "termsLink": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "dataAvailableFromUtc": "2014-01-01T00:00:00.000Z",
+  "modifiedAtUtc": "2025-10-22T07:31:34.000Z"
+ },
+ "response": {
+  "data": [
+   {
+    "datasetId": 51,
+    "startTime": "2026-10-12T21:00:00.000Z",
+    "endTime": "2026-10-12T22:00:00.000Z",
+    "value": 1.5
+   },
+   {
+    "datasetId": 51,
+    "startTime": "2026-10-12T20:00:00.000Z",
+    "endTime": "2026-10-12T21:00:00.000Z",
+    "value": 1
+   },
+   {
+    "datasetId": 51,
+    "startTime": "2026-10-12T19:00:00.000Z",
+    "endTime": "2026-10-12T20:00:00.000Z",
+    "value": 1
+   },
+   {
+    "datasetId": 51,
+    "startTime": "2026-10-12T18:00:00.000Z",
+    "endTime": "2026-10-12T19:00:00.000Z",
+    "value": 1
+   },
+   {
+    "datasetId": 51,
+    "startTime": "2026-10-12T17:00:00.000Z",
+    "endTime": "2026-10-12T18:00:00.000Z",
+    "value": 1
+   }
+  ],
+  "pagination": {
+   "total": 111731,
+   "lastPage": 22347,
+   "nextPage": 2,
+   "prevPage": null,
+   "currentPage": 1,
+   "perPage": 5,
+   "from": 0,
+   "to": 5
+  },
+  "statusCode": 200
+ }
+}

@@ -1,0 +1,65 @@
+{
+ "_recordedFrom": "https://data.fingrid.fi/en/datasets/396 (public dataset page, API-format sample)",
+ "_recordedAt": "2026-10-11T15:41:21+0300",
+ "meta": {
+  "id": 396,
+  "nameEn": "Emission factor for electricity consumed in Finland - updated every 15 minutes",
+  "nameFi": "Suomessa kulutetun sähkön päästökerroin - päivitys 15 minuutin välein",
+  "unitEn": "gCO2/kWh",
+  "dataPeriodEn": "15 min",
+  "updateCadenceEn": "15 min",
+  "status": "active",
+  "organization": "Fingrid",
+  "license": {
+   "name": "Creative Commons Attribution",
+   "termsLink": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "dataAvailableFromUtc": "2023-12-31T21:45:00.000Z",
+  "modifiedAtUtc": "2025-12-03T10:13:49.000Z"
+ },
+ "response": {
+  "data": [
+   {
+    "datasetId": 396,
+    "startTime": "2026-10-11T12:15:00.000Z",
+    "endTime": "2026-10-11T12:30:00.000Z",
+    "value": 21.09
+   },
+   {
+    "datasetId": 396,
+    "startTime": "2026-10-11T12:00:00.000Z",
+    "endTime": "2026-10-11T12:15:00.000Z",
+    "value": 21.5991
+   },
+   {
+    "datasetId": 396,
+    "startTime": "2026-10-11T11:45:00.000Z",
+    "endTime": "2026-10-11T12:00:00.000Z",
+    "value": 21.0174
+   },
+   {
+    "datasetId": 396,
+    "startTime": "2026-10-11T11:30:00.000Z",
+    "endTime": "2026-10-11T11:45:00.000Z",
+    "value": 20.8106
+   },
+   {
+    "datasetId": 396,
+    "startTime": "2026-10-11T11:15:00.000Z",
+    "endTime": "2026-10-11T11:30:00.000Z",
+    "value": 20.8372
+   }
+  ],
+  "pagination": {
+   "total": 97403,
+   "lastPage": 19481,
+   "nextPage": 2,
+   "prevPage": null,
+   "currentPage": 1,
+   "perPage": 5,
+   "from": 0,
+   "to": 5
+  },
+  "statusCode": 200
+ }
+}

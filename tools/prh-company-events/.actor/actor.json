@@ -1,0 +1,109 @@
+{
+  "actorSpecification": 1,
+  "name": "prh-company-events",
+  "title": "Finnish Company Events Feed (PRH open data) - company-level",
+  "description": "Daily feed of Finnish Trade Register company events from PRH open data APIs: new companies, name changes, liquidations, bankruptcies, restructurings, dissolutions, industry changes & watchlist diffs. Company-level fields only. Attribution included. Not affiliated with PRH.",
+  "version": "0.1",
+  "buildTag": "latest",
+  "input": "./input_schema.json",
+  "dockerfile": "../Dockerfile",
+  "storages": {
+    "dataset": {
+      "actorSpecification": 1,
+      "views": {
+        "overview": {
+          "title": "Events",
+          "transformation": {
+            "fields": [
+              "eventDate",
+              "eventLabel",
+              "businessId",
+              "companyName",
+              "previousName",
+              "companyForm",
+              "mainBusinessLine",
+              "location",
+              "attribution"
+            ]
+          },
+          "display": {
+            "component": "table"
+          }
+        }
+      },
+      "fields": {
+        "type": "object",
+        "properties": {
+          "eventId": {
+            "type": "string",
+            "title": "Event ID",
+            "description": "Deterministic identifier for the company event."
+          },
+          "eventType": {
+            "type": "string",
+            "title": "Event type code",
+            "description": "Event category code (e.g., new_company, name_change, liquidation)."
+          },
+          "eventLabel": {
+            "type": "string",
+            "title": "Event type",
+            "description": "Human-readable event type."
+          },
+          "eventDate": {
+            "type": "string",
+            "title": "Event date",
+            "description": "ISO date when the event was registered."
+          },
+          "businessId": {
+            "type": "string",
+            "title": "Business ID (Y-tunnus)",
+            "description": "Finnish Business ID (Y-tunnus)."
+          },
+          "companyName": {
+            "type": "string",
+            "title": "Company name",
+            "description": "Current registered company name."
+          },
+          "previousName": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "title": "Previous name",
+            "description": "Prior registered name if applicable."
+          },
+          "companyForm": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "title": "Company form",
+            "description": "Legal form code (e.g., OY, OYJ)."
+          },
+          "mainBusinessLine": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "title": "Main industry (TOL)",
+            "description": "Main industry classification."
+          },
+          "location": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "title": "Municipality / domicile",
+            "description": "Registered municipality in Finland."
+          },
+          "attribution": {
+            "type": "string",
+            "title": "Source attribution",
+            "description": "Mandatory CC BY 4.0 PRH source attribution."
+          }
+        }
+      }
+    }
+  },
+  "output": "./output_schema.json"
+}

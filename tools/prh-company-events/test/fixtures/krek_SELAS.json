@@ -1,0 +1,1781 @@
+{
+ "totalResults": 8,
+ "companies": [
+  {
+   "businessId": {
+    "value": "0786647-2",
+    "registrationDate": "1990-03-02",
+    "source": "3"
+   },
+   "euId": {
+    "value": "FIFPRO.0786647-2",
+    "source": "1"
+   },
+   "names": [
+    {
+     "name": "Nebulos Oy",
+     "type": "1",
+     "registrationDate": "1989-12-13",
+     "version": 1,
+     "source": "1"
+    }
+   ],
+   "mainBusinessLine": {
+    "type": "66190",
+    "descriptions": [
+     {
+      "languageCode": "2",
+      "description": "Annan stödverksamhet avseende finansiella tjänster utom försäkrings- och pensionsfondsverksamhet"
+     },
+     {
+      "languageCode": "1",
+      "description": "Muu rahoitusta palveleva toiminta pois lukien vakuutus- ja eläkevakuutustoiminta"
+     },
+     {
+      "languageCode": "3",
+      "description": "Other activities auxiliary to financial services, except insurance and pension funding"
+     }
+    ],
+    "typeCodeSet": "TOIMI4",
+    "registrationDate": "2026-01-01",
+    "source": "2"
+   },
+   "companyForms": [
+    {
+     "type": "16",
+     "descriptions": [
+      {
+       "languageCode": "2",
+       "description": "Aktiebolag"
+      },
+      {
+       "languageCode": "3",
+       "description": "Limited company"
+      },
+      {
+       "languageCode": "1",
+       "description": "Osakeyhtiö"
+      }
+     ],
+     "registrationDate": "1989-12-13",
+     "version": 1,
+     "source": "1"
+    }
+   ],
+   "companySituations": [
+    {
+     "type": "SELTILA",
+     "registrationDate": "2026-09-12",
+     "source": "1"
+    }
+   ],
+   "registeredEntries": [
+    {
+     "type": "1",
+     "descriptions": [
+      {
+       "languageCode": "3",
+       "description": "Registered"
+      },
+      {
+       "languageCode": "2",
+       "description": "Registrerad"
+      },
+      {
+       "languageCode": "1",
+       "description": "Rekisterissä"
+      }
+     ],
+     "registrationDate": "1989-12-13",
+     "register": "1",
+     "authority": "2"
+    },
+    {
+     "type": "1",
+     "descriptions": [
+      {
+       "languageCode": "3",
+       "description": "Registered"
+      },
+      {
+       "languageCode": "2",
+       "description": "Registrerad"
+      },
+      {
+       "languageCode": "1",
+       "description": "Rekisterissä"
+      }
+     ],
+     "registrationDate": "1990-03-02",
+     "register": "4",
+     "authority": "1"
+    },
+    {
+     "type": "55",
+     "descriptions": [
+      {
+       "languageCode": "3",
+       "description": "Registered"
+      },
+      {
+       "languageCode": "2",
+       "description": "Registrerad"
+      },
+      {
+       "languageCode": "1",
+       "description": "Rekisterissä"
+      }
+     ],
+     "registrationDate": "2019-02-01",
+     "endDate": "2019-10-31",
+     "register": "5",
+     "authority": "1"
+    },
+    {
+     "type": "55",
+     "descriptions": [
+      {
+       "languageCode": "3",
+       "description": "Registered"
+      },
+      {
+       "languageCode": "2",
+       "description": "Registrerad"
+      },
+      {
+       "languageCode": "1",
+       "description": "Rekisterissä"
+      }
+     ],
+     "registrationDate": "1995-03-01",
+     "endDate": "2019-01-31",
+     "register": "5",
+     "authority": "1"
+    }
+   ],
+   "addresses": [
+    {
+     "type": 2,
+     "street": "Fixturekatu",
+     "postCode": "00210",
+     "postOffices": [
+      {
+       "city": "HELSINGFORS",
+       "languageCode": "2",
+       "municipalityCode": "091"
+      },
+      {
+       "city": "HELSINKI",
+       "languageCode": "1",
+       "municipalityCode": "091"
+      }
+     ],
+     "postOfficeBox": "",
+     "buildingNumber": "1",
+     "entrance": "C",
+     "apartmentNumber": "99",
+     "apartmentIdSuffix": "",
+     "co": "c/o Matti Meikäläinen",
+     "registrationDate": "2006-09-13",
+     "source": "0"
+    }
+   ],
+   "publicNotices": [
+    {
+     "registrationDate": "2026-10-08",
+     "recordNumber": "2026/781399",
+     "typeOfRegistration": "M",
+     "entryCodes": [
+      "SELA",
+      "SELAS",
+      "SELM"
+     ]
+    }
+   ],
+   "tradeRegisterStatus": "1",
+   "status": "2",
+   "registrationDate": "1989-12-13",
+   "lastModified": "2026-10-08 12:55:44"
+  },
+  {
+   "businessId": {
+    "value": "0820411-2",
+    "registrationDate": "1990-11-14",
+    "source": "3"
+   },
+   "euId": {
+    "value": "FIFPRO.0820411-2",
+    "source": "1"
+   },
+   "names": [
+    {
+     "name": "Hämeen Rakennuttaja Oy",
+     "type": "1",
+     "registrationDate": "1989-12-13",
+     "version": 1,
+     "source": "1"
+    }
+   ],
+   "mainBusinessLine": {
+    "type": "66120",
+    "descriptions": [
+     {
+      "languageCode": "1",
+      "description": "Arvopaperien ja raaka-ainesopimusten välittäminen"
+     },
+     {
+      "languageCode": "3",
+      "description": "Security and commodity contracts brokerage"
+     },
+     {
+      "languageCode": "2",
+      "description": "Verksamhet utförd av värdepappers- och varumäklare"
+     }
+    ],
+    "typeCodeSet": "TOIMI4",
+    "registrationDate": "2026-01-01",
+    "source": "2"
+   },
+   "companyForms": [
+    {
+     "type": "16",
+     "descriptions": [
+      {
+       "languageCode": "2",
+       "description": "Aktiebolag"
+      },
+      {
+       "languageCode": "3",
+       "description": "Limited company"
+      },
+      {
+       "languageCode": "1",
+       "description": "Osakeyhtiö"
+      }
+     ],
+     "registrationDate": "1989-12-13",
+     "version": 1,
+     "source": "1"
+    }
+   ],
+   "companySituations": [
+    {
+     "type": "SELTILA",
+     "registrationDate": "2026-09-06",
+     "source": "1"
+    }
+   ],
+   "registeredEntries": [
+    {
+     "type": "1",
+     "descriptions": [
+      {
+       "languageCode": "3",
+       "description": "Registered"
+      },
+      {
+       "languageCode": "2",
+       "description": "Registrerad"
+      },
+      {
+       "languageCode": "1",
+       "description": "Rekisterissä"
+      }
+     ],
+     "registrationDate": "1989-12-13",
+     "register": "1",
+     "authority": "2"
+    },
+    {
+     "type": "1",
+     "descriptions": [
+      {
+       "languageCode": "3",
+       "description": "Registered"
+      },
+      {
+       "languageCode": "2",
+       "description": "Registrerad"
+      },
+      {
+       "languageCode": "1",
+       "description": "Rekisterissä"
+      }
+     ],
+     "registrationDate": "1990-11-14",
+     "register": "4",
+     "authority": "1"
+    },
+    {
+     "type": "55",
+     "descriptions": [
+      {
+       "languageCode": "3",
+       "description": "Registered"
+      },
+      {
+       "languageCode": "2",
+       "description": "Registrerad"
+      },
+      {
+       "languageCode": "1",
+       "description": "Rekisterissä"
+      }
+     ],
+     "registrationDate": "1995-03-01",
+     "register": "5",
+     "authority": "1"
+    },
+    {
+     "type": "80",
+     "descriptions": [
+      {
+       "languageCode": "1",
+       "description": "Liiketoiminnasta arvonlisäverovelvollinen"
+      },
+      {
+       "languageCode": "2",
+       "description": "Momsskyldig för rörelseverksamhet"
+      },
+      {
+       "languageCode": "3",
+       "description": "VAT-liable for business activity"
+      }
+     ],
+     "registrationDate": "1994-06-01",
+     "endDate": "2018-08-31",
+     "register": "6",
+     "authority": "1"
+    }
+   ],
+   "addresses": [
+    {
+     "type": 2,
+     "street": "Fixturekatu",
+     "postCode": "36600",
+     "postOffices": [
+      {
+       "city": "PÄLKÄNE",
+       "languageCode": "1",
+       "municipalityCode": "635"
+      },
+      {
+       "city": "PÄLKÄNE",
+       "languageCode": "2",
+       "municipalityCode": "635"
+      }
+     ],
+     "postOfficeBox": "",
+     "buildingNumber": "1",
+     "entrance": "",
+     "apartmentNumber": "",
+     "apartmentIdSuffix": "",
+     "co": "c/o Fixture Person-Redacted",
+     "registrationDate": "2026-07-14",
+     "source": "0"
+    }
+   ],
+   "publicNotices": [
+    {
+     "registrationDate": "2026-10-08",
+     "recordNumber": "2026/781408",
+     "typeOfRegistration": "M",
+     "entryCodes": [
+      "SELM",
+      "SELA",
+      "SELAS"
+     ]
+    }
+   ],
+   "tradeRegisterStatus": "1",
+   "status": "2",
+   "registrationDate": "1989-12-13",
+   "lastModified": "2026-10-08 09:52:00"
+  },
+  {
+   "businessId": {
+    "value": "1032948-3",
+    "registrationDate": "1996-01-11",
+    "source": "3"
+   },
+   "euId": {
+    "value": "FIFPRO.1032948-3",
+    "source": "1"
+   },
+   "names": [
+    {
+     "name": "Kiinteistö HT4 Oy",
+     "type": "1",
+     "registrationDate": "2007-01-30",
+     "version": 1,
+     "source": "1"
+    },
+    {
+     "name": "Terähiomo Reijo Manninen Oy",
+     "type": "1",
+     "registrationDate": "1995-12-20",
+     "endDate": "2007-01-29",
+     "version": 2,
+     "source": "1"
+    }
+   ],
+   "mainBusinessLine": {
+    "type": "68203",
+    "descriptions": [
+     {
+      "languageCode": "1",
+      "description": "Muu kiinteistöjen vuokraus ja hallinta"
+     },
+     {
+      "languageCode": "3",
+      "description": "Rental and operating of own or leased non-residential real estate"
+     },
+     {
+      "languageCode": "2",
+      "description": "Övrig uthyrning och förvaltning av fastigheter"
+     }
+    ],
+    "typeCodeSet": "TOIMI4",
+    "registrationDate": "2026-01-01",
+    "source": "2"
+   },
+   "companyForms": [
+    {
+     "type": "16",
+     "descriptions": [
+      {
+       "languageCode": "2",
+       "description": "Aktiebolag"
+      },
+      {
+       "languageCode": "3",
+       "description": "Limited company"
+      },
+      {
+       "languageCode": "1",
+       "description": "Osakeyhtiö"
+      }
+     ],
+     "registrationDate": "2022-09-05",
+     "version": 1,
+     "source": "1"
+    },
+    {
+     "type": "10",
+     "descriptions": [
+      {
+       "languageCode": "1",
+       "description": "Keskinäinen kiinteistöosakeyhtiö"
+      },
+      {
+       "languageCode": "3",
+       "description": "Mutual real estate limited company"
+      },
+      {
+       "languageCode": "2",
+       "description": "Ömsesidigt fastighetsaktiebolag"
+      }
+     ],
+     "registrationDate": "2021-09-08",
+     "endDate": "2022-09-04",
+     "version": 2,
+     "source": "1"
+    }
+   ],
+   "companySituations": [
+    {
+     "type": "SELTILA",
+     "registrationDate": "2026-09-10",
+     "source": "1"
+    }
+   ],
+   "registeredEntries": [
+    {
+     "type": "1",
+     "descriptions": [
+      {
+       "languageCode": "3",
+       "description": "Registered"
+      },
+      {
+       "languageCode": "2",
+       "description": "Registrerad"
+      },
+      {
+       "languageCode": "1",
+       "description": "Rekisterissä"
+      }
+     ],
+     "registrationDate": "1995-12-20",
+     "register": "1",
+     "authority": "2"
+    },
+    {
+     "type": "1",
+     "descriptions": [
+      {
+       "languageCode": "3",
+       "description": "Registered"
+      },
+      {
+       "languageCode": "2",
+       "description": "Registrerad"
+      },
+      {
+       "languageCode": "1",
+       "description": "Rekisterissä"
+      }
+     ],
+     "registrationDate": "1996-01-11",
+     "register": "4",
+     "authority": "1"
+    },
+    {
+     "type": "55",
+     "descriptions": [
+      {
+       "languageCode": "3",
+       "description": "Registered"
+      },
+      {
+       "languageCode": "2",
+       "description": "Registrerad"
+      },
+      {
+       "languageCode": "1",
+       "description": "Rekisterissä"
+      }
+     ],
+     "registrationDate": "1995-12-20",
+     "endDate": "2020-12-31",
+     "register": "5",
+     "authority": "1"
+    },
+    {
+     "type": "82",
+     "descriptions": [
+      {
+       "languageCode": "2",
+       "description": "För överlåtelse av nyttjanderätten till en fastighet"
+      },
+      {
+       "languageCode": "1",
+       "description": "Kiinteistön käyttöoikeuden luovuttamisesta"
+      },
+      {
+       "languageCode": "3",
+       "description": "VAT-obliged for the transfer of rights to use immovable property"
+      }
+     ],
+     "registrationDate": "2009-08-12",
+     "endDate": "2020-12-31",
+     "register": "6",
+     "authority": "1"
+    },
+    {
+     "type": "41",
+     "descriptions": [
+      {
+       "languageCode": "3",
+       "description": "Registered"
+      },
+      {
+       "languageCode": "2",
+       "description": "Registrerad"
+      },
+      {
+       "languageCode": "1",
+       "description": "Rekisterissä"
+      }
+     ],
+     "registrationDate": "1996-01-01",
+     "endDate": "2006-12-31",
+     "register": "7",
+     "authority": "1"
+    }
+   ],
+   "addresses": [
+    {
+     "type": 2,
+     "street": "Fixturekatu",
+     "postCode": "40420",
+     "postOffices": [
+      {
+       "city": "JYSKÄ",
+       "languageCode": "1",
+       "municipalityCode": "179"
+      },
+      {
+       "city": "JYSKÄ",
+       "languageCode": "2",
+       "municipalityCode": "179"
+      }
+     ],
+     "postOfficeBox": "",
+     "buildingNumber": "1",
+     "entrance": "",
+     "apartmentNumber": "",
+     "apartmentIdSuffix": "",
+     "co": "",
+     "registrationDate": "2024-08-30",
+     "source": "0"
+    }
+   ],
+   "publicNotices": [
+    {
+     "registrationDate": "2026-10-08",
+     "recordNumber": "2026/778897",
+     "typeOfRegistration": "M",
+     "entryCodes": [
+      "SELM",
+      "SELA",
+      "SELAS"
+     ]
+    }
+   ],
+   "tradeRegisterStatus": "1",
+   "status": "2",
+   "registrationDate": "1995-12-20",
+   "lastModified": "2026-10-08 09:44:52"
+  },
+  {
+   "businessId": {
+    "value": "1539160-6",
+    "registrationDate": "1999-06-14",
+    "source": "3"
+   },
+   "euId": {
+    "value": "FIFPRO.1539160-6",
+    "source": "1"
+   },
+   "names": [
+    {
+     "name": "Liperin Huoltamopalvelut Oy",
+     "type": "1",
+     "registrationDate": "1999-05-24",
+     "version": 1,
+     "source": "1"
+    }
+   ],
+   "mainBusinessLine": {
+    "type": "68203",
+    "descriptions": [
+     {
+      "languageCode": "1",
+      "description": "Muu kiinteistöjen vuokraus ja hallinta"
+     },
+     {
+      "languageCode": "3",
+      "description": "Rental and operating of own or leased non-residential real estate"
+     },
+     {
+      "languageCode": "2",
+      "description": "Övrig uthyrning och förvaltning av fastigheter"
+     }
+    ],
+    "typeCodeSet": "TOIMI4",
+    "registrationDate": "2026-01-01",
+    "source": "2"
+   },
+   "companyForms": [
+    {
+     "type": "16",
+     "descriptions": [
+      {
+       "languageCode": "2",
+       "description": "Aktiebolag"
+      },
+      {
+       "languageCode": "3",
+       "description": "Limited company"
+      },
+      {
+       "languageCode": "1",
+       "description": "Osakeyhtiö"
+      }
+     ],
+     "registrationDate": "1999-05-24",
+     "version": 1,
+     "source": "1"
+    }
+   ],
+   "companySituations": [
+    {
+     "type": "SELTILA",
+     "registrationDate": "2026-08-31",
+     "source": "1"
+    }
+   ],
+   "registeredEntries": [
+    {
+     "type": "1",
+     "descriptions": [
+      {
+       "languageCode": "3",
+       "description": "Registered"
+      },
+      {
+       "languageCode": "2",
+       "description": "Registrerad"
+      },
+      {
+       "languageCode": "1",
+       "description": "Rekisterissä"
+      }
+     ],
+     "registrationDate": "1999-05-24",
+     "register": "1",
+     "authority": "2"
+    },
+    {
+     "type": "1",
+     "descriptions": [
+      {
+       "languageCode": "3",
+       "description": "Registered"
+      },
+      {
+       "languageCode": "2",
+       "description": "Registrerad"
+      },
+      {
+       "languageCode": "1",
+       "description": "Rekisterissä"
+      }
+     ],
+     "registrationDate": "1999-06-14",
+     "register": "4",
+     "authority": "1"
+    },
+    {
+     "type": "55",
+     "descriptions": [
+      {
+       "languageCode": "3",
+       "description": "Registered"
+      },
+      {
+       "languageCode": "2",
+       "description": "Registrerad"
+      },
+      {
+       "languageCode": "1",
+       "description": "Rekisterissä"
+      }
+     ],
+     "registrationDate": "1999-06-10",
+     "register": "5",
+     "authority": "1"
+    }
+   ],
+   "addresses": [
+    {
+     "type": 2,
+     "street": "Fixturekatu",
+     "postCode": "83100",
+     "postOffices": [
+      {
+       "city": "LIPERI",
+       "languageCode": "1",
+       "municipalityCode": "426"
+      },
+      {
+       "city": "LIPERI",
+       "languageCode": "2",
+       "municipalityCode": "426"
+      }
+     ],
+     "postOfficeBox": "",
+     "buildingNumber": "1",
+     "entrance": "",
+     "apartmentNumber": "",
+     "apartmentIdSuffix": "",
+     "co": "",
+     "registrationDate": "1999-04-10",
+     "source": "0"
+    }
+   ],
+   "publicNotices": [
+    {
+     "registrationDate": "2026-10-08",
+     "recordNumber": "2026/778864",
+     "typeOfRegistration": "M",
+     "entryCodes": [
+      "SELA",
+      "SELAS",
+      "SELM"
+     ]
+    }
+   ],
+   "tradeRegisterStatus": "1",
+   "status": "2",
+   "registrationDate": "1999-05-24",
+   "lastModified": "2026-10-08 14:15:38"
+  },
+  {
+   "businessId": {
+    "value": "1832797-6",
+    "registrationDate": "2003-05-23",
+    "source": "3"
+   },
+   "euId": {
+    "value": "FIFPRO.1832797-6",
+    "source": "1"
+   },
+   "names": [
+    {
+     "name": "Niitty maisema-arkkitehtuuri Oy",
+     "type": "1",
+     "registrationDate": "2022-09-05",
+     "version": 1,
+     "source": "1"
+    },
+    {
+     "name": "Introspekt Oy",
+     "type": "1",
+     "registrationDate": "2003-06-30",
+     "endDate": "2022-09-05",
+     "version": 2,
+     "source": "1"
+    },
+    {
+     "name": "Kaupunkifarmarix",
+     "type": "3",
+     "registrationDate": "2021-01-14",
+     "version": 1,
+     "source": "1"
+    },
+    {
+     "name": "Introspekt",
+     "type": "3",
+     "registrationDate": "2023-04-14",
+     "version": 1,
+     "source": "1"
+    }
+   ],
+   "mainBusinessLine": {
+    "type": "71110",
+    "descriptions": [
+     {
+      "languageCode": "3",
+      "description": "Architectural activities"
+     },
+     {
+      "languageCode": "2",
+      "description": "Arkitektverksamhet"
+     },
+     {
+      "languageCode": "1",
+      "description": "Arkkitehtipalvelut"
+     }
+    ],
+    "typeCodeSet": "TOIMI4",
+    "registrationDate": "2026-01-01",
+    "source": "2"
+   },
+   "companyForms": [
+    {
+     "type": "16",
+     "descriptions": [
+      {
+       "languageCode": "2",
+       "description": "Aktiebolag"
+      },
+      {
+       "languageCode": "3",
+       "description": "Limited company"
+      },
+      {
+       "languageCode": "1",
+       "description": "Osakeyhtiö"
+      }
+     ],
+     "registrationDate": "2003-06-30",
+     "version": 1,
+     "source": "1"
+    }
+   ],
+   "companySituations": [
+    {
+     "type": "SELTILA",
+     "registrationDate": "2026-08-09",
+     "source": "1"
+    }
+   ],
+   "registeredEntries": [
+    {
+     "type": "0",
+     "descriptions": [
+      {
+       "languageCode": "2",
+       "description": "Oregistrerad"
+      },
+      {
+       "languageCode": "1",
+       "description": "Rekisteröimätön"
+      },
+      {
+       "languageCode": "3",
+       "description": "Unregistered"
+      }
+     ],
+     "registrationDate": "2003-05-23",
+     "endDate": "2003-06-29",
+     "register": "1",
+     "authority": "2"
+    },
+    {
+     "type": "1",
+     "descriptions": [
+      {
+       "languageCode": "3",
+       "description": "Registered"
+      },
+      {
+       "languageCode": "2",
+       "description": "Registrerad"
+      },
+      {
+       "languageCode": "1",
+       "description": "Rekisterissä"
+      }
+     ],
+     "registrationDate": "2003-06-30",
+     "register": "1",
+     "authority": "2"
+    },
+    {
+     "type": "1",
+     "descriptions": [
+      {
+       "languageCode": "3",
+       "description": "Registered"
+      },
+      {
+       "languageCode": "2",
+       "description": "Registrerad"
+      },
+      {
+       "languageCode": "1",
+       "description": "Rekisterissä"
+      }
+     ],
+     "registrationDate": "2003-06-06",
+     "register": "4",
+     "authority": "1"
+    },
+    {
+     "type": "55",
+     "descriptions": [
+      {
+       "languageCode": "3",
+       "description": "Registered"
+      },
+      {
+       "languageCode": "2",
+       "description": "Registrerad"
+      },
+      {
+       "languageCode": "1",
+       "description": "Rekisterissä"
+      }
+     ],
+     "registrationDate": "2007-11-02",
+     "register": "5",
+     "authority": "1"
+    },
+    {
+     "type": "80",
+     "descriptions": [
+      {
+       "languageCode": "1",
+       "description": "Liiketoiminnasta arvonlisäverovelvollinen"
+      },
+      {
+       "languageCode": "2",
+       "description": "Momsskyldig för rörelseverksamhet"
+      },
+      {
+       "languageCode": "3",
+       "description": "VAT-liable for business activity"
+      }
+     ],
+     "registrationDate": "2014-02-07",
+     "register": "6",
+     "authority": "1"
+    }
+   ],
+   "addresses": [
+    {
+     "type": 1,
+     "street": "Fixturekatu",
+     "postCode": "00610",
+     "postOffices": [
+      {
+       "city": "HELSINGFORS",
+       "languageCode": "2",
+       "municipalityCode": "091"
+      },
+      {
+       "city": "HELSINKI",
+       "languageCode": "1",
+       "municipalityCode": "091"
+      }
+     ],
+     "buildingNumber": "1",
+     "entrance": "F",
+     "apartmentNumber": "99",
+     "apartmentIdSuffix": "",
+     "co": "",
+     "registrationDate": "2026-07-24",
+     "source": "0"
+    },
+    {
+     "type": 2,
+     "street": "Fixturekatu",
+     "postCode": "00610",
+     "postOffices": [
+      {
+       "city": "HELSINGFORS",
+       "languageCode": "2",
+       "municipalityCode": "091"
+      },
+      {
+       "city": "HELSINKI",
+       "languageCode": "1",
+       "municipalityCode": "091"
+      }
+     ],
+     "postOfficeBox": "",
+     "buildingNumber": "1",
+     "entrance": "F",
+     "apartmentNumber": "99",
+     "apartmentIdSuffix": "",
+     "co": "",
+     "registrationDate": "2022-11-08",
+     "source": "0"
+    }
+   ],
+   "publicNotices": [
+    {
+     "registrationDate": "2026-10-08",
+     "recordNumber": "2026/781420",
+     "typeOfRegistration": "M",
+     "entryCodes": [
+      "SELA",
+      "SELAS",
+      "SELM"
+     ]
+    }
+   ],
+   "tradeRegisterStatus": "1",
+   "status": "2",
+   "registrationDate": "2003-06-30",
+   "lastModified": "2026-10-08 08:38:42"
+  },
+  {
+   "businessId": {
+    "value": "2012525-7",
+    "registrationDate": "2006-01-13",
+    "source": "3"
+   },
+   "euId": {
+    "value": "FIFPRO.2012525-7",
+    "source": "1"
+   },
+   "names": [
+    {
+     "name": "Allagion Oy",
+     "type": "1",
+     "registrationDate": "2006-02-23",
+     "version": 1,
+     "source": "1"
+    },
+    {
+     "name": "Allagion Publishing",
+     "type": "3",
+     "registrationDate": "2006-02-23",
+     "version": 1,
+     "source": "1"
+    },
+    {
+     "name": "Allagion Ltd",
+     "type": "2",
+     "registrationDate": "2006-02-23",
+     "version": 1,
+     "source": "1"
+    }
+   ],
+   "mainBusinessLine": {
+    "type": "70200",
+    "descriptions": [
+     {
+      "languageCode": "3",
+      "description": "Business and other management consultancy activities"
+     },
+     {
+      "languageCode": "2",
+      "description": "Konsultverksamhet avseende företags organisation"
+     },
+     {
+      "languageCode": "1",
+      "description": "Liikkeenjohdon konsultointi"
+     }
+    ],
+    "typeCodeSet": "TOIMI4",
+    "registrationDate": "2026-01-01",
+    "source": "2"
+   },
+   "companyForms": [
+    {
+     "type": "16",
+     "descriptions": [
+      {
+       "languageCode": "2",
+       "description": "Aktiebolag"
+      },
+      {
+       "languageCode": "3",
+       "description": "Limited company"
+      },
+      {
+       "languageCode": "1",
+       "description": "Osakeyhtiö"
+      }
+     ],
+     "registrationDate": "2006-02-23",
+     "version": 1,
+     "source": "1"
+    }
+   ],
+   "companySituations": [
+    {
+     "type": "SELTILA",
+     "registrationDate": "2026-10-04",
+     "source": "1"
+    }
+   ],
+   "registeredEntries": [
+    {
+     "type": "0",
+     "descriptions": [
+      {
+       "languageCode": "2",
+       "description": "Oregistrerad"
+      },
+      {
+       "languageCode": "1",
+       "description": "Rekisteröimätön"
+      },
+      {
+       "languageCode": "3",
+       "description": "Unregistered"
+      }
+     ],
+     "registrationDate": "2006-01-13",
+     "endDate": "2006-02-22",
+     "register": "1",
+     "authority": "2"
+    },
+    {
+     "type": "1",
+     "descriptions": [
+      {
+       "languageCode": "3",
+       "description": "Registered"
+      },
+      {
+       "languageCode": "2",
+       "description": "Registrerad"
+      },
+      {
+       "languageCode": "1",
+       "description": "Rekisterissä"
+      }
+     ],
+     "registrationDate": "2006-02-23",
+     "register": "1",
+     "authority": "2"
+    },
+    {
+     "type": "1",
+     "descriptions": [
+      {
+       "languageCode": "3",
+       "description": "Registered"
+      },
+      {
+       "languageCode": "2",
+       "description": "Registrerad"
+      },
+      {
+       "languageCode": "1",
+       "description": "Rekisterissä"
+      }
+     ],
+     "registrationDate": "2006-01-24",
+     "register": "4",
+     "authority": "1"
+    },
+    {
+     "type": "55",
+     "descriptions": [
+      {
+       "languageCode": "3",
+       "description": "Registered"
+      },
+      {
+       "languageCode": "2",
+       "description": "Registrerad"
+      },
+      {
+       "languageCode": "1",
+       "description": "Rekisterissä"
+      }
+     ],
+     "registrationDate": "2006-03-01",
+     "endDate": "2011-03-31",
+     "register": "5",
+     "authority": "1"
+    },
+    {
+     "type": "80",
+     "descriptions": [
+      {
+       "languageCode": "1",
+       "description": "Liiketoiminnasta arvonlisäverovelvollinen"
+      },
+      {
+       "languageCode": "2",
+       "description": "Momsskyldig för rörelseverksamhet"
+      },
+      {
+       "languageCode": "3",
+       "description": "VAT-liable for business activity"
+      }
+     ],
+     "registrationDate": "2006-03-01",
+     "endDate": "2011-03-31",
+     "register": "6",
+     "authority": "1"
+    }
+   ],
+   "addresses": [
+    {
+     "type": 1,
+     "street": "Fixturekatu",
+     "postCode": "36220",
+     "postOffices": [
+      {
+       "city": "KANGASALA",
+       "languageCode": "1",
+       "municipalityCode": "211"
+      },
+      {
+       "city": "KANGASALA",
+       "languageCode": "2",
+       "municipalityCode": "211"
+      }
+     ],
+     "postOfficeBox": "",
+     "buildingNumber": "1",
+     "entrance": "B",
+     "apartmentNumber": "99",
+     "apartmentIdSuffix": "",
+     "co": "",
+     "registrationDate": "2006-01-13",
+     "source": "0"
+    },
+    {
+     "type": 2,
+     "street": "Fixturekatu",
+     "postCode": "36220",
+     "postOffices": [
+      {
+       "city": "KANGASALA",
+       "languageCode": "1",
+       "municipalityCode": "211"
+      },
+      {
+       "city": "KANGASALA",
+       "languageCode": "2",
+       "municipalityCode": "211"
+      }
+     ],
+     "postOfficeBox": "",
+     "buildingNumber": "1",
+     "entrance": "B",
+     "apartmentNumber": "99",
+     "apartmentIdSuffix": "",
+     "co": "c/o Fixture Person-Redacted",
+     "registrationDate": "2018-09-18",
+     "source": "0"
+    }
+   ],
+   "publicNotices": [
+    {
+     "registrationDate": "2026-10-08",
+     "recordNumber": "2026/782417",
+     "typeOfRegistration": "M",
+     "entryCodes": [
+      "SELAS",
+      "SELM",
+      "SELA"
+     ]
+    }
+   ],
+   "tradeRegisterStatus": "1",
+   "status": "2",
+   "registrationDate": "2006-02-23",
+   "lastModified": "2026-10-08 09:08:10"
+  },
+  {
+   "businessId": {
+    "value": "2281343-2",
+    "registrationDate": "2009-08-17",
+    "source": "3"
+   },
+   "euId": {
+    "value": "FIFPRO.2281343-2",
+    "source": "1"
+   },
+   "names": [
+    {
+     "name": "Teerentien Lääkäripalvelu Oy",
+     "type": "1",
+     "registrationDate": "2009-09-01",
+     "version": 1,
+     "source": "1"
+    }
+   ],
+   "mainBusinessLine": {
+    "type": "86220",
+    "descriptions": [
+     {
+      "languageCode": "1",
+      "description": "Lääkäriasemat, yksityislääkärit ja vastaavat erikoislääkäripalvelut"
+     },
+     {
+      "languageCode": "3",
+      "description": "Medical specialists activities"
+     },
+     {
+      "languageCode": "2",
+      "description": "Specialistläkarverksamhet"
+     }
+    ],
+    "typeCodeSet": "TOIMI4",
+    "registrationDate": "2026-01-01",
+    "source": "2"
+   },
+   "companyForms": [
+    {
+     "type": "16",
+     "descriptions": [
+      {
+       "languageCode": "2",
+       "description": "Aktiebolag"
+      },
+      {
+       "languageCode": "3",
+       "description": "Limited company"
+      },
+      {
+       "languageCode": "1",
+       "description": "Osakeyhtiö"
+      }
+     ],
+     "registrationDate": "2009-09-01",
+     "version": 1,
+     "source": "1"
+    }
+   ],
+   "companySituations": [
+    {
+     "type": "SELTILA",
+     "registrationDate": "2026-09-10",
+     "source": "1"
+    }
+   ],
+   "registeredEntries": [
+    {
+     "type": "0",
+     "descriptions": [
+      {
+       "languageCode": "2",
+       "description": "Oregistrerad"
+      },
+      {
+       "languageCode": "1",
+       "description": "Rekisteröimätön"
+      },
+      {
+       "languageCode": "3",
+       "description": "Unregistered"
+      }
+     ],
+     "registrationDate": "2009-08-17",
+     "endDate": "2009-08-31",
+     "register": "1",
+     "authority": "2"
+    },
+    {
+     "type": "1",
+     "descriptions": [
+      {
+       "languageCode": "3",
+       "description": "Registered"
+      },
+      {
+       "languageCode": "2",
+       "description": "Registrerad"
+      },
+      {
+       "languageCode": "1",
+       "description": "Rekisterissä"
+      }
+     ],
+     "registrationDate": "2009-09-01",
+     "register": "1",
+     "authority": "2"
+    },
+    {
+     "type": "1",
+     "descriptions": [
+      {
+       "languageCode": "3",
+       "description": "Registered"
+      },
+      {
+       "languageCode": "2",
+       "description": "Registrerad"
+      },
+      {
+       "languageCode": "1",
+       "description": "Rekisterissä"
+      }
+     ],
+     "registrationDate": "2009-09-03",
+     "register": "4",
+     "authority": "1"
+    },
+    {
+     "type": "55",
+     "descriptions": [
+      {
+       "languageCode": "3",
+       "description": "Registered"
+      },
+      {
+       "languageCode": "2",
+       "description": "Registrerad"
+      },
+      {
+       "languageCode": "1",
+       "description": "Rekisterissä"
+      }
+     ],
+     "registrationDate": "2009-08-17",
+     "endDate": "2022-12-01",
+     "register": "5",
+     "authority": "1"
+    }
+   ],
+   "addresses": [
+    {
+     "type": 2,
+     "street": "Fixturekatu",
+     "postCode": "33540",
+     "postOffices": [
+      {
+       "city": "TAMPERE",
+       "languageCode": "1",
+       "municipalityCode": "837"
+      },
+      {
+       "city": "TAMPERE",
+       "languageCode": "2",
+       "municipalityCode": "837"
+      }
+     ],
+     "registrationDate": "2009-08-17",
+     "source": "0"
+    }
+   ],
+   "publicNotices": [
+    {
+     "registrationDate": "2026-10-08",
+     "recordNumber": "2026/778886",
+     "typeOfRegistration": "M",
+     "entryCodes": [
+      "SELA",
+      "SELM",
+      "SELAS"
+     ]
+    }
+   ],
+   "tradeRegisterStatus": "1",
+   "status": "2",
+   "registrationDate": "2009-09-01",
+   "lastModified": "2026-10-08 11:03:55"
+  },
+  {
+   "businessId": {
+    "value": "2494240-6",
+    "registrationDate": "2012-08-23",
+    "source": "3"
+   },
+   "euId": {
+    "value": "FIFPRO.2494240-6",
+    "source": "1"
+   },
+   "names": [
+    {
+     "name": "STMicroelectronics Finland Oy",
+     "type": "1",
+     "registrationDate": "2012-09-04",
+     "version": 1,
+     "source": "1"
+    },
+    {
+     "name": "STMicroelectronics Finland Ltd",
+     "type": "2",
+     "registrationDate": "2012-09-04",
+     "version": 1,
+     "source": "1"
+    }
+   ],
+   "mainBusinessLine": {
+    "type": "46649",
+    "descriptions": [
+     {
+      "languageCode": "1",
+      "description": "Muu muualla luokittelematon koneiden ja laitteiden tukkukauppa"
+     },
+     {
+      "languageCode": "3",
+      "description": "Wholesale of other machinery and equipment n.e.c."
+     },
+     {
+      "languageCode": "2",
+      "description": "Övrig partihandel med maskiner och annan utrustning som inte klassificerats på annat håll"
+     }
+    ],
+    "typeCodeSet": "TOIMI4",
+    "registrationDate": "2026-01-01",
+    "source": "2"
+   },
+   "companyForms": [
+    {
+     "type": "16",
+     "descriptions": [
+      {
+       "languageCode": "2",
+       "description": "Aktiebolag"
+      },
+      {
+       "languageCode": "3",
+       "description": "Limited company"
+      },
+      {
+       "languageCode": "1",
+       "description": "Osakeyhtiö"
+      }
+     ],
+     "registrationDate": "2012-09-04",
+     "version": 1,
+     "source": "1"
+    }
+   ],
+   "companySituations": [
+    {
+     "type": "SELTILA",
+     "registrationDate": "2026-09-09",
+     "source": "1"
+    }
+   ],
+   "registeredEntries": [
+    {
+     "type": "0",
+     "descriptions": [
+      {
+       "languageCode": "2",
+       "description": "Oregistrerad"
+      },
+      {
+       "languageCode": "1",
+       "description": "Rekisteröimätön"
+      },
+      {
+       "languageCode": "3",
+       "description": "Unregistered"
+      }
+     ],
+     "registrationDate": "2012-08-23",
+     "endDate": "2012-09-03",
+     "register": "1",
+     "authority": "2"
+    },
+    {
+     "type": "1",
+     "descriptions": [
+      {
+       "languageCode": "3",
+       "description": "Registered"
+      },
+      {
+       "languageCode": "2",
+       "description": "Registrerad"
+      },
+      {
+       "languageCode": "1",
+       "description": "Rekisterissä"
+      }
+     ],
+     "registrationDate": "2012-09-04",
+     "register": "1",
+     "authority": "2"
+    },
+    {
+     "type": "1",
+     "descriptions": [
+      {
+       "languageCode": "3",
+       "description": "Registered"
+      },
+      {
+       "languageCode": "2",
+       "description": "Registrerad"
+      },
+      {
+       "languageCode": "1",
+       "description": "Rekisterissä"
+      }
+     ],
+     "registrationDate": "2012-09-20",
+     "register": "4",
+     "authority": "1"
+    },
+    {
+     "type": "55",
+     "descriptions": [
+      {
+       "languageCode": "3",
+       "description": "Registered"
+      },
+      {
+       "languageCode": "2",
+       "description": "Registrerad"
+      },
+      {
+       "languageCode": "1",
+       "description": "Rekisterissä"
+      }
+     ],
+     "registrationDate": "2012-08-23",
+     "register": "5",
+     "authority": "1"
+    },
+    {
+     "type": "80",
+     "descriptions": [
+      {
+       "languageCode": "1",
+       "description": "Liiketoiminnasta arvonlisäverovelvollinen"
+      },
+      {
+       "languageCode": "2",
+       "description": "Momsskyldig för rörelseverksamhet"
+      },
+      {
+       "languageCode": "3",
+       "description": "VAT-liable for business activity"
+      }
+     ],
+     "registrationDate": "2012-08-22",
+     "register": "6",
+     "authority": "1"
+    },
+    {
+     "type": "41",
+     "descriptions": [
+      {
+       "languageCode": "3",
+       "description": "Registered"
+      },
+      {
+       "languageCode": "2",
+       "description": "Registrerad"
+      },
+      {
+       "languageCode": "1",
+       "description": "Rekisterissä"
+      }
+     ],
+     "registrationDate": "2012-09-01",
+     "register": "7",
+     "authority": "1"
+    }
+   ],
+   "addresses": [
+    {
+     "type": 1,
+     "street": "Fixturekatu",
+     "postCode": "03100",
+     "postOffices": [
+      {
+       "city": "NUMMELA",
+       "languageCode": "1",
+       "municipalityCode": "927"
+      },
+      {
+       "city": "NUMMELA",
+       "languageCode": "2",
+       "municipalityCode": "927"
+      }
+     ],
+     "buildingNumber": "1",
+     "registrationDate": "2012-08-23",
+     "source": "0"
+    },
+    {
+     "type": 2,
+     "street": "Fixturekatu",
+     "postCode": "03100",
+     "postOffices": [
+      {
+       "city": "NUMMELA",
+       "languageCode": "1",
+       "municipalityCode": "927"
+      },
+      {
+       "city": "NUMMELA",
+       "languageCode": "2",
+       "municipalityCode": "927"
+      }
+     ],
+     "buildingNumber": "1",
+     "registrationDate": "2012-08-23",
+     "source": "0"
+    }
+   ],
+   "publicNotices": [
+    {
+     "registrationDate": "2026-10-08",
+     "recordNumber": "2026/778865",
+     "typeOfRegistration": "M",
+     "entryCodes": [
+      "SELM",
+      "SELAS",
+      "SELA"
+     ]
+    }
+   ],
+   "tradeRegisterStatus": "1",
+   "status": "2",
+   "registrationDate": "2012-09-04",
+   "lastModified": "2026-10-08 10:15:29"
+  }
+ ],
+ "_fixtureNote": "Recorded from avoindata.prh.fi API on 2026-10-11 (Helsinki). Trimmed to 8 companies; street/c-o/apartment values replaced with placeholders; first company has a synthetic c/o person name to test stripping."
+}

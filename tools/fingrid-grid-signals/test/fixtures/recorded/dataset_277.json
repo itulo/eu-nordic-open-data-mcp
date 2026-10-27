@@ -1,0 +1,65 @@
+{
+ "_recordedFrom": "https://data.fingrid.fi/en/datasets/277 (public dataset page, API-format sample)",
+ "_recordedAt": "2026-10-11T15:41:10+0300",
+ "meta": {
+  "id": 277,
+  "nameEn": "Fast Frequency Reserve FFR, price",
+  "nameFi": "Nopea taajuusreservi FFR, hinta",
+  "unitEn": "€/MW",
+  "dataPeriodEn": "1 h",
+  "updateCadenceEn": "1 d",
+  "status": "active",
+  "organization": "Fingrid",
+  "license": {
+   "name": "Creative Commons Attribution",
+   "termsLink": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "dataAvailableFromUtc": "2020-05-08T22:00:00.000Z",
+  "modifiedAtUtc": "2025-11-12T07:38:43.000Z"
+ },
+ "response": {
+  "data": [
+   {
+    "datasetId": 277,
+    "startTime": "2026-10-11T21:00:00.000Z",
+    "endTime": "2026-10-11T22:00:00.000Z",
+    "value": 11.11
+   },
+   {
+    "datasetId": 277,
+    "startTime": "2026-10-11T20:00:00.000Z",
+    "endTime": "2026-10-11T21:00:00.000Z",
+    "value": 10.67
+   },
+   {
+    "datasetId": 277,
+    "startTime": "2026-10-11T19:00:00.000Z",
+    "endTime": "2026-10-11T20:00:00.000Z",
+    "value": 7.93
+   },
+   {
+    "datasetId": 277,
+    "startTime": "2026-10-11T18:00:00.000Z",
+    "endTime": "2026-10-11T19:00:00.000Z",
+    "value": 7
+   },
+   {
+    "datasetId": 277,
+    "startTime": "2026-10-11T17:00:00.000Z",
+    "endTime": "2026-10-11T18:00:00.000Z",
+    "value": 7
+   }
+  ],
+  "pagination": {
+   "total": 56304,
+   "lastPage": 11261,
+   "nextPage": 2,
+   "prevPage": null,
+   "currentPage": 1,
+   "perPage": 5,
+   "from": 0,
+   "to": 5
+  },
+  "statusCode": 200
+ }
+}

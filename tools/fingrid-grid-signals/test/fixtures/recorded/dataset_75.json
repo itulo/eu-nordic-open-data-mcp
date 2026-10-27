@@ -1,0 +1,65 @@
+{
+ "_recordedFrom": "https://data.fingrid.fi/en/datasets/75 (public dataset page, API-format sample)",
+ "_recordedAt": "2026-10-11T15:40:40+0300",
+ "meta": {
+  "id": 75,
+  "nameEn": "Wind power generation - 15 min data",
+  "nameFi": "Tuulivoimatuotanto - varttitieto",
+  "unitEn": "MW",
+  "dataPeriodEn": "15 min",
+  "updateCadenceEn": "15 min",
+  "status": "active",
+  "organization": "Fingrid",
+  "license": {
+   "name": "Creative Commons Attribution",
+   "termsLink": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "dataAvailableFromUtc": "2014-11-28T07:00:00.000Z",
+  "modifiedAtUtc": "2025-12-03T13:44:15.000Z"
+ },
+ "response": {
+  "data": [
+   {
+    "datasetId": 75,
+    "startTime": "2026-10-11T12:15:00.000Z",
+    "endTime": "2026-10-11T12:30:00.000Z",
+    "value": 1575.2
+   },
+   {
+    "datasetId": 75,
+    "startTime": "2026-10-11T12:00:00.000Z",
+    "endTime": "2026-10-11T12:15:00.000Z",
+    "value": 1569.95
+   },
+   {
+    "datasetId": 75,
+    "startTime": "2026-10-11T11:45:00.000Z",
+    "endTime": "2026-10-11T12:00:00.000Z",
+    "value": 1545.41
+   },
+   {
+    "datasetId": 75,
+    "startTime": "2026-10-11T11:30:00.000Z",
+    "endTime": "2026-10-11T11:45:00.000Z",
+    "value": 1508.34
+   },
+   {
+    "datasetId": 75,
+    "startTime": "2026-10-11T11:15:00.000Z",
+    "endTime": "2026-10-11T11:30:00.000Z",
+    "value": 1471.73
+   }
+  ],
+  "pagination": {
+   "total": 191521,
+   "lastPage": 38305,
+   "nextPage": 2,
+   "prevPage": null,
+   "currentPage": 1,
+   "perPage": 5,
+   "from": 0,
+   "to": 5
+  },
+  "statusCode": 200
+ }
+}

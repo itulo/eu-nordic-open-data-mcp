@@ -1,0 +1,69 @@
+{
+  "title": "EU ENISA Vulnerability Database (EUVD) — KEV, CVSS & NIS2 Feed Input",
+  "type": "object",
+  "schemaVersion": 1,
+  "properties": {
+    "modes": {
+      "title": "Query modes",
+      "type": "array",
+      "description": "Select EUVD feeds/modes: exploited (latest KEV), critical (latest critical CVSS), latest, search (filtered query), or lookup_by_id.",
+      "editor": "stringList",
+      "default": ["exploited", "critical"]
+    },
+    "text": {
+      "title": "Keyword search (for search mode)",
+      "type": "string",
+      "description": "Search across description, EUVD ID, CVE alias, vendor, and product.",
+      "editor": "textfield",
+      "default": ""
+    },
+    "vendor": {
+      "title": "Vendor filter (for search mode)",
+      "type": "string",
+      "description": "Single vendor name filter (e.g. 'Microsoft', 'Cisco', 'Linux', 'Fortinet').",
+      "editor": "textfield",
+      "default": ""
+    },
+    "product": {
+      "title": "Product filter (for search mode)",
+      "type": "string",
+      "description": "Single product name filter (e.g. 'Windows', 'IOS', 'Kernel').",
+      "editor": "textfield",
+      "default": ""
+    },
+    "fromScore": {
+      "title": "Minimum CVSS score (0-10, optional)",
+      "type": "number",
+      "description": "Minimum CVSS base score for search mode.",
+      "minimum": 0,
+      "maximum": 10
+    },
+    "fromEpss": {
+      "title": "Minimum EPSS score (0-100, optional)",
+      "type": "number",
+      "description": "Minimum EPSS score for search mode.",
+      "minimum": 0,
+      "maximum": 100
+    },
+    "exploited": {
+      "title": "Exploited only (for search mode, optional)",
+      "type": "boolean",
+      "description": "Filter search mode to Known Exploited Vulnerabilities (KEV)."
+    },
+    "ids": {
+      "title": "Specific CVE or EUVD IDs (for lookup_by_id mode)",
+      "type": "array",
+      "description": "List of CVE or EUVD identifiers to look up directly (e.g. ['CVE-2024-3400']).",
+      "editor": "stringList",
+      "default": []
+    },
+    "maxResults": {
+      "title": "Max results",
+      "type": "integer",
+      "description": "Maximum number of deduplicated vulnerability records to output.",
+      "default": 25,
+      "minimum": 1,
+      "maximum": 200
+    }
+  }
+}

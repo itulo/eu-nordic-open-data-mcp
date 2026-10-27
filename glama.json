@@ -1,0 +1,60 @@
+{
+  "$schema": "https://glama.ai/mcp/schemas/server.json",
+  "maintainers": ["itulo"],
+  "name": "eu-nordic-open-data-mcp",
+  "description": "10 official EU & Nordic open-data MCP servers & Apify Actors (TED Tenders, EU Sanctions, VIES VAT, ECB FX/Macro, ENISA EUVD, PRH/YTJ Finnish Companies, Fingrid Grid Signals, FMI Weather & Marine Alerts, Digitraffic Port Calls) with built-in GDPR personal-data redaction and licence attribution.",
+  "license": "MIT",
+  "repository": "https://github.com/itulo/eu-nordic-open-data-mcp",
+  "servers": [
+    {
+      "name": "ted-tender-feed",
+      "path": "tools/ted-tender-feed/src/mcp-server.js",
+      "description": "Search & monitor official EU TED public procurement notices (api.ted.europa.eu/v3) by CPV code, country, and date with stateful alert mode."
+    },
+    {
+      "name": "prh-company-events",
+      "path": "tools/prh-company-events/src/mcp-server.js",
+      "description": "Track daily Finnish Trade Register (PRH / YTJ) company events and Business ID (Y-tunnus) watchlists with GDPR company-level filtering."
+    },
+    {
+      "name": "eu-sanctions-screen",
+      "path": "tools/eu-sanctions-screen/src/mcp-server.js",
+      "description": "Screen names, companies & IDs against the official European Commission Consolidated Financial Sanctions List (DG FISMA FSF)."
+    },
+    {
+      "name": "fingrid-grid-signals",
+      "path": "tools/fingrid-grid-signals/src/mcp-server.js",
+      "description": "Real-time & forecast Finnish electricity grid signals, reserves, imbalance prices, CO2 intensity & low-residual-load hours from Fingrid Open Data."
+    },
+    {
+      "name": "fmi-fingrid-nowcast",
+      "path": "tools/fmi-fingrid-nowcast/src/mcp-server.js",
+      "description": "Joined hourly FMI meteorological hub forecasts + Fingrid wind/solar/consumption forecasts and EV smart-charging windows."
+    },
+    {
+      "name": "fmi-weather-warnings-alerts",
+      "path": "tools/fmi-weather-warnings-alerts/src/mcp-server.js",
+      "description": "Real-time Finnish Meteorological Institute (FMI) CAP 1.2 severe weather & marine alerts, synoptic observations, and Baltic mareograph sea levels."
+    },
+    {
+      "name": "eu-vies-vat-validator",
+      "path": "tools/eu-vies-vat-validator/src/mcp-server.js",
+      "description": "Batch-validate EU & XI VAT numbers against the official European Commission VIES REST API with reverse-charge flags and automatic GDPR sole-trader redaction."
+    },
+    {
+      "name": "ecb-fx-rates-macro",
+      "path": "tools/ecb-fx-rates-macro/src/mcp-server.js",
+      "description": "Official European Central Bank (ECB SDMX 2.1) EUR reference exchange rates, policy interest rates, HICP inflation, and B2B invoice currency converter."
+    },
+    {
+      "name": "digitraffic-port-calls-marine",
+      "path": "tools/digitraffic-port-calls-marine/src/mcp-server.js",
+      "description": "Real-time & scheduled Baltic Sea and Finnish vessel port calls, berth ETA/ETD schedules, turnaround times, and port congestion summaries."
+    },
+    {
+      "name": "enisa-euvd-vulnerabilities",
+      "path": "tools/enisa-euvd-vulnerabilities/src/mcp-server.js",
+      "description": "Query the official EU Agency for Cybersecurity (ENISA) European Vulnerability Database (EUVD) for actively exploited vulnerabilities (KEV), critical CVEs, and EPSS."
+    }
+  ]
+}
