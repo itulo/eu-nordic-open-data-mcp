@@ -8,7 +8,7 @@
       "-y",
       "@apify/actors-mcp-server",
       "--actors",
-      "itulo/ted-tender-feed,itulo/prh-company-events,itulo/eu-sanctions-screen,itulo/fingrid-grid-signals,itulo/fmi-fingrid-nowcast,itulo/fmi-weather-warnings-alerts,itulo/eu-vies-vat-validator,itulo/ecb-fx-rates-macro,itulo/digitraffic-port-calls-marine,itulo/enisa-euvd-vulnerabilities"
+      "itulo/ted-tender-feed,itulo/prh-company-events,itulo/eu-sanctions-screen,itulo/fingrid-grid-signals,itulo/fmi-fingrid-nowcast,itulo/fmi-weather-warnings-alerts,itulo/eu-vies-vat-validator,itulo/ecb-fx-rates-macro,itulo/digitraffic-port-calls-marine"
     ]
   },
   "servers": [
@@ -88,8 +88,6 @@
     },
     {
       "id": "enisa-euvd-vulnerabilities",
-      "apifyActor": "itulo/enisa-euvd-vulnerabilities",
-      "apifyStoreUrl": "https://apify.com/itulo/enisa-euvd-vulnerabilities",
       "stdioEntry": "tools/enisa-euvd-vulnerabilities/src/mcp-server.js",
       "tools": ["euvd_exploited_and_critical", "euvd_search_vulnerabilities", "euvd_lookup_by_id", "euvd_licence_info"],
       "requiresApiKey": false
