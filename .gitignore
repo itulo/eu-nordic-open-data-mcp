@@ -8,3 +8,5 @@ _evidence/
 dist/github-repo/
 *.log
 .DS_Store
+__pycache__/
+.venv/

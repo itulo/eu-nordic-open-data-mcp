@@ -53,6 +53,12 @@ Add any combination of the 10 tools to your `claude_desktop_config.json` or `.cu
 
 ---
 
+## Examples: n8n workflows and LangChain / LangGraph
+
+[`examples/`](./examples) contains importable **n8n** workflows (daily EU tender alert by CPV code to email or Slack, Finnish company events to Google Sheets, sanctions screening of a name list) and **LangChain / LangGraph** examples (MCP adapter agent over `src/index.js`, plus `ApifyActorsTool` with the hosted actor). See [`examples/README.md`](./examples/README.md).
+
+---
+
 ## Quickstart 2: Run Locally as Stdio MCP Servers
 
 Clone the repository, install dependencies in any tool folder, and connect directly over stdio:

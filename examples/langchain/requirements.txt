@@ -1,0 +1,7 @@
+langchain>=1.0
+langgraph>=1.0
+langchain-mcp-adapters>=0.3
+langchain-apify>=0.1.7
+# plus ONE chat-model integration for the agent examples, e.g.:
+# langchain-openai   (MODEL=openai:gpt-4.1-mini, needs OPENAI_API_KEY)
+# langchain-anthropic (MODEL=anthropic:claude-sonnet-4-5, needs ANTHROPIC_API_KEY)

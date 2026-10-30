@@ -1,0 +1,159 @@
+{
+  "name": "Finnish company events (PRH) → Google Sheets",
+  "nodes": [
+    {
+      "parameters": {
+        "content": "## Finnish company events → Google Sheets (PRH open data)\nEvery morning, pulls yesterday's registrations, name changes, liquidations, bankruptcies, restructurings and dissolutions from the Finnish Patent and Registration Office (PRH / YTJ) open data via the **itulo/prh-company-events** Apify actor, and upserts one row per event into a sheet.\n\n**Setup**\n1. Install the Apify node (`@apify/n8n-nodes-apify`) and add an Apify API credential.\n2. Optional filters in *Input JSON*: `location` (municipality), `companyForm`, or `watchBusinessIds` to follow specific companies.\n3. Create a sheet with a header row (eventKey, eventDate, eventType, businessId, companyName, companyForm, industryTOL2008, city, website, sourceApiUrl, attribution) and select it in the Google Sheets node. `eventKey` is the de-dup column.\n\nCompany-level data only. Source: Finnish Patent and Registration Office (PRH), avoindata.prh.fi, CC BY 4.0. Keep the attribution column.",
+        "height": 520,
+        "width": 480
+      },
+      "id": "e104f081-3026-48a7-8564-2f4ce433b484",
+      "name": "Sticky Note 7523",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -520,
+        -260
+      ]
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "cronExpression",
+              "expression": "30 6 * * *"
+            }
+          ]
+        }
+      },
+      "id": "0951f537-a8b7-4717-bf15-d3cce9d9e509",
+      "name": "Every day 06:30",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        0,
+        0
+      ]
+    },
+    {
+      "parameters": {
+        "resource": "Actors",
+        "operation": "Run actor and get dataset",
+        "actorSource": "store",
+        "actorId": {
+          "__rl": true,
+          "value": "Pp9jXWh5cPMcJtnHX",
+          "mode": "list",
+          "cachedResultName": "Finnish Company Events Feed (PRH open data) - company-level (itulo/prh-company-events)",
+          "cachedResultUrl": "https://console.apify.com/actors/Pp9jXWh5cPMcJtnHX/input"
+        },
+        "customBody": "={\n  \"eventTypes\": [\"new_company\", \"name_change\", \"liquidation\", \"bankruptcy\", \"restructuring\", \"dissolution\"],\n  \"dateFrom\": \"{{ $now.minus({ days: 1 }).toFormat('yyyy-MM-dd') }}\",\n  \"dateTo\": \"{{ $now.minus({ days: 1 }).toFormat('yyyy-MM-dd') }}\",\n  \"location\": \"\",\n  \"companyForm\": \"\",\n  \"maxPerEvent\": 500,\n  \"watchBusinessIds\": []\n}",
+        "timeout": 300,
+        "memory": 256,
+        "build": ""
+      },
+      "id": "07eb9c3e-0d17-4c91-8cbf-f4b4a8e06286",
+      "name": "Fetch yesterday's PRH events",
+      "type": "@apify/n8n-nodes-apify.apify",
+      "typeVersion": 1,
+      "position": [
+        240,
+        0
+      ],
+      "notesInFlow": true,
+      "notes": "Apify Store actor https://apify.com/itulo/prh-company-events (pay-per-event). Add your own Apify API credential."
+    },
+    {
+      "parameters": {
+        "jsCode": "// Flatten PRH company events into one row per event for Google Sheets.\n// Company-level data only (business ID, name, form, industry, municipality); no personal data.\nreturn $input.all().map(i => i.json).filter(e => e.eventKey).map(e => ({ json: {\n  eventKey: e.eventKey,\n  eventDate: e.eventDate,\n  eventType: e.eventLabel || e.eventType,\n  businessId: e.businessId,\n  companyName: e.companyName,\n  companyForm: e.companyForm ? e.companyForm.en : '',\n  industryTOL2008: e.mainBusinessLine ? `${e.mainBusinessLine.tol2008} ${e.mainBusinessLine.en || ''}`.trim() : '',\n  city: e.location ? e.location.city : '',\n  website: e.website || '',\n  sourceApiUrl: e.sourceApiUrl,\n  attribution: e.attribution,\n}}));"
+      },
+      "id": "cfcc6d99-6ea3-4a45-a96c-25ccf441d174",
+      "name": "Flatten to rows",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        480,
+        0
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "appendOrUpdate",
+        "documentId": {
+          "__rl": true,
+          "value": "",
+          "mode": "list",
+          "cachedResultName": ""
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "",
+          "mode": "list",
+          "cachedResultName": ""
+        },
+        "columns": {
+          "mappingMode": "autoMapInputData",
+          "value": {},
+          "matchingColumns": [
+            "eventKey"
+          ],
+          "schema": []
+        },
+        "options": {}
+      },
+      "id": "b2241065-c6d5-4ef2-977a-ad403911545d",
+      "name": "Append or update in Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        740,
+        0
+      ]
+    }
+  ],
+  "connections": {
+    "Every day 06:30": {
+      "main": [
+        [
+          {
+            "node": "Fetch yesterday's PRH events",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Fetch yesterday's PRH events": {
+      "main": [
+        [
+          {
+            "node": "Flatten to rows",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Flatten to rows": {
+      "main": [
+        [
+          {
+            "node": "Append or update in Google Sheets",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "pinData": {},
+  "meta": {
+    "templateCredsSetupCompleted": false
+  },
+  "tags": []
+}
