@@ -24,7 +24,7 @@ Every tool shares a single core library (`src/lib/*`) across its **stdio MCP ser
 | **7** | [`tools/eu-vies-vat-validator`](./tools/eu-vies-vat-validator) | [`itulo/eu-vies-vat-validator`](https://apify.com/itulo/eu-vies-vat-validator) | European Commission VIES VAT REST API (`ec.europa.eu/taxation_customs/vies`) | Yes | `vies_validate_vat_batch`, `vies_member_state_status`, `vies_licence_info` |
 | **8** | [`tools/ecb-fx-rates-macro`](./tools/ecb-fx-rates-macro) | [`itulo/ecb-fx-rates-macro`](https://apify.com/itulo/ecb-fx-rates-macro) | European Central Bank (ECB) SDMX 2.1 Data Portal (`data-api.ecb.europa.eu`) | Yes | `ecb_fx_rates`, `ecb_policy_rates_and_inflation`, `ecb_convert_invoices`, `ecb_licence_info` |
 | **9** | [`tools/digitraffic-port-calls-marine`](./tools/digitraffic-port-calls-marine) | [`itulo/digitraffic-port-calls-marine`](https://apify.com/itulo/digitraffic-port-calls-marine) | Fintraffic Digitraffic Marine Port Call API (`meri.digitraffic.fi`) | Yes | `digitraffic_port_calls`, `digitraffic_port_congestion_summary`, `digitraffic_licence_info` |
-| **10** | [`tools/enisa-euvd-vulnerabilities`](./tools/enisa-euvd-vulnerabilities) | [`itulo/enisa-euvd-vulnerabilities`](https://apify.com/itulo/enisa-euvd-vulnerabilities) | EU Agency for Cybersecurity (ENISA) European Vulnerability Database (`euvd.enisa.europa.eu`) | Yes | `euvd_exploited_and_critical`, `euvd_search_vulnerabilities`, `euvd_lookup_by_id`, `euvd_licence_info` |
+| **10** | [`tools/enisa-euvd-vulnerabilities`](./tools/enisa-euvd-vulnerabilities) | — (local MCP only) | EU Agency for Cybersecurity (ENISA) European Vulnerability Database (`euvd.enisa.europa.eu`) | Yes | `euvd_exploited_and_critical`, `euvd_search_vulnerabilities`, `euvd_lookup_by_id`, `euvd_licence_info` |
 
 ---
 
@@ -41,7 +41,7 @@ Add any combination of the 10 tools to your `claude_desktop_config.json` or `.cu
         "-y",
         "@apify/actors-mcp-server",
         "--actors",
-        "itulo/ted-tender-feed,itulo/prh-company-events,itulo/eu-sanctions-screen,itulo/fingrid-grid-signals,itulo/fmi-fingrid-nowcast,itulo/fmi-weather-warnings-alerts,itulo/eu-vies-vat-validator,itulo/ecb-fx-rates-macro,itulo/digitraffic-port-calls-marine,itulo/enisa-euvd-vulnerabilities"
+        "itulo/ted-tender-feed,itulo/prh-company-events,itulo/eu-sanctions-screen,itulo/fingrid-grid-signals,itulo/fmi-fingrid-nowcast,itulo/fmi-weather-warnings-alerts,itulo/eu-vies-vat-validator,itulo/ecb-fx-rates-macro,itulo/digitraffic-port-calls-marine"
       ],
       "env": {
         "APIFY_TOKEN": "YOUR_APIFY_API_TOKEN"
