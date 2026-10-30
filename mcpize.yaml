@@ -1,0 +1,24 @@
+# MCPize manifest - https://mcpize.com (schema: https://raw.githubusercontent.com/mcpize/cli/main/schemas/mcpize.schema.json)
+version: 1
+name: eu-nordic-open-data-mcp
+description: >-
+  Official EU and Finnish open data for AI agents: TED tenders by CPV code, EU financial
+  sanctions screening, VIES VAT validation, ECB FX/macro, PRH company events, Fingrid,
+  FMI and Digitraffic. Every record carries source attribution and licence.
+runtime: container
+entry: src/index.js
+build:
+  dockerfile: Dockerfile
+startCommand:
+  type: stdio
+  command: node src/index.js
+bridge:
+  mode: stdio
+credentials:
+  - name: FINGRID_API_KEY
+    required: false
+    description: Optional free API key from data.fingrid.fi (CC BY 4.0), needed only for fingrid_* tools.
+    docs_url: https://data.fingrid.fi/en/instructions
+    mapping:
+      env: FINGRID_API_KEY
+credentials_mode: per_user
