@@ -10,3 +10,6 @@ dist/github-repo/
 .DS_Store
 __pycache__/
 .venv/
+packages/*/dist/
+*.egg-info/
+.pytest_cache/

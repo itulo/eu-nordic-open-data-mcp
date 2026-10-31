@@ -1,0 +1,36 @@
+[build-system]
+requires = ["hatchling>=1.24"]
+build-backend = "hatchling.build"
+
+[project]
+name = "langchain-eu-nordic-open-data"
+version = "0.1.0"
+description = "LangChain tools for official EU and Finnish open data (TED tenders, EU sanctions, VIES VAT, ECB FX, PRH companies, Fingrid, FMI, Digitraffic) via hosted Apify actors, with source attribution on every record."
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+requires-python = ">=3.10"
+authors = [{ name = "Italo Armenti" }]
+keywords = ["langchain", "tools", "open-data", "eu", "ted", "tenders", "sanctions", "vies", "ecb", "finland", "fingrid", "fmi", "apify", "mcp"]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Intended Audience :: Developers",
+  "Programming Language :: Python :: 3",
+  "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+dependencies = ["langchain-core>=0.3", "pydantic>=2"]
+
+[project.optional-dependencies]
+test = ["pytest>=8"]
+
+[project.urls]
+Homepage = "https://github.com/itulo/eu-nordic-open-data-mcp/tree/main/packages/langchain-eu-nordic-open-data"
+Source = "https://github.com/itulo/eu-nordic-open-data-mcp"
+Issues = "https://github.com/itulo/eu-nordic-open-data-mcp/issues"
+"Data licences" = "https://github.com/itulo/eu-nordic-open-data-mcp/blob/main/LICENCE_REGISTER.md"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/langchain_eu_nordic_open_data"]
+
+[tool.hatch.build.targets.sdist]
+include = ["src", "tests", "README.md", "LICENSE", "pyproject.toml"]
