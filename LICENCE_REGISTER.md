@@ -177,9 +177,9 @@ Verified live with curl/WebFetch on 1 Nov 2026. Machine-readable entries: `licen
 |---|---|---|---|---|---|
 | Companies House (UK) | ✅ company-level only | Public register: "no rules or requirements on how the information … is used"; GOV.UK content OGL v3.0 | **yes**, user's own free key (secret input) | 600 req / 5 min per application | `uk-companies-house-kyb` actor (private) |
 | Insee Sirene via API Recherche d'entreprises (FR) | ✅ legal entities only | Licence Ouverte 2.0 (data.gouv.fr `license: lov2`) | no ("Accès ouvert") | 7 req/s per IP, 30 req/s per ASN, 429 + Retry-After | `france-sirene-company-search` actor (private) |
-| GLEIF LEI (global) | ✅ legal entities | CC0 1.0 | no | 60 req/min per user | MCP `gleif_*` tools |
-| EU TEDB VAT rates | ✅ | CC BY 4.0 (Commission legal notice, Decision 2011/833/EU); data from Member States | no | none published [unverified] | MCP `eu_vat_rates*` tools |
-| EU Safety Gate weekly reports | ✅ | CC0 1.0 (data.europa.eu XML/Excel weekly-report distributions) | no | none published [unverified] | MCP `eu_safety_gate_*` tools |
+| GLEIF LEI (global) | ✅ legal entities | CC0 1.0 | no | 60 req/min per user | MCP `gleif_*` tools; `uk-companies-house-kyb` actor GLEIF modes (private) |
+| EU TEDB VAT rates | ✅ | CC BY 4.0 (Commission legal notice, Decision 2011/833/EU); data from Member States | no | none published [unverified] | MCP `eu_vat_rates*` tools; `eu-vies-vat-validator` actor `vat_rates` mode |
+| EU Safety Gate weekly reports | ✅ | CC0 1.0 (data.europa.eu XML/Excel weekly-report distributions) | no | none published [unverified] | MCP `eu_safety_gate_*` tools; `eu-safety-gate-alerts` actor (private) |
 | Brreg Enhetsregisteret (NO) | ✅ legal entities only | NLOD 2.0 | no ("ikke nødvendig å registrere seg") | none published [unverified]; 10,000-result paging cap | `prh-company-events` actor, `registry: "no_brreg"` mode |
 
 ### Companies House (api.company-information.service.gov.uk)
