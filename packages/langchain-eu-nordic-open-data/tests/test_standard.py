@@ -7,6 +7,7 @@ from langchain_tests.unit_tests import ToolsUnitTests  # noqa: E402
 from langchain_eu_nordic_open_data import (  # noqa: E402
     EcbFxRatesTool,
     EuSanctionsScreenTool,
+    EuVatRatesTool,
     EuViesVatValidateTool,
     TedTenderSearchTool,
 )
@@ -50,3 +51,13 @@ class TestEcbStandard(ToolsUnitTests):
     @property
     def tool_invoke_params_example(self) -> dict:
         return {"currencies": ["USD"], "lastNObservations": 1}
+
+
+class TestVatRatesStandard(ToolsUnitTests):
+    @property
+    def tool_constructor(self):
+        return EuVatRatesTool
+
+    @property
+    def tool_invoke_params_example(self) -> dict:
+        return {"vatRateCountries": ["FI"], "cnCodes": ["4901"]}

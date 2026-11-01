@@ -2,8 +2,8 @@
   "actorSpecification": 1,
   "name": "eu-vies-vat-validator",
   "title": "EU VIES VAT Number Batch Validator & Reverse-Charge Check",
-  "description": "Validate EU & Northern Ireland (XI) VAT numbers in batch via the official European Commission VIES REST API. Includes B2B cross-border reverse-charge flags, Member State database health, and automatic GDPR sole-trader redaction.",
-  "version": "0.1",
+  "description": "Validate EU & Northern Ireland (XI) VAT numbers in batch via the official European Commission VIES API, with B2B reverse-charge flags, Member State status and GDPR sole-trader redaction. New: official EU VAT rates by country, CN/CPA code or category (TEDB).",
+  "version": "0.2",
   "buildTag": "latest",
   "input": "./input_schema.json",
   "output": "./output_schema.json",
@@ -14,16 +14,80 @@
       "fields": {
         "type": "object",
         "properties": {
-          "recordType": { "type": "string", "title": "Record type", "description": "vies_vat_validation or vies_member_state_status" },
-          "fullVatNumber": { "type": ["string", "null"], "title": "Full VAT ID", "description": "Normalized country prefix + VAT number" },
-          "countryCode": { "type": ["string", "null"], "title": "Country", "description": "EU Member State or XI code" },
-          "valid": { "type": ["boolean", "null"], "title": "Valid", "description": "Whether VAT number is active in VIES" },
-          "companyName": { "type": ["string", "null"], "title": "Company Name", "description": "Registered corporate name (redacted if sole trader)" },
-          "companyAddress": { "type": ["string", "null"], "title": "Company Address", "description": "Registered corporate address (redacted if sole trader)" },
-          "entityClassification": { "type": ["string", "null"], "title": "Entity Type", "description": "corporate_entity, sole_trader_or_natural_person_redacted, etc." },
-          "reverseChargeCandidate": { "type": ["boolean", "null"], "title": "Reverse Charge B2B", "description": "True if valid cross-border EU B2B VAT ID" },
-          "requestDateUtc": { "type": ["string", "null"], "title": "Validated At (UTC)", "description": "Official VIES validation timestamp" },
-          "attribution": { "type": "string", "title": "EC VIES Attribution", "description": "Mandatory Commission Decision 2011/833/EU attribution" }
+          "recordType": {
+            "type": "string",
+            "title": "Record type",
+            "description": "vies_vat_validation or vies_member_state_status. vat_rates mode adds eu_vat_rates (headline rates per Member State) and eu_vat_rate_lookup (rates for the given CN/CPA codes or categories)."
+          },
+          "fullVatNumber": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "title": "Full VAT ID",
+            "description": "Normalized country prefix + VAT number"
+          },
+          "countryCode": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "title": "Country",
+            "description": "EU Member State or XI code"
+          },
+          "valid": {
+            "type": [
+              "boolean",
+              "null"
+            ],
+            "title": "Valid",
+            "description": "Whether VAT number is active in VIES"
+          },
+          "companyName": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "title": "Company Name",
+            "description": "Registered corporate name (redacted if sole trader)"
+          },
+          "companyAddress": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "title": "Company Address",
+            "description": "Registered corporate address (redacted if sole trader)"
+          },
+          "entityClassification": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "title": "Entity Type",
+            "description": "corporate_entity, sole_trader_or_natural_person_redacted, etc."
+          },
+          "reverseChargeCandidate": {
+            "type": [
+              "boolean",
+              "null"
+            ],
+            "title": "Reverse Charge B2B",
+            "description": "True if valid cross-border EU B2B VAT ID"
+          },
+          "requestDateUtc": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "title": "Validated At (UTC)",
+            "description": "Official VIES validation timestamp"
+          },
+          "attribution": {
+            "type": "string",
+            "title": "EC VIES Attribution",
+            "description": "Mandatory Commission Decision 2011/833/EU attribution"
+          }
         }
       },
       "views": {
@@ -42,7 +106,9 @@
               "attribution"
             ]
           },
-          "display": { "component": "table" }
+          "display": {
+            "component": "table"
+          }
         }
       }
     }

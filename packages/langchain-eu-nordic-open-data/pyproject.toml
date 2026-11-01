@@ -4,14 +4,14 @@ build-backend = "hatchling.build"
 
 [project]
 name = "langchain-eu-nordic-open-data"
-version = "0.1.0"
-description = "LangChain tools for official EU and Finnish open data (TED tenders, EU sanctions, VIES VAT, ECB FX, PRH companies, Fingrid, FMI, Digitraffic) via hosted Apify actors, with source attribution on every record."
+version = "0.2.0"
+description = "LangChain tools for official EU, Finnish and Norwegian open data (TED tenders, EU sanctions, VIES VAT, EU VAT rates, ECB FX, PRH/Brreg companies, Fingrid, FMI, Digitraffic) via hosted Apify actors, with source attribution on every record."
 readme = "README.md"
 license = "MIT"
 license-files = ["LICENSE"]
 requires-python = ">=3.10"
 authors = [{ name = "Italo Armenti" }]
-keywords = ["langchain", "tools", "open-data", "eu", "ted", "tenders", "sanctions", "vies", "ecb", "finland", "fingrid", "fmi", "apify", "mcp"]
+keywords = ["langchain", "tools", "open-data", "eu", "ted", "tenders", "sanctions", "vies", "vat-rates", "ecb", "norway", "brreg", "finland", "fingrid", "fmi", "apify", "mcp"]
 classifiers = [
   "Development Status :: 4 - Beta",
   "Intended Audience :: Developers",

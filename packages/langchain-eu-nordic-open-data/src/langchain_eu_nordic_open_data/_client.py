@@ -45,7 +45,7 @@ def run_actor_sync(
         headers={
             "Content-Type": "application/json",
             "Authorization": f"Bearer {get_token(token)}",
-            "User-Agent": "langchain-eu-nordic-open-data/0.1.0",
+            "User-Agent": "langchain-eu-nordic-open-data/0.2.0",
         },
     )
     try:

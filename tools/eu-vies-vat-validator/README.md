@@ -23,8 +23,22 @@ Ships as both a **Pay-Per-Event Apify Actor** (`itulo/eu-vies-vat-validator`) an
 |---|---|---|
 | `actor-start` | **$0.01 / run** | Flat fee for starting an Actor run |
 | `vat-check` | **$0.0025 / check** ($2.50 / 1,000) | Each EU/XI VAT number validated against VIES or Member State status row written to the dataset (primary event) |
+| `vat-rate-query` | **$0.001 / country record** | `vat_rates` mode: each Member State VAT-rate record (headline rates or CN/CPA/category lookup) written to the dataset |
 
 ---
+
+## EU VAT Rates Mode (`mode: "vat_rates"`)
+
+Official VAT rates per EU Member State from the European Commission **Taxes in Europe Database (TEDB)** SOAP web service:
+- No codes: one `eu_vat_rates` record per country — standard rate (and since when), reduced, super-reduced and parking rates, exemptions, regional standard rates, categories with reduced rates.
+- With `cnCodes` (goods, e.g. `4901` books), `cpaCodes` (services) or `vatRateCategories`: one `eu_vat_rate_lookup` record per country with the matching TEDB rate rows, or `appliesStandardRate: true` when no specific entry exists.
+- `vatRateCountries` (empty = all 27; GR→EL, XI accepted), `vatRateDate` (YYYY-MM-DD, default today).
+
+```json
+{ "mode": "vat_rates", "vatRateCountries": ["FI", "DE", "FR"], "cnCodes": ["4901"] }
+```
+
+TEDB data © European Union, reused under **CC BY 4.0** (Commission Decision 2011/833/EU); TEDB is information supplied by Member States and is not legally binding — check national legislation. Every record carries this attribution.
 
 ## Data Licence & Attribution Compliance
 

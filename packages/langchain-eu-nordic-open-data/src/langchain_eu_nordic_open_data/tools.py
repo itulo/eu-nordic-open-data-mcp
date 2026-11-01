@@ -108,6 +108,31 @@ class EuViesVatValidateTool(_ApifyActorTool):
         return {"mode": "validate_batch", **super()._build_input(**kwargs)}
 
 
+# --- EU VAT rates (TEDB) ---------------------------------------------------------
+class VatRatesInput(BaseModel):
+    vatRateCountries: Optional[list[str]] = Field(default=None, description="EU Member State codes, e.g. ['FI','DE','FR'] (GR accepted as EL, XI = Northern Ireland). Empty = all 27.")
+    vatRateDate: Optional[str] = Field(default=None, description="Date the rates should apply on, YYYY-MM-DD (default today).")
+    cnCodes: Optional[list[str]] = Field(default=None, description="Optional Combined Nomenclature goods codes, e.g. ['4901'] for books.")
+    cpaCodes: Optional[list[str]] = Field(default=None, description="Optional CPA service codes, e.g. ['55.10'].")
+    vatRateCategories: Optional[list[str]] = Field(default=None, description="Optional TEDB category ids, e.g. ['FOODSTUFFS'].")
+
+
+class EuVatRatesTool(_ApifyActorTool):
+    """Official EU VAT rates per Member State from the European Commission TEDB (CC BY 4.0)."""
+
+    name: str = "eu_vat_rates"
+    description: str = (
+        "Get official VAT rates per EU Member State from the European Commission Taxes in Europe Database (TEDB): "
+        "standard, reduced, super-reduced and parking rates, or the rate for given CN goods / CPA service codes "
+        "or categories. CC BY 4.0; TEDB is not legally binding."
+    )
+    args_schema: type[BaseModel] = VatRatesInput
+    actor_id: ClassVar[str] = "itulo/eu-vies-vat-validator"
+
+    def _build_input(self, **kwargs: Any) -> dict[str, Any]:
+        return {"mode": "vat_rates", **super()._build_input(**kwargs)}
+
+
 # --- ECB --------------------------------------------------------------------------
 class EcbInput(BaseModel):
     modes: Optional[list[Literal["fx_rates", "policy_rates", "hicp_inflation"]]] = Field(default=None, description="What to fetch (default: all three).")
@@ -137,23 +162,25 @@ class EcbFxRatesTool(_ApifyActorTool):
 
 # --- PRH (Finnish Trade Register) -------------------------------------------------
 class PrhInput(BaseModel):
+    registry: Optional[Literal["fi_prh", "no_brreg"]] = Field(default=None, description="fi_prh = Finland PRH/YTJ (default); no_brreg = Norway Bronnoysund Register Centre (NLOD).")
     eventTypes: Optional[list[str]] = Field(default=None, description="Event types, e.g. ['new_company','name_change','liquidation','bankruptcy'].")
     dateFrom: Optional[str] = Field(default=None, description="From date YYYY-MM-DD.")
     dateTo: Optional[str] = Field(default=None, description="To date YYYY-MM-DD.")
-    location: Optional[str] = Field(default=None, description="Finnish town/city, e.g. 'Helsinki'.")
-    companyForm: Optional[str] = Field(default=None, description="Company form code, e.g. 'OY'.")
+    location: Optional[str] = Field(default=None, description="Town/city, e.g. 'Helsinki' (or 'Oslo' with registry=no_brreg).")
+    companyForm: Optional[str] = Field(default=None, description="Company form code, e.g. 'OY' (Finland) or 'AS' (Norway).")
     maxPerEvent: Optional[int] = Field(default=50, ge=1, le=5000, description="Max records per event type.")
-    watchBusinessIds: Optional[list[str]] = Field(default=None, description="Finnish Business IDs (Y-tunnus) to watch instead of a date-range feed.")
+    watchBusinessIds: Optional[list[str]] = Field(default=None, description="Finnish Business IDs (Y-tunnus) or Norwegian organisation numbers to watch instead of a date-range feed.")
 
 
 class PrhCompanyEventsTool(_ApifyActorTool):
-    """Finnish company register events (PRH / YTJ open data)."""
+    """Finnish (PRH / YTJ) and Norwegian (Brreg) company register events."""
 
     name: str = "prh_company_events"
     description: str = (
-        "List Finnish companies' register events from the Finnish Patent and Registration Office (PRH) open data: "
-        "new companies, name changes, liquidations, bankruptcies, or changes for a watchlist of Business IDs. "
-        "Company-level data only; sole-trader personal data is filtered out."
+        "List company register events from the Finnish Patent and Registration Office (PRH) open data, or from "
+        "Norway's Bronnoysund Register Centre with registry='no_brreg': new companies, name changes, liquidations, "
+        "bankruptcies, or changes for a watchlist of company IDs. "
+        "Company-level data only; sole traders (and Norwegian ENK) are filtered out."
     )
     args_schema: type[BaseModel] = PrhInput
     actor_id: ClassVar[str] = "itulo/prh-company-events"
@@ -256,6 +283,7 @@ ALL_TOOL_CLASSES: tuple[type[_ApifyActorTool], ...] = (
     TedTenderSearchTool,
     EuSanctionsScreenTool,
     EuViesVatValidateTool,
+    EuVatRatesTool,
     EcbFxRatesTool,
     PrhCompanyEventsTool,
     FmiWeatherAlertsTool,

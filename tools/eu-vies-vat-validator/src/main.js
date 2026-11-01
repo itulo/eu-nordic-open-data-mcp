@@ -2,6 +2,7 @@
 import { Actor, log } from 'apify';
 import { createViesClient, viesAttribution } from './lib/vies.js';
 import { chargeSafe, pushCharged } from './lib/charge.js';
+import { vatRateRecords } from './vat-rates-mode.js';
 
 await Actor.init();
 try {
@@ -15,6 +16,16 @@ try {
     requesterNumber = '',
     includeMemberStateStatus = false,
   } = input;
+
+  if (mode === 'vat_rates') {
+    // EU VAT rates from the European Commission TEDB (CC BY 4.0); one record per Member State.
+    const recs = await vatRateRecords(input);
+    let written = 0;
+    for (const r of recs) { const { stop } = await pushCharged(r, 'vat-rate-query'); written++; if (stop) break; }
+    await Actor.setValue('OUTPUT_SUMMARY', { mode, recordsWritten: written, situationOn: recs[0]?.situationOn, attribution: recs[0]?.attribution, disclaimer: recs[0]?.disclaimer });
+    log.info(`eu-vies-vat-validator completed: mode=vat_rates, records=${written}`);
+    await Actor.exit();
+  }
 
   const client = createViesClient();
   const records = [];

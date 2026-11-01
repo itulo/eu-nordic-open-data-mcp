@@ -1,6 +1,6 @@
 # langchain-eu-nordic-open-data
 
-LangChain tools for **official EU and Finnish open data**, backed by the hosted
+LangChain tools for **official EU, Finnish and Norwegian open data**, backed by the hosted
 [`itulo/*` Apify actors](https://apify.com/itulo) from
 [eu-nordic-open-data-mcp](https://github.com/itulo/eu-nordic-open-data-mcp).
 No Node.js, scraping or site search: every tool calls an official public API and every
@@ -11,8 +11,9 @@ record keeps the upstream licence and attribution fields.
 | `ted_tender_search` | TED – Tenders Electronic Daily (Publications Office of the EU) | `itulo/ted-tender-feed` |
 | `eu_sanctions_screen` | EU consolidated financial sanctions list (European Commission, DG FISMA) | `itulo/eu-sanctions-screen` |
 | `eu_vies_vat_validate` | VIES VAT number validation (European Commission) | `itulo/eu-vies-vat-validator` |
+| `eu_vat_rates` | EU VAT rates per Member State / CN / CPA code (European Commission TEDB, CC BY 4.0) | `itulo/eu-vies-vat-validator` (`vat_rates` mode) |
 | `ecb_fx_rates_macro` | ECB Data Portal: euro FX reference rates, key rates, HICP | `itulo/ecb-fx-rates-macro` |
-| `prh_company_events` | Finnish Patent and Registration Office (PRH/YTJ) open data | `itulo/prh-company-events` |
+| `prh_company_events` | Finnish Patent and Registration Office (PRH/YTJ) open data; Norway's Brønnøysund Register Centre with `registry="no_brreg"` (NLOD 2.0) | `itulo/prh-company-events` |
 | `fmi_weather_alerts` | Finnish Meteorological Institute warnings and observations | `itulo/fmi-weather-warnings-alerts` |
 | `digitraffic_port_calls` | Fintraffic Digitraffic Marine port calls | `itulo/digitraffic-port-calls-marine` |
 | `fingrid_grid_signals` | Fingrid Open Data (needs free `FINGRID_API_KEY`) | `itulo/fingrid-grid-signals` |
@@ -62,13 +63,13 @@ Prefer MCP? The same data is available as a local stdio MCP server
 
 Data comes from official publishers under their reuse terms (Commission Decision
 2011/833/EU for TED, VIES and the sanctions list; ECB reuse policy; CC BY 4.0 for PRH, FMI,
-Fingrid and Digitraffic). Each record includes the attribution text and licence URL; keep
+Fingrid, Digitraffic and the EU TEDB VAT rates; NLOD 2.0 for Brreg). Each record includes the attribution text and licence URL; keep
 them when you republish. Full register:
 [LICENCE_REGISTER.md](https://github.com/itulo/eu-nordic-open-data-mcp/blob/main/LICENCE_REGISTER.md).
 
 This package is independent and not affiliated with or endorsed by any of these publishers.
 Sanctions screening results are an aid, not legal advice. No personal data is collected;
-sole-trader personal data is filtered out by the actors. No Nord Pool or exchange price data.
+sole-trader personal data (incl. Norwegian ENK) is filtered out by the actors. No Nord Pool or exchange price data.
 
 ## Development
 

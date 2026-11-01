@@ -36,7 +36,7 @@ def captured(monkeypatch):
 
 def test_tool_names_unique_and_described():
     names = [cls().name for cls in tools.ALL_TOOL_CLASSES]
-    assert len(names) == len(set(names)) == 9
+    assert len(names) == len(set(names)) == 10
     for cls in tools.ALL_TOOL_CLASSES:
         t = cls()
         assert len(t.description) > 40
@@ -57,6 +57,18 @@ def test_ted_invoke_builds_request(captured):
 def test_vies_sets_mode(captured):
     tools.EuViesVatValidateTool().invoke({"vatNumbers": ["FI01120389"]})
     assert json.loads(captured[0].data) == {"mode": "validate_batch", "vatNumbers": ["FI01120389"]}
+
+
+def test_vat_rates_sets_mode(captured):
+    tools.EuVatRatesTool().invoke({"vatRateCountries": ["FI", "DE"], "cnCodes": ["4901"]})
+    req = captured[0]
+    assert "/acts/itulo~eu-vies-vat-validator/" in req.full_url
+    assert json.loads(req.data) == {"mode": "vat_rates", "vatRateCountries": ["FI", "DE"], "cnCodes": ["4901"]}
+
+
+def test_prh_norway_registry(captured):
+    tools.PrhCompanyEventsTool().invoke({"registry": "no_brreg", "eventTypes": ["bankruptcy"], "maxPerEvent": 5})
+    assert json.loads(captured[0].data) == {"registry": "no_brreg", "eventTypes": ["bankruptcy"], "maxPerEvent": 5}
 
 
 def test_ecb_default_modes(captured):

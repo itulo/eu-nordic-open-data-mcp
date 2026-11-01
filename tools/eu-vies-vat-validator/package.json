@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "type": "module",
-  "description": "Open-Data Tool Factory: eu-vies-vat-validator (Official EU Commission VIES B2B VAT batch validator & reverse-charge check with GDPR sole-trader redaction — Apify actor + MCP server)",
+  "description": "Open-Data Tool Factory: eu-vies-vat-validator (Official EU Commission VIES B2B VAT batch validator & reverse-charge check with GDPR sole-trader redaction \u2014 Apify actor + MCP server)",
   "engines": {
     "node": ">=20"
   },
@@ -21,7 +21,8 @@
   "dependencies": {
     "apify": "^3.7.2",
     "@modelcontextprotocol/sdk": "^1.32.1",
-    "zod": "^3.25.0"
+    "zod": "^3.25.0",
+    "fast-xml-parser": "^5.3.5"
   },
   "license": "UNLICENSED"
 }

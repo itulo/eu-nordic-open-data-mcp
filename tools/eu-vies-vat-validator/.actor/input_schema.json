@@ -6,16 +6,28 @@
     "mode": {
       "title": "Mode",
       "type": "string",
-      "description": "validate_batch validates a list of EU/XI VAT numbers; member_state_status checks availability of all 28 national VAT databases.",
-      "enum": ["validate_batch", "member_state_status"],
-      "default": "validate_batch"
+      "description": "validate_batch validates a list of EU/XI VAT numbers; member_state_status checks availability of all 28 national VAT databases; vat_rates returns VAT rates per Member State from the European Commission TEDB (standard, reduced, super-reduced, parking; optionally for CN/CPA codes or categories).",
+      "enum": [
+        "validate_batch",
+        "member_state_status",
+        "vat_rates"
+      ],
+      "default": "validate_batch",
+      "enumTitles": [
+        "Validate VAT numbers (VIES)",
+        "Member State VIES availability",
+        "EU VAT rates by country / product (TEDB)"
+      ]
     },
     "vatNumbers": {
       "title": "VAT numbers to validate",
       "type": "array",
       "description": "List of EU/XI VAT numbers with country prefix (e.g. 'FI01120389', 'FI10728943', 'DE123456789'). Spaces, dots, and hyphens are stripped automatically.",
       "editor": "stringList",
-      "default": ["FI01120389", "FI10728943"]
+      "default": [
+        "FI01120389",
+        "FI10728943"
+      ]
     },
     "supplierCountryCode": {
       "title": "Supplier country code (for reverse-charge check)",
@@ -43,6 +55,37 @@
       "type": "boolean",
       "description": "When true in validate_batch mode, also writes the 28 Member State VIES availability rows.",
       "default": false
+    },
+    "vatRateCountries": {
+      "title": "VAT rates: countries",
+      "type": "array",
+      "editor": "stringList",
+      "description": "vat_rates mode: EU Member State codes (GR accepted as EL; XI = Northern Ireland). Empty = all 27."
+    },
+    "vatRateDate": {
+      "title": "VAT rates: situation on (YYYY-MM-DD)",
+      "type": "string",
+      "editor": "textfield",
+      "description": "vat_rates mode: date the rates should apply on. Default today.",
+      "pattern": "^(\\d{4}-\\d{2}-\\d{2})?$"
+    },
+    "cnCodes": {
+      "title": "VAT rates: CN codes",
+      "type": "array",
+      "editor": "stringList",
+      "description": "vat_rates mode: optional Combined Nomenclature goods codes (e.g. 4901 books) to get the rate that applies to them."
+    },
+    "cpaCodes": {
+      "title": "VAT rates: CPA codes",
+      "type": "array",
+      "editor": "stringList",
+      "description": "vat_rates mode: optional CPA service codes (e.g. 55.10)."
+    },
+    "vatRateCategories": {
+      "title": "VAT rates: TEDB categories",
+      "type": "array",
+      "editor": "stringList",
+      "description": "vat_rates mode: optional TEDB category identifiers (e.g. FOODSTUFFS, BOOKS)."
     }
   }
 }
