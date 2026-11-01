@@ -318,9 +318,9 @@
       "restrictions": [
         "GDPR: dirigeants (directors), finances (INPI/RNE annual accounts, separate terms), elected officials and street-level addresses are NOT output.",
         "Entrepreneurs individuels (nature_juridique category 1xxx / est_entrepreneur_individuel) are dropped.",
-        "statut_diffusion != 'O' (partial diffusion) units are dropped.",
+        "Insee diffusion status respected: statut_diffusion 'P' (partial diffusion) units are kept but every field Insee masks for them (exact address incl. postcode, geolocation, any '[ND]' value) is withheld; other non-'O' statuses are dropped.",
         "No Insee/Marianne/RF logos; not affiliated.",
-        "RNE 'opposition_diffusion_commerciale' (Code de commerce R.123-320 / GDPR art. 21(2)): such units are kept for KYB/due-diligence use but flagged prospectingOptOut=true; input excludeProspectingOptOuts drops them. Records flagged true must not be used for commercial prospecting.",
+        "RNE 'opposition_diffusion_commerciale' (Code de commerce R.123-320 / GDPR art. 21(2)) -> record field marketingOptOut. Input excludeMarketingOptOut (default true) drops such units; if a user disables it, flagged records may only be used for non-marketing purposes (KYB, compliance, credit checks), never prospecting, and the user is the data controller.",
         "Groupings without legal personality (nature juridique 2xxx, e.g. indivisions between natural persons) are dropped together with entrepreneurs individuels (1xxx)."
       ],
       "verifiedFrom": [

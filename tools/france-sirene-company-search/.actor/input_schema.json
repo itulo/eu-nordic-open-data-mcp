@@ -1,0 +1,132 @@
+{
+  "title": "France company search (Sirene)",
+  "type": "object",
+  "schemaVersion": 1,
+  "properties": {
+    "mode": {
+      "title": "Mode",
+      "type": "string",
+      "description": "search = query/filters; lookup = list of SIREN/SIRET numbers.",
+      "editor": "select",
+      "enum": [
+        "search",
+        "lookup"
+      ],
+      "enumTitles": [
+        "Search by name / filters",
+        "Lookup SIREN or SIRET numbers"
+      ],
+      "default": "search"
+    },
+    "query": {
+      "title": "Search text",
+      "type": "string",
+      "description": "Company name, acronym, SIREN or address words (search mode).",
+      "editor": "textfield",
+      "prefill": "airbus"
+    },
+    "sirenNumbers": {
+      "title": "SIREN / SIRET numbers",
+      "type": "array",
+      "description": "Lookup mode: 9-digit SIREN or 14-digit SIRET (head office or any establishment). Max 1,000.",
+      "editor": "stringList"
+    },
+    "nafCodes": {
+      "title": "NAF/APE activity codes",
+      "type": "array",
+      "description": "Main activity codes (NAF rév. 2 format, e.g. 62.01Z, 70.22Z).",
+      "editor": "stringList"
+    },
+    "section": {
+      "title": "NAF section",
+      "type": "string",
+      "description": "Activity section letter A-U (e.g. J = information & communication).",
+      "editor": "textfield"
+    },
+    "postCodes": {
+      "title": "Postcodes",
+      "type": "array",
+      "description": "Companies with an establishment in these postcodes (e.g. 75008).",
+      "editor": "stringList"
+    },
+    "communeCodes": {
+      "title": "Insee commune codes",
+      "type": "array",
+      "description": "Insee commune codes (e.g. 31069 Blagnac).",
+      "editor": "stringList"
+    },
+    "departements": {
+      "title": "Départements",
+      "type": "array",
+      "description": "Département codes (e.g. 75, 69, 2A).",
+      "editor": "stringList"
+    },
+    "regions": {
+      "title": "Regions",
+      "type": "array",
+      "description": "Insee region codes (e.g. 11 Île-de-France, 84 Auvergne-Rhône-Alpes).",
+      "editor": "stringList"
+    },
+    "legalForms": {
+      "title": "Legal forms (nature juridique)",
+      "type": "array",
+      "description": "Insee legal-form codes, e.g. 5710 SAS, 5499 SARL, 5599 SA, 9220 association. Codes 1xxx (entreprises individuelles) are always excluded.",
+      "editor": "stringList"
+    },
+    "companyCategory": {
+      "title": "Company size category",
+      "type": "string",
+      "description": "Insee category: PME (SME), ETI (mid-cap), GE (large).",
+      "editor": "select",
+      "enum": [
+        "PME",
+        "ETI",
+        "GE"
+      ]
+    },
+    "headcountBands": {
+      "title": "Headcount bands",
+      "type": "array",
+      "description": "Insee headcount band codes: 00, 01, 02, 03, 11, 12, 21, 22, 31, 32, 41, 42, 51, 52, 53.",
+      "editor": "stringList"
+    },
+    "status": {
+      "title": "Status",
+      "type": "string",
+      "description": "active or ceased (default: both).",
+      "editor": "select",
+      "enum": [
+        "active",
+        "ceased"
+      ]
+    },
+    "ess": {
+      "title": "Social & solidarity economy (ESS) only",
+      "type": "boolean",
+      "description": "Only ESS companies.",
+      "default": false
+    },
+    "societeMission": {
+      "title": "Société à mission only",
+      "type": "boolean",
+      "description": "Only sociétés à mission.",
+      "default": false
+    },
+    "excludeMarketingOptOut": {
+      "title": "Exclude companies opposed to marketing use (recommended)",
+      "type": "boolean",
+      "default": true,
+      "description": "ON (default): drop companies that objected in the RNE to reuse of their data for commercial prospecting (API field opposition_diffusion_commerciale; GDPR art. 21(2), Code de commerce R.123-320). If you turn it OFF, records with marketingOptOut=true may only be used for non-marketing purposes such as KYB, compliance and credit checks, never for prospecting; you are the data controller."
+    },
+    "maxResults": {
+      "title": "Max results",
+      "type": "integer",
+      "description": "Maximum companies to return (search mode). The API caps a query at 10,000.",
+      "minimum": 1,
+      "maximum": 10000,
+      "default": 100,
+      "prefill": 20
+    }
+  },
+  "required": []
+}

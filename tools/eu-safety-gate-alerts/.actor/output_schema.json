@@ -1,0 +1,20 @@
+{
+  "actorOutputSchemaVersion": 1,
+  "title": "EU Safety Gate alerts output",
+  "description": "Safety Gate alert records or product-check records with CC0 attribution.",
+  "type": "object",
+  "properties": {
+    "results": {
+      "type": "string",
+      "title": "Records",
+      "description": "Alert or product-check records.",
+      "template": "{{links.apiDefaultDatasetUrl}}/items"
+    },
+    "summary": {
+      "type": "string",
+      "title": "Run summary (OUTPUT_SUMMARY)",
+      "description": "Reports scanned, counts and attribution.",
+      "template": "{{links.apiDefaultKeyValueStoreUrl}}/records/OUTPUT_SUMMARY"
+    }
+  }
+}

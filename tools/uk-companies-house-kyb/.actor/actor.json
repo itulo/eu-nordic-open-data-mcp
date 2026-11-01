@@ -1,0 +1,152 @@
+{
+  "actorSpecification": 1,
+  "name": "uk-companies-house-kyb",
+  "title": "UK Companies House KYB + GLEIF LEI & Ownership",
+  "description": "UK company lookup & search on the official Companies House API (your free key): status, SIC, office, deadlines, filings, charges, insolvency. Plus keyless GLEIF LEI lookup & direct/ultimate parent chain for any country. No officer/PSC names. Not affiliated with Companies House/GLEIF.",
+  "version": "0.1",
+  "buildTag": "latest",
+  "input": "./input_schema.json",
+  "dockerfile": "../Dockerfile",
+  "storages": {
+    "dataset": {
+      "actorSpecification": 1,
+      "views": {
+        "overview": {
+          "title": "Companies",
+          "transformation": {
+            "fields": [
+              "companyNumber",
+              "companyName",
+              "status",
+              "type",
+              "incorporatedOn",
+              "sicCodes",
+              "registeredOfficeAddress",
+              "accounts",
+              "confirmationStatement",
+              "hasCharges",
+              "hasInsolvencyHistory",
+              "registerUrl",
+              "attribution"
+            ]
+          },
+          "display": {
+            "component": "table"
+          }
+        }
+      },
+      "fields": {
+        "type": "object",
+        "properties": {
+          "companyNumber": {
+            "type": "string",
+            "title": "Company number",
+            "description": "Companies House number."
+          },
+          "companyName": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "title": "Company name",
+            "description": "Registered name."
+          },
+          "status": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "title": "Status",
+            "description": "active, dissolved, liquidation, administration..."
+          },
+          "type": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "title": "Company type",
+            "description": "ltd, plc, llp..."
+          },
+          "incorporatedOn": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "title": "Incorporated",
+            "description": "ISO date."
+          },
+          "dissolvedOn": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "title": "Dissolved",
+            "description": "ISO date."
+          },
+          "sicCodes": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "title": "SIC codes",
+            "description": "SIC 2007 codes."
+          },
+          "registeredOfficeAddress": {
+            "type": [
+              "object",
+              "null"
+            ],
+            "title": "Registered office",
+            "description": "Registered office address of the company (care-of names removed)."
+          },
+          "accounts": {
+            "type": [
+              "object",
+              "null"
+            ],
+            "title": "Accounts",
+            "description": "{ nextDue, nextMadeUpTo, overdue, lastMadeUpTo, lastType }"
+          },
+          "confirmationStatement": {
+            "type": [
+              "object",
+              "null"
+            ],
+            "title": "Confirmation statement",
+            "description": "{ nextDue, lastMadeUpTo, overdue }"
+          },
+          "hasCharges": {
+            "type": [
+              "boolean",
+              "null"
+            ],
+            "title": "Has charges",
+            "description": "Registered charges exist."
+          },
+          "hasInsolvencyHistory": {
+            "type": [
+              "boolean",
+              "null"
+            ],
+            "title": "Insolvency history",
+            "description": "Insolvency history exists."
+          },
+          "registerUrl": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "title": "Register link",
+            "description": "Find and update company information page."
+          },
+          "attribution": {
+            "type": "string",
+            "title": "Source attribution",
+            "description": "OGL v3.0 / Companies House attribution."
+          }
+        }
+      }
+    }
+  },
+  "output": "./output_schema.json"
+}

@@ -1,0 +1,183 @@
+{
+  "title": "UK Companies House KYB",
+  "type": "object",
+  "schemaVersion": 1,
+  "properties": {
+    "apiKey": {
+      "title": "Companies House API key",
+      "type": "string",
+      "description": "Your own free REST API key from https://developer.company-information.service.gov.uk/ (Register an application > Create new key > REST, live). Needed for the Companies House modes; the GLEIF modes need no key. Without a key, lookup mode returns GLEIF LEI records for the company numbers instead. Stored encrypted as a secret input and never logged.",
+      "editor": "textfield",
+      "isSecret": true
+    },
+    "mode": {
+      "title": "Mode",
+      "type": "string",
+      "description": "Companies House modes (need your free key): lookup, search, advanced_search. GLEIF modes (no key, any country, CC0): gleif_lookup, gleif_ownership (direct and ultimate parent from GLEIF Level 2 data), gleif_search.",
+      "editor": "select",
+      "enum": [
+        "lookup",
+        "search",
+        "advanced_search",
+        "gleif_lookup",
+        "gleif_ownership",
+        "gleif_search"
+      ],
+      "enumTitles": [
+        "Companies House: lookup company numbers",
+        "Companies House: search by name",
+        "Companies House: advanced search (filters)",
+        "GLEIF: look up LEI codes",
+        "GLEIF: ownership chain (direct + ultimate parent)",
+        "GLEIF: search LEI records by name / register number"
+      ],
+      "default": "lookup"
+    },
+    "companyNumbers": {
+      "title": "Company numbers",
+      "type": "array",
+      "description": "Lookup mode: Companies House numbers, e.g. 00000006, SC123456, OC301540. Leading zeros optional. Max 5,000.",
+      "editor": "stringList",
+      "prefill": [
+        "00445790",
+        "00102498"
+      ]
+    },
+    "query": {
+      "title": "Search text",
+      "type": "string",
+      "description": "Search mode: company name or number.",
+      "editor": "textfield"
+    },
+    "companyNameIncludes": {
+      "title": "Name includes",
+      "type": "string",
+      "description": "Advanced search: words the company name must include.",
+      "editor": "textfield"
+    },
+    "companyNameExcludes": {
+      "title": "Name excludes",
+      "type": "string",
+      "description": "Advanced search: words the company name must not include.",
+      "editor": "textfield"
+    },
+    "companyStatus": {
+      "title": "Company status",
+      "type": "array",
+      "description": "Advanced search: active, dissolved, liquidation, receivership, administration, voluntary-arrangement, converted-closed, insolvency-proceedings, registered, removed, closed, open.",
+      "editor": "stringList"
+    },
+    "companyType": {
+      "title": "Company type",
+      "type": "array",
+      "description": "Advanced search: e.g. ltd, plc, llp, limited-partnership, private-limited-guarant-nsc.",
+      "editor": "stringList"
+    },
+    "sicCodes": {
+      "title": "SIC codes",
+      "type": "array",
+      "description": "Advanced search: SIC 2007 codes, e.g. 62020, 70229.",
+      "editor": "stringList"
+    },
+    "incorporatedFrom": {
+      "title": "Incorporated from",
+      "type": "string",
+      "description": "Advanced search: YYYY-MM-DD.",
+      "editor": "textfield"
+    },
+    "incorporatedTo": {
+      "title": "Incorporated to",
+      "type": "string",
+      "description": "Advanced search: YYYY-MM-DD.",
+      "editor": "textfield"
+    },
+    "dissolvedFrom": {
+      "title": "Dissolved from",
+      "type": "string",
+      "description": "Advanced search: YYYY-MM-DD.",
+      "editor": "textfield"
+    },
+    "dissolvedTo": {
+      "title": "Dissolved to",
+      "type": "string",
+      "description": "Advanced search: YYYY-MM-DD.",
+      "editor": "textfield"
+    },
+    "location": {
+      "title": "Location",
+      "type": "string",
+      "description": "Advanced search: registered-office town/postcode text, e.g. Manchester.",
+      "editor": "textfield"
+    },
+    "leis": {
+      "title": "LEI codes (GLEIF modes)",
+      "type": "array",
+      "editor": "stringList",
+      "description": "gleif_lookup / gleif_ownership: 20-character Legal Entity Identifiers, e.g. 7LTWFZYICNSX8D621K86 (Deutsche Bank). Max 5,000."
+    },
+    "gleifName": {
+      "title": "GLEIF: legal name",
+      "type": "string",
+      "editor": "textfield",
+      "description": "gleif_search: legal or other name to match."
+    },
+    "gleifRegisteredAs": {
+      "title": "GLEIF: national register number",
+      "type": "string",
+      "editor": "textfield",
+      "description": "gleif_search: the company's number in its national register (e.g. a UK company number, Finnish Y-tunnus, French SIREN)."
+    },
+    "gleifCountry": {
+      "title": "GLEIF: country (ISO 3166-1 alpha-2)",
+      "type": "string",
+      "editor": "textfield",
+      "description": "gleif_search: legal-address country filter, e.g. GB, DE, FI."
+    },
+    "gleifStatus": {
+      "title": "GLEIF: entity status",
+      "type": "string",
+      "editor": "select",
+      "enum": [
+        "ACTIVE",
+        "INACTIVE"
+      ],
+      "description": "gleif_search: optional entity status filter."
+    },
+    "fetchFullProfiles": {
+      "title": "Fetch full company profiles",
+      "type": "boolean",
+      "description": "Search modes: fetch the full profile (accounts and confirmation-statement dates, previous names, charges/insolvency flags) for every hit. Uses one extra API request per company.",
+      "default": true
+    },
+    "filingHistoryItems": {
+      "title": "Latest filings per company",
+      "type": "integer",
+      "description": "Attach the N latest filing-history items (type, date, category, document link). 0 = off. Officer names are removed from filing descriptions.",
+      "minimum": 0,
+      "maximum": 100,
+      "default": 0
+    },
+    "includeCharges": {
+      "title": "Include charges (mortgages)",
+      "type": "boolean",
+      "description": "Attach registered charges: status, classification, dates. Chargeholder names are not output (count only).",
+      "default": false
+    },
+    "includeInsolvency": {
+      "title": "Include insolvency cases",
+      "type": "boolean",
+      "description": "Attach insolvency case types and dates (practitioner details are not output).",
+      "default": false
+    },
+    "maxResults": {
+      "title": "Max results",
+      "type": "integer",
+      "description": "Search modes: maximum companies to return.",
+      "minimum": 1,
+      "maximum": 5000,
+      "default": 100,
+      "prefill": 20
+    }
+  },
+  "required": []
+}

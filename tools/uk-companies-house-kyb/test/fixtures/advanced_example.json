@@ -1,0 +1,3 @@
+{"hits":2,"kind":"search#advanced-search","items":[
+{"company_name":"EXAMPLE WIDGETS LIMITED","company_number":"12345678","company_status":"active","company_type":"ltd","date_of_creation":"2019-03-14","sic_codes":["62020"],"registered_office_address":{"address_line_1":"1 Example Street","locality":"Manchester","postal_code":"M1 1AA"},"kind":"search-results#company"},
+{"company_name":"SAMPLE SOFTWARE LTD","company_number":"SC654321","company_status":"active","company_type":"ltd","date_of_creation":"2026-10-01","sic_codes":["62020"],"registered_office_address":{"locality":"Edinburgh","postal_code":"EH1 1AA"},"kind":"search-results#company"}]}

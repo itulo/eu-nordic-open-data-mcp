@@ -1,17 +1,17 @@
 # EU & Nordic Official Open-Data MCP Servers & Apify Actors (`eu-nordic-open-data-mcp`)
 
-13 production-ready **Model Context Protocol (MCP) servers** (`@modelcontextprotocol/sdk` over stdio) and **Apify Actors** built on official European Union, Finnish and Norwegian government open-data APIs. The unified server (`npx -y eu-nordic-open-data-mcp`) exposes all 49 tools over stdio.
+13 production-ready **Model Context Protocol (MCP) servers** (`@modelcontextprotocol/sdk` over stdio) and 12 hosted **Apify Actors** (15 tools in total) built on official European Union, Finnish, Norwegian, French and UK government open-data APIs. The unified server (`npx -y eu-nordic-open-data-mcp`) exposes all 49 tools over stdio.
 
 Every tool shares a single core library (`src/lib/*`) across its **stdio MCP server** (`src/mcp-server.js`) and **Apify Actor** (`src/main.js`), and enforces:
 1. **Strict GDPR Personal-Data Redaction by Design:** Organisation-level whitelists strip sole-trader (`toiminimi`) personal names & residential addresses in VIES VAT checks, `c/o` names & street addresses in PRH Trade Register records, natural-person contact points in TED procurement notices, and ship master names in Digitraffic port calls.
 2. **Mandatory Licence & Attribution Envelope:** Every output record and MCP tool response (including error responses) embeds the exact legal attribution, licence URL, and reuse notice verified in [`LICENCE_REGISTER.md`](./LICENCE_REGISTER.md) and [`licences.json`](./licences.json).
 3. **Zero Proprietary Exchange Price Data:** Power grid tools use 100% CC BY 4.0 Fingrid & FMI physical grid and meteorological datasets (zero Nord Pool or ENTSO-E day-ahead electricity exchange prices).
 
-> **Independent Open-Source Suite:** Not affiliated with or endorsed by the Publications Office of the EU, European Commission, ECB, ENISA, PRH, Fingrid, FMI, Fintraffic, GLEIF, Brønnøysundregistrene or DG TAXUD. Uses no agency or EU logos.
+> **Independent Open-Source Suite:** Not affiliated with or endorsed by the Publications Office of the EU, European Commission, ECB, ENISA, PRH, Fingrid, FMI, Fintraffic, GLEIF, Brønnøysundregistrene, DG TAXUD, Companies House or Insee. Uses no agency or EU logos.
 
 ---
 
-## All 13 Tools at a Glance
+## All 15 Tools at a Glance
 
 | # | Tool Directory | Hosted Apify Actor | Official Upstream API | Keyless? | MCP Tools Exposed |
 |---|---|---|---|---|---|
@@ -27,7 +27,9 @@ Every tool shares a single core library (`src/lib/*`) across its **stdio MCP ser
 | **10** | [`tools/enisa-euvd-vulnerabilities`](./tools/enisa-euvd-vulnerabilities) | — (local MCP only) | EU Agency for Cybersecurity (ENISA) European Vulnerability Database (`euvd.enisa.europa.eu`) | Yes | `euvd_exploited_and_critical`, `euvd_search_vulnerabilities`, `euvd_lookup_by_id`, `euvd_licence_info` |
 | **11** | [`tools/gleif-lei-lookup`](./tools/gleif-lei-lookup) | — (local MCP only) | GLEIF LEI API (`api.gleif.org`, CC0) incl. Level 2 direct/ultimate parent relationships | Yes | `gleif_lei_lookup`, `gleif_search`, `gleif_ownership_chain`, `gleif_licence_info` |
 | **12** | [`tools/eu-vat-rates`](./tools/eu-vat-rates) | — (local MCP only) | European Commission Taxes in Europe Database (TEDB) VAT retrieval web service (CC BY 4.0) | Yes | `eu_vat_standard_rates`, `eu_vat_rates_lookup`, `eu_vat_rates_licence_info` |
-| **13** | [`tools/eu-safety-gate-alerts`](./tools/eu-safety-gate-alerts) | — (local MCP only) | EU Safety Gate weekly reports (dangerous non-food products, CC0) | Yes | `eu_safety_gate_alerts`, `eu_safety_gate_match`, `eu_safety_gate_reports`, `eu_safety_gate_licence_info` |
+| **13** | [`tools/eu-safety-gate-alerts`](./tools/eu-safety-gate-alerts) | [`itulo/eu-safety-gate-alerts`](https://apify.com/itulo/eu-safety-gate-alerts) | EU Safety Gate weekly reports (dangerous non-food products, CC0) | Yes | `eu_safety_gate_alerts`, `eu_safety_gate_match`, `eu_safety_gate_reports`, `eu_safety_gate_licence_info` |
+| **14** | [`tools/uk-companies-house-kyb`](./tools/uk-companies-house-kyb) | [`itulo/uk-companies-house-kyb`](https://apify.com/itulo/uk-companies-house-kyb) | UK Companies House Public Data API (your free key; company-level only, no officer/PSC names) + keyless GLEIF LEI & parent chain (CC0) | GLEIF modes keyless; Companies House needs a free key | — (Apify Actor only) |
+| **15** | [`tools/france-sirene-company-search`](./tools/france-sirene-company-search) | [`itulo/france-sirene-company-search`](https://apify.com/itulo/france-sirene-company-search) | Insee Sirene via API Recherche d'entreprises (`recherche-entreprises.api.gouv.fr`, Licence Ouverte 2.0); no sole traders; GDPR art. 21 marketing opt-outs excluded by default | Yes | — (Apify Actor only) |
 
 ---
 
@@ -70,7 +72,7 @@ Clone the repository, install dependencies in any tool folder, and connect direc
 git clone https://github.com/itulo/eu-nordic-open-data-mcp.git
 cd eu-nordic-open-data-mcp/tools/ted-tender-feed
 npm install
-npm test          # Offline deterministic fixture unit tests (per tool; `npm test` at the repo root runs all 88 tests across 13 tools)
+npm test          # Offline deterministic fixture unit tests (per tool; `npm test` at the repo root runs all 110 tests across 15 tools)
 npm run smoke     # Live upstream API verification
 npm run mcp       # Start stdio MCP server
 ```

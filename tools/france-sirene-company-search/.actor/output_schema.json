@@ -1,0 +1,20 @@
+{
+  "actorOutputSchemaVersion": 1,
+  "title": "France Company Search Output",
+  "description": "Company-level Sirene records and run summary.",
+  "type": "object",
+  "properties": {
+    "results": {
+      "type": "string",
+      "title": "Companies",
+      "description": "Company-level records from Insee Sirene (via API Recherche d'entreprises).",
+      "template": "{{links.apiDefaultDatasetUrl}}/items"
+    },
+    "summary": {
+      "type": "string",
+      "title": "Run summary (OUTPUT_SUMMARY)",
+      "description": "Pages, exclusions by reason, attribution.",
+      "template": "{{links.apiDefaultKeyValueStoreUrl}}/records/OUTPUT_SUMMARY"
+    }
+  }
+}

@@ -1,0 +1,3 @@
+{"total_results":2,"items_per_page":20,"start_index":0,"kind":"search#companies","items":[
+{"company_number":"12345678","title":"EXAMPLE WIDGETS LIMITED","company_status":"active","company_type":"ltd","date_of_creation":"2019-03-14","address":{"premises":"Unit 4","address_line_1":"1 Example Street","locality":"Manchester","postal_code":"M1 1AA"},"address_snippet":"Unit 4, 1 Example Street, Manchester, M1 1AA","kind":"searchresults#company"},
+{"company_number":"87654321","title":"EXAMPLE WIDGETS (NORTH) LIMITED","company_status":"dissolved","company_type":"ltd","date_of_creation":"2015-01-01","date_of_cessation":"2020-01-01","address":{"locality":"Leeds","postal_code":"LS1 1AA"},"kind":"searchresults#company"}]}

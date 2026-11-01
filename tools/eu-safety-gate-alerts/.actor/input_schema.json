@@ -1,0 +1,101 @@
+{
+  "title": "EU Safety Gate alerts input",
+  "type": "object",
+  "schemaVersion": 1,
+  "properties": {
+    "mode": {
+      "title": "Mode",
+      "type": "string",
+      "editor": "select",
+      "enum": [
+        "alerts",
+        "match"
+      ],
+      "enumTitles": [
+        "Alerts from the latest weekly reports",
+        "Screen my product catalogue against alerts"
+      ],
+      "default": "alerts",
+      "description": "alerts: alert records from the latest weekly reports (filterable). match: check your products (GTIN/EAN, marketplace listing id, brand + model) against recent alerts; one record per product checked."
+    },
+    "weeks": {
+      "title": "Weekly reports to scan",
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 52,
+      "description": "Number of latest weekly reports. Default 1 in alerts mode, 8 in match mode.",
+      "prefill": 1
+    },
+    "notifyingCountry": {
+      "title": "Notifying country",
+      "type": "string",
+      "editor": "textfield",
+      "description": "alerts mode: e.g. Finland, Germany (text match)."
+    },
+    "countryOfOrigin": {
+      "title": "Country of origin",
+      "type": "string",
+      "editor": "textfield",
+      "description": "alerts mode: e.g. China (text match)."
+    },
+    "category": {
+      "title": "Category",
+      "type": "string",
+      "editor": "textfield",
+      "description": "alerts mode: e.g. Toys, Cosmetics, Electrical appliances."
+    },
+    "riskType": {
+      "title": "Risk type",
+      "type": "string",
+      "editor": "textfield",
+      "description": "alerts mode: e.g. Chemical, Choking, Electric shock."
+    },
+    "riskLevel": {
+      "title": "Risk level",
+      "type": "string",
+      "editor": "textfield",
+      "description": "alerts mode: e.g. Serious."
+    },
+    "query": {
+      "title": "Text search",
+      "type": "string",
+      "editor": "textfield",
+      "description": "alerts mode: free text over product, brand, name, model, description."
+    },
+    "fromDate": {
+      "title": "Report date from (YYYY-MM-DD)",
+      "type": "string",
+      "editor": "textfield",
+      "pattern": "^(\\d{4}-\\d{2}-\\d{2})?$",
+      "description": "alerts mode: only reports on/after this date."
+    },
+    "onlyNew": {
+      "title": "Only alerts not seen in previous runs (monitor)",
+      "type": "boolean",
+      "default": false,
+      "description": "alerts mode: for a weekly schedule. Remembers case numbers in the named key-value store 'eu-safety-gate-alerts-state' and outputs (and charges) only new alerts."
+    },
+    "products": {
+      "title": "Products to screen (match mode)",
+      "type": "array",
+      "editor": "json",
+      "description": "match mode: array of {gtin?, brand?, model?, name?, listingId?}. Max 10,000 per run.",
+      "prefill": [
+        {
+          "gtin": "5901234123457"
+        },
+        {
+          "brand": "Example",
+          "model": "X-100"
+        }
+      ]
+    },
+    "maxResults": {
+      "title": "Max alert records",
+      "type": "integer",
+      "minimum": 1,
+      "default": 1000,
+      "description": "alerts mode: cap on records written (and charged)."
+    }
+  }
+}

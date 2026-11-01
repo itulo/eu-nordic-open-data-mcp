@@ -1,0 +1,233 @@
+{
+  "actorSpecification": 1,
+  "name": "france-sirene-company-search",
+  "title": "France Company Search (Insee Sirene) - company-level",
+  "description": "Search and look up French companies in Insee Sirene via the official API Recherche d'entreprises: SIREN, legal form, NAF, size, head-office commune, status, computed VAT number. No sole traders, no directors. Licence Ouverte 2.0. Not affiliated with Insee/DINUM.",
+  "version": "0.1",
+  "buildTag": "latest",
+  "input": "./input_schema.json",
+  "dockerfile": "../Dockerfile",
+  "storages": {
+    "dataset": {
+      "actorSpecification": 1,
+      "views": {
+        "overview": {
+          "title": "Companies",
+          "transformation": {
+            "fields": [
+              "siren",
+              "name",
+              "legalForm",
+              "activity",
+              "companyCategory",
+              "headcountLabel",
+              "status",
+              "creationDate",
+              "headOffice",
+              "vatNumberComputed",
+              "marketingOptOut",
+              "sireneUpdatedAt",
+              "attribution"
+            ]
+          },
+          "display": {
+            "component": "table"
+          }
+        }
+      },
+      "fields": {
+        "type": "object",
+        "properties": {
+          "siren": {
+            "type": "string",
+            "title": "SIREN",
+            "description": "9-digit Insee company identifier."
+          },
+          "name": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "title": "Company name",
+            "description": "Registered name (dénomination / raison sociale)."
+          },
+          "acronym": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "title": "Acronym (sigle)",
+            "description": "Registered acronym."
+          },
+          "legalForm": {
+            "type": [
+              "object",
+              "null"
+            ],
+            "title": "Legal form",
+            "description": "Insee nature juridique { code, label }.",
+            "properties": {
+              "code": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "label": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "activity": {
+            "type": [
+              "object",
+              "null"
+            ],
+            "title": "Main activity (NAF)",
+            "description": "{ naf (NAF rév. 2), naf2025, section }.",
+            "properties": {
+              "naf": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "naf2025": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "section": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "companyCategory": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "title": "Size category",
+            "description": "PME, ETI or GE (Insee)."
+          },
+          "headcountBand": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "title": "Headcount band",
+            "description": "Insee headcount band code."
+          },
+          "headcountLabel": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "title": "Headcount",
+            "description": "Headcount band label."
+          },
+          "status": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "title": "Status",
+            "description": "active or ceased."
+          },
+          "creationDate": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "title": "Creation date",
+            "description": "ISO date."
+          },
+          "closureDate": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "title": "Closure date",
+            "description": "ISO date if ceased."
+          },
+          "establishments": {
+            "type": [
+              "object",
+              "null"
+            ],
+            "title": "Establishments",
+            "description": "{ total, open }."
+          },
+          "headOffice": {
+            "type": [
+              "object",
+              "null"
+            ],
+            "title": "Head office (siège)",
+            "description": "{ siret, naf, postCode, communeCode, city, departement, region, country, employer }. No street address or coordinates."
+          },
+          "vatNumberComputed": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "title": "FR VAT number (computed)",
+            "description": "Intra-community VAT number computed from the SIREN; not a VIES validity check."
+          },
+          "sireneUpdatedAt": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "title": "Sirene update date",
+            "description": "Date of last Insee Sirene update (Licence Ouverte attribution date)."
+          },
+          "annuaireUrl": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "title": "Annuaire link",
+            "description": "Official Annuaire des Entreprises page."
+          },
+          "attribution": {
+            "type": "string",
+            "title": "Source attribution",
+            "description": "Licence Ouverte 2.0 source + update date."
+          },
+          "marketingOptOut": {
+            "type": "boolean",
+            "title": "Opposed to marketing use",
+            "description": "true = the company objected (RNE, opposition_diffusion_commerciale; GDPR art. 21(2)) to reuse of its data for commercial prospecting. Never use for marketing."
+          },
+          "marketingOptOutSource": {
+            "type": "string",
+            "title": "Opt-out source",
+            "description": "rne, or not_in_rne when the unit is absent from the RNE (flag unknown, reported as false)."
+          },
+          "diffusionStatus": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "title": "Insee diffusion status",
+            "description": "O = full diffusion, P = partial diffusion (masked fields withheld)."
+          },
+          "partialDiffusionMasked": {
+            "type": "array",
+            "title": "Withheld (partial diffusion)",
+            "description": "Fields withheld because Insee masks them for P units."
+          }
+        }
+      }
+    }
+  },
+  "output": "./output_schema.json"
+}

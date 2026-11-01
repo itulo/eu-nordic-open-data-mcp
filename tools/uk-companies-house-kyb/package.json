@@ -1,0 +1,21 @@
+{
+  "name": "uk-companies-house-kyb",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Open-Data Tool Factory: UK Companies House company-level KYB lookup (user-supplied API key) - Apify actor",
+  "engines": {
+    "node": ">=20"
+  },
+  "main": "src/main.js",
+  "scripts": {
+    "start": "node src/main.js",
+    "test": "node --test test/*.test.js",
+    "smoke": "node test/smoke.live.mjs",
+    "health": "node scripts/health.mjs"
+  },
+  "dependencies": {
+    "apify": "^3.7.2"
+  },
+  "license": "UNLICENSED"
+}

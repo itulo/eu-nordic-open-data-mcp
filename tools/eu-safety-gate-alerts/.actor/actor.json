@@ -1,0 +1,183 @@
+{
+  "actorSpecification": 1,
+  "name": "eu-safety-gate-alerts",
+  "title": "EU Safety Gate Dangerous Product Alerts & GTIN Recall Check",
+  "description": "Weekly EU Safety Gate (ex-RAPEX) dangerous non-food product alerts from the European Commission's official CC0 XML: filter by country, category, risk; only-new monitor mode; screen your catalogue by GTIN/EAN, ASIN or brand+model. Product-level only.",
+  "version": "0.1",
+  "buildTag": "latest",
+  "input": "./input_schema.json",
+  "output": "./output_schema.json",
+  "dockerfile": "../Dockerfile",
+  "storages": {
+    "dataset": {
+      "actorSpecification": 1,
+      "fields": {
+        "type": "object",
+        "properties": {
+          "recordType": {
+            "type": "string",
+            "title": "Record type",
+            "description": "safety_gate_alert (alerts mode) or safety_gate_product_check (match mode)"
+          },
+          "caseNumber": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "title": "Case number",
+            "description": "Safety Gate case number (alerts mode)"
+          },
+          "alertUrl": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "title": "Alert URL",
+            "description": "Official alert page"
+          },
+          "reportDate": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "title": "Report date",
+            "description": "Weekly report date (YYYY-MM-DD)"
+          },
+          "category": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "title": "Category",
+            "description": "Product category"
+          },
+          "product": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "title": "Product",
+            "description": "Product type"
+          },
+          "brand": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "title": "Brand",
+            "description": "Brand"
+          },
+          "model": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "title": "Model",
+            "description": "Type / model number"
+          },
+          "barcodes": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "title": "Barcodes",
+            "description": "GTIN/EAN codes from the alert"
+          },
+          "riskType": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "title": "Risk type",
+            "description": "Risk types (e.g. Chemical, Choking)"
+          },
+          "riskLevel": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "title": "Risk level",
+            "description": "Risk level"
+          },
+          "notifyingCountry": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "title": "Notifying country",
+            "description": "Country that notified the alert"
+          },
+          "countryOfOrigin": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "title": "Country of origin",
+            "description": "Declared country of origin"
+          },
+          "matched": {
+            "type": [
+              "boolean",
+              "null"
+            ],
+            "title": "Matched",
+            "description": "match mode: whether the catalogue item matched an alert"
+          },
+          "matchCount": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "title": "Match count",
+            "description": "match mode: number of matching alerts"
+          },
+          "bestMatchType": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "title": "Best match type",
+            "description": "match mode: gtin, listing_id, brand_model, brand_name or brand_only"
+          },
+          "attribution": {
+            "type": "string",
+            "title": "Attribution",
+            "description": "Mandatory source attribution (CC0 1.0)"
+          }
+        }
+      },
+      "views": {
+        "overview": {
+          "title": "Alerts",
+          "transformation": {
+            "fields": [
+              "recordType",
+              "reportDate",
+              "caseNumber",
+              "category",
+              "product",
+              "brand",
+              "model",
+              "riskType",
+              "riskLevel",
+              "notifyingCountry",
+              "countryOfOrigin",
+              "matched",
+              "bestMatchType",
+              "alertUrl"
+            ]
+          },
+          "display": {
+            "component": "table",
+            "properties": {
+              "alertUrl": {
+                "label": "Alert",
+                "format": "link"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

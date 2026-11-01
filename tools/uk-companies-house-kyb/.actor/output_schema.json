@@ -1,0 +1,20 @@
+{
+  "actorOutputSchemaVersion": 1,
+  "title": "UK Companies House KYB Output",
+  "description": "Company-level Companies House records and run summary.",
+  "type": "object",
+  "properties": {
+    "results": {
+      "type": "string",
+      "title": "Companies",
+      "description": "Company-level records from the Companies House public data API.",
+      "template": "{{links.apiDefaultDatasetUrl}}/items"
+    },
+    "summary": {
+      "type": "string",
+      "title": "Run summary (OUTPUT_SUMMARY)",
+      "description": "Mode, not-found/invalid numbers, enrichment counts.",
+      "template": "{{links.apiDefaultKeyValueStoreUrl}}/records/OUTPUT_SUMMARY"
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "name": "france-sirene-company-search",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Open-Data Tool Factory: France company search (Insee Sirene via API Recherche d'entreprises) - Apify actor",
+  "engines": {
+    "node": ">=20"
+  },
+  "main": "src/main.js",
+  "scripts": {
+    "start": "node src/main.js",
+    "test": "node --test test/*.test.js",
+    "smoke": "node test/smoke.live.mjs",
+    "health": "node scripts/health.mjs"
+  },
+  "dependencies": {
+    "apify": "^3.7.2"
+  },
+  "license": "UNLICENSED"
+}

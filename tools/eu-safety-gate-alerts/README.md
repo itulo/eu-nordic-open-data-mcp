@@ -1,15 +1,29 @@
-# EU Safety Gate dangerous-product alerts (MCP)
+# EU Safety Gate Dangerous Product Alerts & GTIN Recall Check (`itulo/eu-safety-gate-alerts`)
 
-MCP tools on the official **Safety Gate** (ex-RAPEX) weekly-report XML published every Friday by the European Commission. Licence: **CC0 1.0** (data.europa.eu XML/Excel weekly-report distributions). No key.
+Official **Safety Gate** (ex-RAPEX) alerts on dangerous non-food products, straight from the European Commission's weekly-report XML (published every Friday, **CC0 1.0**). No key, no scraping of web pages.
 
-| Tool | What it does |
-|---|---|
-| `eu_safety_gate_alerts` | Alerts from the latest N weekly reports, filtered by notifying country, origin, category, risk type/level or text. |
-| `eu_safety_gate_match` | Screen a catalogue: exact GTIN/EAN, marketplace listing id (ASIN…) and brand+model matching over the last N weeks. |
-| `eu_safety_gate_reports` | Latest weekly reports. |
-| `eu_safety_gate_licence_info` | Licence, attribution, disclaimer. |
+## What you get
+- **alerts mode** — every alert in the latest N weekly reports: case number, alert link, report date, category, product, brand, name, model, batch, **GTIN/EAN barcodes**, risk type and level, danger description, measures taken (recall, withdrawal, import rejection…), notifying country, country of origin, marketplace platform names and listing ids (e.g. ASINs), photo links.
+  Filter by notifying country, origin, category, risk type, risk level, free text or report date.
+- **Monitor (`onlyNew: true`)** — schedule it weekly and get only alerts you have not seen before.
+- **match mode** — screen your catalogue (`gtin`, `listingId`, `brand` + `model`, or `brand` + `name`) against the last 1–52 weeks. One record per product checked: `matched`, `matchCount`, `bestMatchType` (gtin › listing_id › brand_model › brand_name › brand_only) and the matching alerts. Useful for GPSR due diligence, marketplace compliance and recall checks.
 
-**Personal data:** product-level only. Marketplace seller free text is reduced to platform names + listing ids. Photos are linked, not re-hosted.
-Weekly list cached 6 h, published reports cached in memory; >= 1 s between requests.
-**Attribution:** `Source: Safety Gate - the EU rapid alert system for dangerous non-food products (ec.europa.eu/safety-gate-alerts), European Commission, weekly reports, CC0 1.0. © European Union.`
-Not legal advice. Tests: `npm test`.
+```json
+{ "mode": "alerts", "weeks": 4, "category": "Toys", "riskLevel": "Serious" }
+```
+```json
+{ "mode": "match", "weeks": 12, "products": [{ "gtin": "5901234123457" }, { "brand": "Example", "model": "X-100" }] }
+```
+
+## Pricing (pay per event)
+- `actor-start`: **$0.01** per run
+- `alert-record`: **$0.0015** per alert written ($1.50 per 1,000)
+- `product-match`: **$0.0005** per catalogue product checked ($0.50 per 1,000)
+
+A typical weekly report has a few dozen to a few hundred alerts.
+
+## Data, licence and personal data
+- Source: European Commission, Safety Gate weekly reports (`ec.europa.eu/safety-gate-alerts`), CC0 1.0 (data.europa.eu distribution). © European Union. Every record carries the attribution.
+- **Product-level only.** Seller free text is reduced to platform names and listing ids; photos are linked, not re-hosted.
+- Requests are spaced ≥ 1 s; published weekly reports are cached in memory.
+- Informational only, not legal advice. Brand/model matches can be false positives — always check the official alert. Not affiliated with or endorsed by the European Commission.
