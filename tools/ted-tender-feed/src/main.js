@@ -1,7 +1,7 @@
 // Apify actor entry point: TED EU tender feed (CPV / country / date filters, dedupe, alert mode).
 import { Actor, log } from 'apify';
 import { searchTenders, filterNew, alertWindow } from './lib/ted.js';
-import { chargeSafe } from './lib/charge.js';
+import { chargeSafe, pushCharged } from './lib/charge.js';
 
 await Actor.init();
 try {
@@ -37,10 +37,9 @@ try {
     log.info(`Alert mode: ${out.length} new notices since last run (${state.lastRunAt || 'first run'})`);
   }
   for (const rec of out) {
-    const c = await chargeSafe('tender-notice');
-    if (c?.eventChargeLimitReached && c?.chargedCount === 0) break;
-    await Actor.pushData({ ...rec, alertMode });
-    if (c?.eventChargeLimitReached) break;
+    // Write first, charge only for successfully stored items (SDK handles the charge limit).
+    const { stop } = await pushCharged({ ...rec, alertMode }, 'tender-notice');
+    if (stop) break;
   }
   await Actor.setValue('OUTPUT_SUMMARY', { query, totalMatching: total, returned: out.length, alertMode, window, attribution: out[0]?.attribution });
 } catch (err) {

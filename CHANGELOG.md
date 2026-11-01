@@ -1,5 +1,18 @@
 # Changelog
 
+## [0.2.0] - 2026-11-01
+
+### Added
+- `gleif-lei-lookup`: GLEIF LEI lookup, name/registration-number search and ownership chain (direct and ultimate parent via Level 2 relationship records, reporting exceptions, direct-children count). CC0 1.0. Sole-proprietor LEI records withheld.
+- `eu-vat-rates`: EU VAT rates per Member State from the European Commission TEDB web service (standard, reduced, super-reduced, parking, regional rates; CN/CPA/category lookups). CC BY 4.0, not legally binding.
+- `eu-safety-gate-alerts`: EU Safety Gate dangerous-product alerts from the weekly XML reports, filtering and catalogue matching by GTIN, listing ID, brand/model. CC0 1.0. No seller identities.
+- `prh-company-events`: Norway mode (Brreg Enhetsregisteret, NLOD 2.0) with new MCP tools `brreg_company_events` and `brreg_company_lookup`; sole proprietorships (ENK) excluded. Finnish default unchanged.
+- Root `npm test` runs every tool's offline fixture tests.
+
+### Changed
+- Shared library and actor sources synced with the deployed Apify builds (retry/Retry-After handling, charge helpers).
+- Licence register and `licences.json` extended with Companies House, Sirene, GLEIF, EU TEDB, Safety Gate and Brreg entries.
+
 ## [0.1.0] - 2026-10-27
 
 ### Added

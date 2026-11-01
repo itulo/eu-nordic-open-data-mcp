@@ -166,3 +166,54 @@ Saved evidence files added in `_evidence/`:
 ### EU ENISA European Vulnerability Database (EUVD — `euvd.enisa.europa.eu`)
 - **Licence:** ENISA Legal Notice (`https://www.enisa.europa.eu/about-enisa/legal-notice/legal-notice`, Section 1.2): "Reproduction of ENISA material published on this website is authorized, provided the source is acknowledged, unless it is stated otherwise."
 - **Attribution (proposed):** `Source: European Union Agency for Cybersecurity (ENISA) — European Vulnerability Database (EUVD, euvd.enisa.europa.eu), © European Union Agency for Cybersecurity. Reused with source acknowledgement under the ENISA Legal Notice.`
+
+---
+
+## Batch 3 additions (verified Sun 1 Nov 2026, about 10:40–11:00 EET / UTC+2)
+
+Verified live with curl/WebFetch on 1 Nov 2026. Machine-readable entries: `licences.json` keys `companies_house`, `sirene`, `gleif`, `eu_tedb`, `safety_gate`, `brreg`. Raw copies: `/workspace/odf-work/lic/` and `/workspace/lic/`.
+
+| Source | Status | Licence | Key? | Rate limits | Used by |
+|---|---|---|---|---|---|
+| Companies House (UK) | ✅ company-level only | Public register: "no rules or requirements on how the information … is used"; GOV.UK content OGL v3.0 | **yes**, user's own free key (secret input) | 600 req / 5 min per application | `uk-companies-house-kyb` actor (private) |
+| Insee Sirene via API Recherche d'entreprises (FR) | ✅ legal entities only | Licence Ouverte 2.0 (data.gouv.fr `license: lov2`) | no ("Accès ouvert") | 7 req/s per IP, 30 req/s per ASN, 429 + Retry-After | `france-sirene-company-search` actor (private) |
+| GLEIF LEI (global) | ✅ legal entities | CC0 1.0 | no | 60 req/min per user | MCP `gleif_*` tools |
+| EU TEDB VAT rates | ✅ | CC BY 4.0 (Commission legal notice, Decision 2011/833/EU); data from Member States | no | none published [unverified] | MCP `eu_vat_rates*` tools |
+| EU Safety Gate weekly reports | ✅ | CC0 1.0 (data.europa.eu XML/Excel weekly-report distributions) | no | none published [unverified] | MCP `eu_safety_gate_*` tools |
+| Brreg Enhetsregisteret (NO) | ✅ legal entities only | NLOD 2.0 | no ("ikke nødvendig å registrere seg") | none published [unverified]; 10,000-result paging cap | `prh-company-events` actor, `registry: "no_brreg"` mode |
+
+### Companies House (api.company-information.service.gov.uk)
+- **Licence:** https://www.gov.uk/guidance/companies-house-data-products: "We impose no rules or requirements on how the information on the public register is used, and we're not responsible for your use of the company data. You are responsible for complying with any applicable data protection, copyright and other legislation and regulations." GOV.UK text: Open Government Licence v3.0.
+- **Attribution (proposed, OGL standard statement):** `Contains public sector information licensed under the Open Government Licence v3.0. Source: Companies House public register (api.company-information.service.gov.uk); company-level fields only, officer/PSC names removed.`
+- **Key:** required (401 without one). The actor takes the **user's own** free key as a secret input. No shared key, no account created by us.
+- **Rate limit:** 600 requests per 5 minutes (https://developer-specs.company-information.service.gov.uk/guides/rateLimiting). The actor spaces requests at >= 550 ms and honours 429.
+- **Personal-data filter:** officers, PSC, disqualified officers, LLP members, insolvency practitioners never called/emitted; filing-history `description_values` whitelisted to dates/charge numbers; charge `persons_entitled` reduced to a count.
+
+### Insee Sirene via API Recherche d'entreprises (recherche-entreprises.api.gouv.fr)
+- **Licence:** Licence Ouverte 2.0. data.gouv.fr dataset "Base Sirene des entreprises et de leurs établissements (SIREN, SIRET)" has `license: lov2`. The API (dataservice `api-recherche-dentreprises`, DINUM) is `access_type: open`, no account; its own code is MIT.
+- **Attribution (proposed, meets LO 2.0 "source + date of last update"):** `Source : Insee, base Sirene des entreprises et de leurs établissements (via API Recherche d'entreprises, DINUM), Licence Ouverte 2.0, date de mise à jour indiquée dans chaque enregistrement (sireneUpdatedAt).` Every record carries `sireneUpdatedAt`.
+- **Rate limit:** 7 req/s per IP and 30 req/s per ASN (openapi.json). The actor runs at 2 req/s and honours `Retry-After`.
+- **Personal-data filter:** drops `nature_juridique` 1xxx (entrepreneurs individuels) and `est_entrepreneur_individuel`; drops nature juridique 2xxx groupings and `statut_diffusion` ≠ `O`; flags (does not drop by default) `opposition_diffusion_commerciale = true` as `prospectingOptOut`; never outputs `dirigeants`, `finances` (INPI/RNE, separate terms), élus, or street-level addresses (commune/postcode/département only).
+
+### GLEIF (api.gleif.org)
+- **Licence:** https://www.gleif.org/en/meta/lei-data-terms-of-use: "The data available through the Access Service are provided under the CC0 licence". Do not imply GLEIF endorsement; no GLEIF trademark use.
+- **Attribution (courtesy):** `Source: GLEIF LEI data (Global Legal Entity Identifier Foundation, api.gleif.org), CC0 1.0. Not endorsed by GLEIF.`
+- **Rate limit:** "60 requests, per minute, per user" (GLEIF API docs on Postman). The tool spaces requests at 1.1 s.
+- **Filter:** `entity.category = SOLE_PROPRIETOR` records are withheld (LEI and status only). BIC/MIC/ISIN/OpenCorporates/S&P mapping fields are not output (separate mapping terms, unverified).
+
+### EU TEDB VAT rates (ec.europa.eu/taxation_customs/tedb/ws/)
+- **Licence:** The DG TAXUD VAT-rates page (https://taxation-customs.ec.europa.eu/taxation/vat/vat-directive/vat-rates_en) links TEDB and its footer links the Commission legal notice (https://commission.europa.eu/legal-notice_en): "content owned by the EU on this website is licensed under the Creative Commons Attribution 4.0 International (CC BY 4.0) licence … reuse is allowed, provided appropriate credit is given and changes are indicated." TEDB data is supplied by Member States.
+- **Attribution (proposed):** `Source: European Commission, Taxes in Europe Database (TEDB), data provided by EU Member States, CC BY 4.0. Changes: SOAP response converted to JSON and filtered.`
+- **Rate limit:** none published [unverified]; 12 h cache, ≤1 req/s.
+
+### EU Safety Gate (ec.europa.eu/safety-gate-alerts)
+- **Licence:** data.europa.eu dataset `rapex-rapid-alert-system-non-food`: distributions "4. Weekly Reports - XML format" and "5. Weekly Reports - Excel format" are **Creative Commons CC0 1.0 Universal** (other distributions, e.g. HTML search, are under the Commission reuse notice and are not used).
+- **Attribution (courtesy):** `Source: Safety Gate - the EU rapid alert system for dangerous non-food products (ec.europa.eu/safety-gate-alerts), European Commission, weekly reports, CC0 1.0. © European Union.`
+- **Notes:** no personal data (product, brand, risk, measures). Product photos are linked only, not re-hosted. Not legal advice.
+
+### Brreg Enhetsregisteret (data.brreg.no)
+- **Licence:** https://www.brreg.no/produkter-og-tjenester/apne-data/: "Datasettene følger Norsk lisens for åpne data (NLOD). Det er ikke nødvendig å registrere seg for å ta datasettet i bruk." The OpenAPI spec's licence field is NLOD 2.0 (https://data.norge.no/nlod/no/2.0).
+- **Attribution (NLOD recommended wording):** `Inneholder data under Norsk lisens for offentlige data (NLOD) tilgjengeliggjort av Brønnøysundregistrene.`
+- **Personal-data filter:** drops `organisasjonsform = ENK` (sole proprietorships) including deleted ENKs; never calls `/roller`; addresses reduced to postcode/town/municipality number; `aktivitet` free text and e-mail/phone/mobile never output.
+- **SIRENE prospecting opt-out:** RNE `opposition_diffusion_commerciale` (Code de commerce R.123-320) is common, including for large companies (e.g. AIRBUS SAS). Such units are kept but flagged `prospectingOptOut: true`, and input `excludeProspectingOptOuts` drops them. Records flagged `true` must not be used for commercial prospecting; the README and input help say so. **Owner decision requested:** change the default to "exclude" if preferred.
+- **SIRENE groupings:** nature juridique 2xxx (groupings without legal personality, e.g. indivisions between natural persons) are dropped as well as 1xxx.

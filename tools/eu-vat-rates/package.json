@@ -1,0 +1,12 @@
+{
+  "name": "eu-vat-rates",
+  "version": "0.2.0",
+  "private": true,
+  "type": "module",
+  "description": "Open-Data Tool Factory: EU VAT rates from the European Commission TEDB (CC BY 4.0) - MCP server",
+  "engines": { "node": ">=20" },
+  "bin": { "eu-vat-rates-mcp": "src/mcp-server.js" },
+  "scripts": { "mcp": "node src/mcp-server.js", "test": "node --test test/*.test.js" },
+  "dependencies": { "@modelcontextprotocol/sdk": "^1.32.1", "fast-xml-parser": "^5.3.5", "zod": "^3.25.0" },
+  "license": "UNLICENSED"
+}

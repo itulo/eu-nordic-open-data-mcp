@@ -1,6 +1,6 @@
 {
   "name": "prh-company-events",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
   "type": "module",
   "description": "Open-Data Tool Factory: prh-company-events (Apify actor + MCP server sharing one core library)",

@@ -20,6 +20,19 @@ Ships as both a **Pay-Per-Event Apify Actor** (`itulo/prh-company-events`) and a
 
 ---
 
+## Norway Mode (`registry: "no_brreg"`) — Brønnøysund Enhetsregisteret
+
+Set `registry` to `no_brreg` to get the same event records for **Norway** from the Brønnøysund Register Centre's open API (`data.brreg.no/enhetsregisteret/api`, no key, NLOD 2.0). The default stays `fi_prh` (Finland), so existing inputs and schedules behave exactly as before.
+
+- **Events:** `new_company` (by registration date), plus `name_change`, `liquidation`, `bankruptcy`, `dissolution` (compulsory liquidation/dissolution), `removal`, `registered_office_change` (municipality) and `industry_change` from Brreg's official update feed (`/oppdateringer/enheter`, JSON-patch changes). `restructuring`, `merger`, `demerger`, `articles_amended`, `*_ended` are not published by Brreg and are listed under `unsupportedInNorway` in `OUTPUT_SUMMARY`.
+- **Filters:** `location` = town (`OSLO`) or 4-digit municipality number; `companyForm` = Brreg code (`AS`, `ASA`, `NUF`, `SA`, ...); `watchBusinessIds` = 9-digit organisation numbers.
+- **Record differences:** `country: "NO"`, `registry: "no_brreg"`, `businessId` is the organisasjonsnummer, `companyForm.no` holds the Norwegian label, `mainBusinessLine.naceCode`/`.no` hold the NACE (SN) code (`tol2008` is null).
+- **Company-level only:** sole proprietorships (ENK) and person registrations (PERS) are dropped and counted in `excludedPersonEntities`; the roles endpoint is never called; no street address, e-mail, phone or free-text purpose. Attribution: *"Inneholder data under Norsk lisens for offentlige data (NLOD) tilgjengeliggjort av Brønnøysundregistrene."* Not affiliated with Brreg.
+
+```json
+{ "registry": "no_brreg", "eventTypes": ["new_company", "name_change", "bankruptcy"], "maxPerEvent": 20 }
+```
+
 ## Sample Output Record
 
 ```json
@@ -203,6 +216,9 @@ docs = loader.load()
 
 ### Which official Finnish Trade Register APIs does this actor query?
 It queries the official Finnish Patent and Registration Office (PRH / Patentti- ja rekisterihallitus) Open Data v3 endpoints: `opendata-ytj-api/v3` and `opendata-registerednotices-api/v3` (`avoindata.prh.fi`). No API key is required.
+
+### Which date window does a run cover by default?
+If you set both `dateFrom` and `dateTo`, exactly that registration-date window is used. Otherwise the default is **yesterday** (Helsinki business data is published the next day). If yesterday was a Saturday or Sunday, the window reaches back to the previous **Friday** (e.g. a Monday run covers Fri–Sun), because PRH registers almost nothing at weekends. In alert mode the window starts 2 days before the last run, so nothing is missed between scheduled runs. The example input caps `maxPerEvent` at 20 (default 500).
 
 ### How does the Business ID (Y-tunnus) watchlist mode work?
 Pass an array of Finnish Business IDs in `watchBusinessIds` (e.g. `["0112038-9", "0892215-7"]`). The actor snapshots each company’s registered name, TOL 2008 industry code, company form, liquidation/bankruptcy situation, and municipality in a named KV store and emits a diff whenever a tracked supplier or customer changes status.

@@ -14,20 +14,30 @@
       "title": "Mode",
       "type": "string",
       "editor": "select",
-      "enum": ["joined_nowcast", "station_weather"],
+      "enum": [
+        "joined_nowcast",
+        "station_weather"
+      ],
       "enumTitles": [
         "Joined FMI Weather + Fingrid Wind/Solar/Consumption Nowcast Feed",
         "FMI Hub Weather Forecast Only (no Fingrid key needed)"
       ],
-      "description": "Select 'joined_nowcast' to join FMI weather with Fingrid wind/solar/consumption forecasts and actuals, or 'station_weather' for FMI hub forecasts only.",
-      "default": "joined_nowcast"
+      "description": "Select 'joined_nowcast' to join FMI weather with Fingrid wind/solar/consumption forecasts and actuals, or 'station_weather' for FMI hub forecasts only. Example input uses 'station_weather' (keyless); add your Fingrid key and pick 'joined_nowcast' for the joined feed (API default).",
+      "default": "joined_nowcast",
+      "prefill": "station_weather"
     },
     "places": {
       "title": "Finnish energy & weather hubs",
       "type": "array",
       "editor": "stringList",
       "description": "FMI forecast locations representing Finnish wind, solar, and demand hubs.",
-      "default": ["Oulu", "Vaasa", "Pori", "Helsinki", "Lappeenranta"]
+      "default": [
+        "Oulu",
+        "Vaasa",
+        "Pori",
+        "Helsinki",
+        "Lappeenranta"
+      ]
     },
     "hoursBack": {
       "title": "Hours back",

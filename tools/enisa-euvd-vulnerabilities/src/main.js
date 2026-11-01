@@ -1,7 +1,7 @@
 // Apify actor entry point: EU ENISA European Vulnerability Database (EUVD) — Exploited KEV, Critical CVEs & EPSS/CVSS Search.
 import { Actor, log } from 'apify';
 import { createEuvdClient, euvdAttribution } from './lib/euvd.js';
-import { chargeSafe } from './lib/charge.js';
+import { chargeSafe, pushCharged } from './lib/charge.js';
 
 await Actor.init();
 try {
@@ -80,8 +80,9 @@ try {
   }
 
   for (const r of records) {
-    await Actor.pushData(r);
-    await chargeSafe('vulnerability-record', 1);
+    // Write first, charge only for successfully stored items; stop at the user's charge limit.
+    const { stop } = await pushCharged(r, 'vulnerability-record');
+    if (stop) break;
   }
 
   await Actor.setValue('OUTPUT_SUMMARY', {

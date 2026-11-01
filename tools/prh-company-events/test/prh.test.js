@@ -81,6 +81,9 @@ test('alert filtering and default window', () => {
   const s1 = filterNewEvents(recs, {});
   assert.equal(s1.fresh.length, 2);
   assert.equal(filterNewEvents(recs, s1.state).fresh.length, 0);
-  assert.deepEqual(defaultWindow({}, new Date('2026-10-11T10:00:00Z')), { dateFrom: '2026-10-10', dateTo: '2026-10-10' });
+  assert.deepEqual(defaultWindow({}, new Date('2026-10-11T10:00:00Z')), { dateFrom: '2026-10-09', dateTo: '2026-10-10' });
+  // Monday run: yesterday is Sunday -> window Fri..Sun; Wednesday run: just Tuesday.
+  assert.deepEqual(defaultWindow({}, new Date('2026-10-12T10:00:00Z')), { dateFrom: '2026-10-09', dateTo: '2026-10-11' });
+  assert.deepEqual(defaultWindow({}, new Date('2026-10-14T10:00:00Z')), { dateFrom: '2026-10-13', dateTo: '2026-10-13' });
   assert.deepEqual(defaultWindow({ lastRunAt: '2026-10-09T10:00:00Z' }, new Date('2026-10-11T10:00:00Z')), { dateFrom: '2026-10-07', dateTo: '2026-10-10' });
 });

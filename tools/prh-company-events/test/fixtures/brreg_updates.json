@@ -1,0 +1,245 @@
+{
+ "_embedded": {
+  "oppdaterteEnheter": [
+   {
+    "_links": {
+     "enhet": {
+      "href": "https://data.brreg.no/enhetsregisteret/api/enheter/922868034"
+     }
+    },
+    "dato": "2026-10-30T02:45:10.652Z",
+    "endringstype": "Sletting",
+    "oppdateringsid": 25405194,
+    "organisasjonsnummer": "922868034",
+    "endringer": []
+   },
+   {
+    "_links": {
+     "enhet": {
+      "href": "https://data.brreg.no/enhetsregisteret/api/enheter/933235459"
+     }
+    },
+    "dato": "2026-10-30T05:05:12.016Z",
+    "endringer": [
+     {
+      "op": "replace",
+      "path": "/forretningsadresse/adresse/0",
+      "value": "Karl Johans gate 25"
+     },
+     {
+      "op": "remove",
+      "path": "/forretningsadresse/adresse/1"
+     },
+     {
+      "op": "replace",
+      "path": "/forretningsadresse/kommune",
+      "value": "OSLO"
+     },
+     {
+      "op": "replace",
+      "path": "/forretningsadresse/kommunenummer",
+      "value": "0301"
+     },
+     {
+      "op": "replace",
+      "path": "/forretningsadresse/postnummer",
+      "value": "0159"
+     },
+     {
+      "op": "replace",
+      "path": "/forretningsadresse/poststed",
+      "value": "OSLO"
+     }
+    ],
+    "endringstype": "Endring",
+    "oppdateringsid": 25405211,
+    "organisasjonsnummer": "933235459"
+   },
+   {
+    "_links": {
+     "enhet": {
+      "href": "https://data.brreg.no/enhetsregisteret/api/enheter/938127085"
+     }
+    },
+    "dato": "2026-10-30T07:20:11.858Z",
+    "endringstype": "Sletting",
+    "oppdateringsid": 25405384,
+    "organisasjonsnummer": "938127085"
+   },
+   {
+    "_links": {
+     "enhet": {
+      "href": "https://data.brreg.no/enhetsregisteret/api/enheter/956886309"
+     }
+    },
+    "dato": "2026-10-30T08:15:12.383Z",
+    "endringer": [
+     {
+      "op": "replace",
+      "path": "/underAvvikling",
+      "value": true
+     },
+     {
+      "op": "add",
+      "path": "/underAvviklingDato",
+      "value": "2026-10-30"
+     }
+    ],
+    "endringstype": "Endring",
+    "oppdateringsid": 25405547,
+    "organisasjonsnummer": "956886309"
+   },
+   {
+    "_links": {
+     "enhet": {
+      "href": "https://data.brreg.no/enhetsregisteret/api/enheter/938481784"
+     }
+    },
+    "dato": "2026-10-30T09:10:11.991Z",
+    "endringer": [
+     {
+      "op": "replace",
+      "path": "/aktivitet/0",
+      "value": "Utvikling av maskin- og programvare innen IT-industrien."
+     },
+     {
+      "op": "replace",
+      "path": "/forretningsadresse/adresse/0",
+      "value": "Nils Hansens vei 8"
+     },
+     {
+      "op": "remove",
+      "path": "/forretningsadresse/adresse/1"
+     },
+     {
+      "op": "replace",
+      "path": "/forretningsadresse/postnummer",
+      "value": "0667"
+     },
+     {
+      "op": "add",
+      "path": "/historiskeNavn/0",
+      "value": {
+       "fraDato": "2026-09-14 11:58:52",
+       "navn": "NFH 260817 AS",
+       "tilDato": "2026-10-30 10:07:29"
+      }
+     },
+     {
+      "op": "replace",
+      "path": "/kapital/antallAksjer",
+      "value": 30000
+     },
+     {
+      "op": "replace",
+      "path": "/kapital/innfortDato",
+      "value": "2026-10-30"
+     },
+     {
+      "op": "replace",
+      "path": "/navn",
+      "value": "SAMNA NETWORKS AS"
+     },
+     {
+      "op": "replace",
+      "path": "/vedtektsdato",
+      "value": "2026-10-01"
+     },
+     {
+      "op": "replace",
+      "path": "/vedtektsfestetFormaal/0",
+      "value": "Utvikling av maskin- og programvare innen IT-industrien og det som"
+     },
+     {
+      "op": "add",
+      "path": "/vedtektsfestetFormaal/1",
+      "value": "står i naturlig forbindelse med dette, herunder eierskap til"
+     },
+     {
+      "op": "add",
+      "path": "/vedtektsfestetFormaal/2",
+      "value": "selskaper."
+     }
+    ],
+    "endringstype": "Endring",
+    "oppdateringsid": 25405772,
+    "organisasjonsnummer": "938481784"
+   },
+   {
+    "_links": {
+     "enhet": {
+      "href": "https://data.brreg.no/enhetsregisteret/api/enheter/938632723"
+     }
+    },
+    "dato": "2026-10-30T09:25:12.729Z",
+    "endringer": [
+     {
+      "op": "replace",
+      "path": "/naeringskode1/beskrivelse",
+      "value": "Detaljhandel med bredt vareutvalg med hovedvekt på nærings- og nytelsesmidler"
+     },
+     {
+      "op": "replace",
+      "path": "/naeringskode1/kode",
+      "value": "47.110"
+     }
+    ],
+    "endringstype": "Endring",
+    "oppdateringsid": 25405828,
+    "organisasjonsnummer": "938632723"
+   },
+   {
+    "_links": {
+     "enhet": {
+      "href": "https://data.brreg.no/enhetsregisteret/api/enheter/938783055"
+     }
+    },
+    "dato": "2026-10-30T00:15:10.768Z",
+    "endringstype": "Ny",
+    "oppdateringsid": 25405193,
+    "organisasjonsnummer": "938783055"
+   },
+   {
+    "_links": {
+     "enhet": {
+      "href": "https://data.brreg.no/enhetsregisteret/api/enheter/929153464"
+     }
+    },
+    "dato": "2026-10-30T05:05:12.016Z",
+    "endringer": [
+     {
+      "op": "replace",
+      "path": "/aktivitet/0",
+      "value": "Korttidsutleie av hus, hytte, leilighet eller rom."
+     }
+    ],
+    "endringstype": "Endring",
+    "oppdateringsid": 25405198,
+    "organisasjonsnummer": "929153464"
+   },
+   {
+    "_links": {
+     "enhet": {
+      "href": "https://data.brreg.no/enhetsregisteret/api/enheter/936620965"
+     }
+    },
+    "dato": "2026-10-30T05:05:12.016Z",
+    "endringer": [
+     {
+      "op": "remove",
+      "path": "/postadresse"
+     }
+    ],
+    "endringstype": "Endring",
+    "oppdateringsid": 25405212,
+    "organisasjonsnummer": "936620965"
+   }
+  ]
+ },
+ "page": {
+  "size": 2000,
+  "totalElements": 9,
+  "totalPages": 1,
+  "number": 0
+ }
+}

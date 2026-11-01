@@ -228,7 +228,12 @@ export function filterNewEvents(records, state = {}, { keepDays = 90, now = new 
 /** Default window: yesterday (PRH updates once a day). In alert mode: since last run minus 2 days overlap. */
 export function defaultWindow(state, now = new Date()) {
   const d = (x) => x.toISOString().slice(0, 10);
-  const to = d(new Date(now.getTime() - 864e5));
-  const from = state?.lastRunAt ? d(new Date(new Date(state.lastRunAt).getTime() - 2 * 864e5)) : to;
+  const y = new Date(now.getTime() - 864e5);
+  const to = d(y);
+  // No state: yesterday, but if yesterday was a weekend (PRH registers almost nothing on Sat/Sun)
+  // reach back to the previous Friday so a default run still returns the latest business day.
+  const back = { 0: 2, 6: 1 }[y.getUTCDay()] || 0;
+  const firstRunFrom = d(new Date(y.getTime() - back * 864e5));
+  const from = state?.lastRunAt ? d(new Date(new Date(state.lastRunAt).getTime() - 2 * 864e5)) : firstRunFrom;
   return { dateFrom: from <= to ? from : to, dateTo: to };
 }

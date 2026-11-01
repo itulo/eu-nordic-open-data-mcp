@@ -1,0 +1,436 @@
+{
+  "registerVersion": "2026-11-01",
+  "verifiedAt": "2026-11-01T11:00:00+02:00",
+  "note": "Machine-readable licence register for the Open-Data Tool Factory. Human-readable version: LICENCE_REGISTER.md. Fields marked with 'unverified' could not be confirmed on an official page on the verification date. 'attributionStatus' says whether the attribution wording is the source's own exact wording ('exact') or our proposed wording that satisfies a general 'cite the source' requirement ('proposed').",
+  "sources": {
+    "fingrid": {
+      "status": "ALLOWED",
+      "publisher": "Fingrid Oyj",
+      "licence": "Creative Commons Attribution 4.0 International (CC BY 4.0)",
+      "licenceUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "termsUrl": "https://data.fingrid.fi/en/about",
+      "attribution": "Source Fingrid / data.fingrid.fi, license CC 4.0 BY",
+      "attributionStatus": "exact",
+      "attributionRules": [
+        "Preserve copyright notice, warranties/disclaimers; hyperlink to the original material where technically possible.",
+        "If material is modified, add a notice describing the modification and a hyperlink to the original material.",
+        "State the material is licensed under CC BY 4.0 with a hyperlink to the licence."
+      ],
+      "apiKeyRequired": true,
+      "apiKeyNotes": "Free registration at data.fingrid.fi developer portal; key sent in HTTP header x-api-key (not in URL).",
+      "rateLimits": "10,000 requests per 24 h and one request every two seconds per API key (data.fingrid.fi/en/instructions). Repeatedly exceeding limits may lead to restricted access or account closure.",
+      "restrictions": [
+        "CC BY 4.0 applies to datasets produced by Fingrid; datasets produced by other organisations may carry different licences (check each dataset's licence field).",
+        "No Fingrid logo; no look-alike UI (our policy; Fingrid's legal terms not separately checked for a logo clause [unverified]).",
+        "Fingrid may request removal of the attribution."
+      ],
+      "verifiedFrom": [
+        "https://data.fingrid.fi/en/about",
+        "https://data.fingrid.fi/en/instructions",
+        "https://developer-data.fingrid.fi (OpenAPI export)"
+      ]
+    },
+    "fmi": {
+      "status": "ALLOWED",
+      "publisher": "Ilmatieteen laitos / Finnish Meteorological Institute",
+      "licence": "Creative Commons Attribution 4.0 International (CC BY 4.0)",
+      "licenceUrl": "https://creativecommons.org/licenses/by/4.0/deed.fi",
+      "termsUrl": "https://www.ilmatieteenlaitos.fi/avoin-data-lisenssi",
+      "attribution": "Ilmatieteen laitoksen avoin data, <aineiston nimi> (EN: Finnish Meteorological Institute open data, <dataset name>), CC BY 4.0",
+      "attributionStatus": "exact-pattern",
+      "attributionRules": [
+        "Name the licensor and the dataset name, e.g. 'Ilmatieteen laitoksen avoin data, meriveden korkeushavainnot'."
+      ],
+      "apiKeyRequired": false,
+      "apiKeyNotes": "Users must accept the CC licence to use the interfaces; no API key mentioned on the licence page.",
+      "rateLimits": "Download service max 20,000 queries/day; view service max 10,000 queries/day; both together max 600 queries per 5 minutes (per user).",
+      "restrictions": [
+        "The FMI open-data logo may be used alongside FMI open data; the FMI (Ilmatieteen laitos) logo itself must NOT be used in open-data products.",
+        "Licence covers FMI and STUK datasets and listed air-quality datasets (annex lists air-quality licensors)."
+      ],
+      "verifiedFrom": [
+        "https://www.ilmatieteenlaitos.fi/avoin-data-lisenssi"
+      ]
+    },
+    "prh": {
+      "status": "ALLOWED (company-level fields only)",
+      "publisher": "Patentti- ja rekisterihallitus (PRH) / Finnish Patent and Registration Office; YTJ business information system",
+      "licence": "Creative Commons Attribution 4.0 International (CC BY 4.0)",
+      "licenceUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "termsUrl": "https://avoindata.prh.fi/fi/info/swagger-ui",
+      "attribution": "Source: Finnish Patent and Registration Office (PRH), open data avoindata.prh.fi (YTJ / Trade Register), licence CC BY 4.0",
+      "attributionStatus": "proposed",
+      "attributionRules": [
+        "PRH: 'Mainitse alkuperäinen lähde' (cite the original source). No exact wording given; the string above is our proposal."
+      ],
+      "apiKeyRequired": false,
+      "apiKeyNotes": "Open JSON APIs (YTJ v3, registered notices v3, XBRL). Data updated once per day.",
+      "rateLimits": "Not published as a number on the service page [unverified]; API documents HTTP 429 'Too many requests'. Tools throttle to <=1 request/second and back off on 429.",
+      "restrictions": [
+        "Do NOT use PRH or YTJ logos.",
+        "Do NOT make the service look confusingly similar to PRH services (no look-alike UI).",
+        "GDPR: register data can contain personal data (e.g. board members, c/o names in addresses, persons in notices). Our tools output company-level fields only; c/o, street, building, apartment fields are stripped.",
+        "API excludes sole traders (toiminimi) and company e-mail/phone numbers."
+      ],
+      "verifiedFrom": [
+        "https://avoindata.prh.fi/fi/info/swagger-ui",
+        "https://avoindata.prh.fi/opendata-ytj-api/v3/schema?lang=en",
+        "https://avoindata.prh.fi/opendata-registerednotices-api/v3/schema?lang=en"
+      ]
+    },
+    "ted": {
+      "status": "ALLOWED",
+      "publisher": "Publications Office of the European Union (TED - Tenders Electronic Daily)",
+      "licence": "Commission reuse policy (Commission Decision 2011/833/EU): notices freely reusable for commercial or non-commercial purposes; editorial content of TED websites under CC BY 4.0; metadata CC0 1.0",
+      "licenceUrl": "https://ted.europa.eu/en/legal-notice",
+      "termsUrl": "https://ted.europa.eu/en/legal-notice",
+      "attribution": "Source: TED - Tenders Electronic Daily (ted.europa.eu), © European Union, 1998-2026. Reused under the European Commission reuse policy (Decision 2011/833/EU); changes: fields selected, normalised and deduplicated.",
+      "attributionStatus": "proposed",
+      "attributionRules": [
+        "Give appropriate credit and indicate changes (CC BY 4.0 for editorial content; Decision 2011/833/EU Art. 6 allows conditions: acknowledge source, do not distort meaning, Commission not liable)."
+      ],
+      "apiKeyRequired": false,
+      "apiKeyNotes": "TED Search API (api.ted.europa.eu/v3/notices/search) is anonymous; API key only for publication/validation endpoints.",
+      "rateLimits": "Fair usage: 700 HTTP requests per minute; 600 notice visualisations/downloads per 6 minutes per IP; 3 concurrent bulk package downloads.",
+      "restrictions": [
+        "Third-party rights: content not owned by the EU or depicting identifiable private individuals may need separate clearance.",
+        "Personal data: notices can contain contact persons' names, e-mails and phones, jury members, and natural-person tenderers. Our tool requests only organisation-level fields (no contact persons, no winner names).",
+        "TED/SIMAP logos may not be used without prior consent of the Publications Office.",
+        "Trademarks, logos and names excluded from the reuse policy.",
+        "Only e-signed notices in the OJ S Supplement are authentic; outputs must not claim authenticity."
+      ],
+      "verifiedFrom": [
+        "https://ted.europa.eu/en/legal-notice",
+        "https://ted.europa.eu/en/simap/developers-corner-for-reusers",
+        "https://docs.ted.europa.eu/api/latest/index.html"
+      ]
+    },
+    "entsoe": {
+      "status": "PARTIAL - only datasets on the List of Data Available for Free Re-use",
+      "publisher": "ENTSO-E (Transparency Platform)",
+      "licence": "CC BY 4.0 for the 'Open Data' subset on the List of Data Available for Free Re-use (ToU clause 2.5, version applicable from 1 Nov 2023); all other data: Transparency Platform Terms of Use, may need Primary Owner's prior agreement",
+      "licenceUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "termsUrl": "https://transparencyplatform.zendesk.com/hc/en-us/articles/40921911218961-Legal-Terms-and-Conditions",
+      "attribution": "Source: ENTSO-E Transparency Platform (transparency.entsoe.eu), licence CC BY 4.0; changes made: <describe>",
+      "attributionStatus": "proposed",
+      "attributionRules": [
+        "ToU 3.1: mention the ENTSO-E Transparency Platform as the source of publication; do not use ENTSO-E names in a way suggesting sponsorship or endorsement."
+      ],
+      "apiKeyRequired": true,
+      "apiKeyNotes": "Security token after registering a Transparency Platform account and requesting RESTful API access [process details unverified on an official page].",
+      "rateLimits": "400 requests/minute per token reported by third parties [unverified].",
+      "dayAheadPricesOnFreeReuseList": false,
+      "dayAheadPricesFinding": "Day-ahead prices (Transparency Regulation Art. 12.1.d) are NOT on the free-reuse list. Verified against the official list text (version 28 Oct 2019, ENTSO-E CDN) which contains 6.1.b-e, 9.1, 10.1, 11.1, 11.4, 12.1.a-c, 12.1.f-h, 13.1.a-c, 17.1.a-j but not 12.1.d; ENTSO-E's official version history lists no later addition of 12.1.d (2020: balancing/SO guideline items; 2022: CC BY 4.0 + Georgia exception; 2023: Georgia removed from exceptions). The 18 Oct 2023 PDF itself could not be downloaded (403) [final confirmation unverified]. Reusing ENTSO-E day-ahead prices commercially therefore needs the Primary Owner's (NEMO, e.g. Nord Pool) agreement - treat as EXCLUDED.",
+      "restrictions": [
+        "Exceptions in the list: data from Moldova and Turkey; IFA (FR-GB) and Nemo Link (BE-GB) interconnector data (2019 list); later versions changed Georgia/BritNed status.",
+        "Data User must check the list before each re-use.",
+        "No ENTSO-E logo or endorsement implication."
+      ],
+      "verifiedFrom": [
+        "https://eepublicdownloads.azureedge.net/clean-documents/mc-documents/transparency-platform/List_of_Data_available_for_reuse.pdf",
+        "https://transparencyplatform.zendesk.com/hc/article_attachments/40921869376401 (ToU 29 Mar 2023)",
+        "https://transparencyplatform.zendesk.com/hc/en-us/articles/40921911218961-Legal-Terms-and-Conditions"
+      ]
+    },
+    "eu_sanctions": {
+      "status": "ALLOWED with conditions (personal data inside)",
+      "publisher": "European Commission, DG FISMA - Financial Sanctions Files (FSF)",
+      "licence": "European Commission reuse notice (Commission Decision 2011/833/EU on the reuse of Commission documents); data.europa.eu also tags one CSV 1.0 distribution as CC BY 4.0",
+      "licenceUrl": "https://eur-lex.europa.eu/eli/dec/2011/833/oj",
+      "termsUrl": "https://data.europa.eu/data/datasets/consolidated-list-of-persons-groups-and-entities-subject-to-eu-financial-sanctions",
+      "attribution": "Source: European Commission, Consolidated list of persons, groups and entities subject to EU financial sanctions (Financial Sanctions Files, webgate.ec.europa.eu/fsd/fsf), file generated <fileGenerationDate>. Reused under Commission Decision 2011/833/EU. Not legal advice; check the official list and the Official Journal.",
+      "attributionStatus": "proposed",
+      "attributionRules": [
+        "Decision 2011/833/EU Art. 6(2): acknowledge the source; do not distort the original meaning; Commission not liable for consequences of reuse.",
+        "Art. 4: reuse for commercial or non-commercial purposes, without charge, without individual application."
+      ],
+      "apiKeyRequired": false,
+      "apiKeyNotes": "Public file URLs with a public token (e.g. .../fsd/fsf/public/files/csvFullSanctionsList_1_1/content?token=...) download without login (tested 2026-10-11, ~25 MB CSV). The FSF web UI itself now redirects to EU Login.",
+      "rateLimits": "None published [unverified]; daily update cadence - one download per day is sufficient.",
+      "restrictions": [
+        "Contains personal data of sanctioned natural persons: GDPR applies to our processing (Art. 4 of the Decision requires full respect of personal-data rules). Need a lawful basis (screening/legal-obligation support), accuracy (always show list date) and no enrichment/profiling.",
+        "Every response must carry a 'not legal advice' disclaimer and the list generation date; legally binding text is the Official Journal.",
+        "Do not distort meaning (e.g. fuzzy-match scores must be labelled as possible matches, not determinations).",
+        "EU logos/emblem not licensed."
+      ],
+      "verifiedFrom": [
+        "https://data.europa.eu/api/hub/search/datasets/consolidated-list-of-persons-groups-and-entities-subject-to-eu-financial-sanctions",
+        "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32011D0833",
+        "https://data.europa.eu/en/copyright-notice"
+      ]
+    },
+    "nordpool": {
+      "status": "EXCLUDED",
+      "publisher": "Nord Pool AS",
+      "licence": "Proprietary - paid data licence required for public display or redistribution",
+      "licenceUrl": "https://www.nordpoolgroup.com/49fb8e/globalassets/download-center/power-data-services/general-terms-data-services-data.pdf",
+      "attribution": null,
+      "attributionStatus": "n/a",
+      "apiKeyRequired": true,
+      "rateLimits": "n/a",
+      "restrictions": [
+        "Do not ingest, display or redistribute Nord Pool prices in any tool. ROUND4 estimate of licence cost about EUR 3,500-5,500/yr [not re-verified in this round]. Also excludes the same prices obtained via ENTSO-E (12.1.d)."
+      ],
+      "verifiedFrom": []
+    },
+    "eu_vies": {
+      "status": "ALLOWED (company-level fields only; strip sole-trader personal data)",
+      "publisher": "European Commission, Directorate-General for Taxation and Customs Union (DG TAXUD) — VIES (VAT Information Exchange System)",
+      "licence": "European Commission reuse policy (Commission Decision 2011/833/EU on the reuse of Commission documents) and VIES Specific Disclaimer",
+      "licenceUrl": "https://eur-lex.europa.eu/eli/dec/2011/833/oj",
+      "termsUrl": "https://ec.europa.eu/taxation_customs/vies/#/self-monitoring",
+      "attribution": "Source: European Commission, VIES (VAT Information Exchange System, ec.europa.eu/taxation_customs/vies), retrieved from national EU Member State VAT databases. Reused under Commission Decision 2011/833/EU. Company-level data only; sole-trader personal names/addresses redacted.",
+      "attributionStatus": "proposed",
+      "attributionRules": [
+        "Decision 2011/833/EU Art. 6(2): acknowledge the source, do not distort meaning, and state that the Commission is not liable for reuse consequences.",
+        "Include VIES notice that validation is pulled in real time from national VAT databases and is not legal or tax advice."
+      ],
+      "apiKeyRequired": false,
+      "apiKeyNotes": "Public REST API at https://ec.europa.eu/taxation_customs/vies/rest-api/check-vat-number and /check-status.",
+      "rateLimits": "Member State national VAT databases enforce concurrent request limits (MS_MAX_CONCURRENT_REQ / GLOBAL_MAX_CONCURRENT_REQ); our client throttles requests sequentially with backoff.",
+      "restrictions": [
+        "GDPR: National VAT databases (e.g. FI, PL, IE) return natural-person names and residential addresses for sole traders (toiminimi / Einzelunternehmen). Our tool detects non-corporate entities and strips natural-person names and street addresses, outputting company-level fields only.",
+        "No European Commission or VIES logos or look-alike UI.",
+        "Only confirms VAT number validity at the request timestamp; not legal or tax advice."
+      ],
+      "verifiedFrom": [
+        "https://commission.europa.eu/legal-notice_en",
+        "https://eur-lex.europa.eu/eli/dec/2011/833/oj",
+        "https://ec.europa.eu/taxation_customs/vies/assets/i18n/en.json"
+      ]
+    },
+    "ecb": {
+      "status": "ALLOWED",
+      "publisher": "European Central Bank (ECB) / European System of Central Banks (ESCB)",
+      "licence": "Policy regarding the reuse of ESCB statistics (free commercial and non-commercial reuse with source citation)",
+      "licenceUrl": "https://www.ecb.europa.eu/stats/ecb_statistics/governance_and_quality_framework/html/usage_policy.en.html",
+      "termsUrl": "https://www.ecb.europa.eu/home/disclaimer/html/index.en.html",
+      "attribution": "Source: ECB statistics (European Central Bank SDMX 2.1 Data Portal, data.ecb.europa.eu). Reused under the Policy regarding the reuse of ESCB statistics; reference rates are published for information purposes only.",
+      "attributionStatus": "exact-pattern",
+      "attributionRules": [
+        "Quote the source (exact example in policy: \"Source: ECB statistics.\").",
+        "Do not modify the underlying official statistics or metadata; clearly distinguish any derived invoice/currency conversions from the official ECB reference rate.",
+        "Preserve ECB disclaimers (reference exchange rates are for information purposes only; using them for transaction settlement is at the user's own risk)."
+      ],
+      "apiKeyRequired": false,
+      "apiKeyNotes": "Keyless SDMX 2.1 REST API at https://data-api.ecb.europa.eu/service/data/.",
+      "rateLimits": "Fair usage policy on data-api.ecb.europa.eu; client spaces requests and caches reference series.",
+      "restrictions": [
+        "No ECB logo or endorsement implication.",
+        "Derived currency conversion amounts must clearly state they are calculated from official ECB EUR reference rates."
+      ],
+      "verifiedFrom": [
+        "https://www.ecb.europa.eu/stats/ecb_statistics/governance_and_quality_framework/html/usage_policy.en.html",
+        "https://www.ecb.europa.eu/home/disclaimer/html/index.en.html"
+      ]
+    },
+    "digitraffic": {
+      "status": "ALLOWED",
+      "publisher": "Fintraffic (Traffic Management Finland / Liikenteenohjausyhtiö Fintraffic Oy)",
+      "licence": "Creative Commons Attribution 4.0 International (CC BY 4.0)",
+      "licenceUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "termsUrl": "https://www.digitraffic.fi/en/terms-of-service/",
+      "attribution": "Source: Fintraffic / digitraffic.fi, license CC 4.0 BY",
+      "attributionStatus": "exact",
+      "attributionRules": [
+        "Use Fintraffic's exact attribution wording: \"Source: Fintraffic / digitraffic.fi, license CC 4.0 BY\".",
+        "Include a hyperlink to the original material (https://www.digitraffic.fi) and to the CC BY 4.0 licence (https://creativecommons.org/licenses/by/4.0/).",
+        "If material is modified, add a notice describing the modification."
+      ],
+      "apiKeyRequired": false,
+      "apiKeyNotes": "Keyless REST APIs at meri.digitraffic.fi, tie.digitraffic.fi, rata.digitraffic.fi; requires descriptive Digitraffic-User header and gzip Accept-Encoding.",
+      "rateLimits": "Fair use rate limits per IP; always send Digitraffic-User header and Accept-Encoding: gzip.",
+      "restrictions": [
+        "No Fintraffic or Digitraffic logos or look-alike UI.",
+        "GDPR: Strip any crew/master/contact person names if ever present; output vessel/company/port-level fields only."
+      ],
+      "verifiedFrom": [
+        "https://www.digitraffic.fi/en/terms-of-service/",
+        "https://www.digitraffic.fi/kayttoehdot/"
+      ]
+    },
+    "enisa_euvd": {
+      "status": "ALLOWED",
+      "publisher": "European Union Agency for Cybersecurity (ENISA) — European Vulnerability Database (EUVD)",
+      "licence": "ENISA Legal Notice (reproduction and reuse of ENISA material published on its websites is authorized provided the source is acknowledged)",
+      "licenceUrl": "https://www.enisa.europa.eu/about-enisa/legal-notice/legal-notice",
+      "termsUrl": "https://euvd.enisa.europa.eu/apidoc",
+      "attribution": "Source: European Union Agency for Cybersecurity (ENISA) — European Vulnerability Database (EUVD, euvd.enisa.europa.eu), © European Union Agency for Cybersecurity. Reused with source acknowledgement under the ENISA Legal Notice.",
+      "attributionStatus": "proposed",
+      "attributionRules": [
+        "ENISA Legal Notice Section 1.2: \"Reproduction of ENISA material published on this website is authorized, provided the source is acknowledged, unless it is stated otherwise.\"",
+        "Link to https://euvd.enisa.europa.eu and preserve EUVD/CVE identifiers and dates."
+      ],
+      "apiKeyRequired": false,
+      "apiKeyNotes": "Keyless JSON REST API at https://euvdservices.enisa.europa.eu/api/ documented at https://euvd.enisa.europa.eu/apidoc.",
+      "rateLimits": "Max 100 records per /api/search request; client spaces requests politely.",
+      "restrictions": [
+        "No ENISA or EU logos or endorsement implication.",
+        "Vulnerability data is provided for cybersecurity situational awareness and NIS2 compliance support; not legal advice."
+      ],
+      "verifiedFrom": [
+        "https://www.enisa.europa.eu/about-enisa/legal-notice/legal-notice",
+        "https://euvd.enisa.europa.eu/apidoc"
+      ]
+    },
+    "companies_house": {
+      "status": "ALLOWED (company-level fields only; officers/PSC endpoints never called)",
+      "publisher": "Companies House (UK), Public Data API api.company-information.service.gov.uk",
+      "licence": "Companies House public register: 'We impose no rules or requirements on how the information on the public register is used'; GOV.UK content under the Open Government Licence v3.0",
+      "licenceUrl": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "termsUrl": "https://www.gov.uk/guidance/companies-house-data-products",
+      "attribution": "Contains public sector information licensed under the Open Government Licence v3.0. Source: Companies House public register (api.company-information.service.gov.uk); company-level fields only, officer/PSC names removed.",
+      "attributionStatus": "proposed",
+      "attributionRules": [
+        "OGL v3.0: acknowledge the source with the standard OGL attribution statement.",
+        "Companies House: user is responsible for complying with data protection law (hence company-level filtering)."
+      ],
+      "apiKeyRequired": true,
+      "apiKeyNotes": "Free API key from developer.company-information.service.gov.uk, sent as HTTP Basic username. Our actor takes the USER'S OWN key as a secret input; we do not share a key across users.",
+      "rateLimits": "600 requests per 5 minutes per application (developer-specs.company-information.service.gov.uk rate limiting page); 429 for the rest of the window; repeated abuse can lead to a ban. Actor throttles to <=1 request/0.55 s and honours 429.",
+      "restrictions": [
+        "GDPR: officers, persons with significant control, disqualified officers, LLP members and insolvency practitioners are personal data: those endpoints are never called / those fields are dropped.",
+        "Filing history: description_values reduced to a whitelist of date/charge fields (officer names removed).",
+        "Charges: persons_entitled names removed (count only).",
+        "No Companies House or GOV.UK logos or crown; not affiliated."
+      ],
+      "verifiedFrom": [
+        "https://www.gov.uk/guidance/companies-house-data-products",
+        "https://developer-specs.company-information.service.gov.uk/guides/rateLimiting",
+        "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
+      ],
+      "verifiedAt": "2026-11-01T11:00:00+02:00"
+    },
+    "sirene": {
+      "status": "ALLOWED (legal entities only; entrepreneurs individuels and non-diffusible/partially-diffusible units dropped)",
+      "publisher": "Insee, base Sirene des entreprises et de leurs établissements, served by DINUM's API Recherche d'entreprises (recherche-entreprises.api.gouv.fr)",
+      "licence": "Licence Ouverte / Open Licence 2.0 (Etalab)",
+      "licenceUrl": "https://www.etalab.gouv.fr/wp-content/uploads/2017/04/ETALAB-Licence-Ouverte-v2.0.pdf",
+      "termsUrl": "https://www.data.gouv.fr/datasets/base-sirene-des-entreprises-et-de-leurs-etablissements-siren-siret",
+      "attribution": "Source : Insee, base Sirene des entreprises et de leurs établissements (via API Recherche d'entreprises, DINUM), Licence Ouverte 2.0, date de mise à jour indiquée dans chaque enregistrement (sireneUpdatedAt).",
+      "attributionStatus": "proposed",
+      "attributionRules": [
+        "Licence Ouverte 2.0: mention the source (producer) and the date of last update of the data."
+      ],
+      "apiKeyRequired": false,
+      "apiKeyNotes": "API Recherche d'entreprises: 'Accès ouvert', no account/key (data.gouv.fr dataservice 672cf684c3488a0c533f7094; access_type=open). The API software itself is MIT.",
+      "rateLimits": "Max 7 requests/second per IP and 30 requests/second per ASN (openapi.json info.description); HTTP 429 with Retry-After. Actor throttles to 2 requests/second (shared cloud ASN) and honours Retry-After.",
+      "restrictions": [
+        "GDPR: dirigeants (directors), finances (INPI/RNE annual accounts, separate terms), elected officials and street-level addresses are NOT output.",
+        "Entrepreneurs individuels (nature_juridique category 1xxx / est_entrepreneur_individuel) are dropped.",
+        "statut_diffusion != 'O' (partial diffusion) units are dropped.",
+        "No Insee/Marianne/RF logos; not affiliated.",
+        "RNE 'opposition_diffusion_commerciale' (Code de commerce R.123-320 / GDPR art. 21(2)): such units are kept for KYB/due-diligence use but flagged prospectingOptOut=true; input excludeProspectingOptOuts drops them. Records flagged true must not be used for commercial prospecting.",
+        "Groupings without legal personality (nature juridique 2xxx, e.g. indivisions between natural persons) are dropped together with entrepreneurs individuels (1xxx)."
+      ],
+      "verifiedFrom": [
+        "https://www.data.gouv.fr/api/1/datasets/base-sirene-des-entreprises-et-de-leurs-etablissements-siren-siret/ (license=lov2)",
+        "https://www.data.gouv.fr/dataservices/api-recherche-dentreprises",
+        "https://recherche-entreprises.api.gouv.fr/openapi.json"
+      ],
+      "verifiedAt": "2026-11-01T11:00:00+02:00"
+    },
+    "gleif": {
+      "status": "ALLOWED (legal entities; SOLE_PROPRIETOR category withheld)",
+      "publisher": "Global Legal Entity Identifier Foundation (GLEIF), GLEIF API api.gleif.org (LEI-CDF Level 1 and RR-CDF Level 2 data)",
+      "licence": "Creative Commons CC0 1.0 Universal",
+      "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "termsUrl": "https://www.gleif.org/en/meta/lei-data-terms-of-use",
+      "attribution": "Source: GLEIF LEI data (Global Legal Entity Identifier Foundation, api.gleif.org), CC0 1.0. Not endorsed by GLEIF.",
+      "attributionStatus": "proposed",
+      "attributionRules": [
+        "CC0: no attribution legally required; courtesy attribution given.",
+        "GLEIF terms: do not imply GLEIF endorsement; do not use the GLEIF name/logo as a trademark."
+      ],
+      "apiKeyRequired": false,
+      "apiKeyNotes": "Anonymous JSON:API. BIC/ISIN/MIC/OpenCorporates/S&P mapping fields are NOT output (separate mapping terms; not verified).",
+      "rateLimits": "60 requests per minute per user (GLEIF API documentation, documenter.getpostman.com/view/7679680/SVYrrxuU). Tool throttles to 1 request/1.1 s and honours 429.",
+      "restrictions": [
+        "entity.category = SOLE_PROPRIETOR records relate to natural persons: names/addresses withheld (only LEI + status returned).",
+        "No GLEIF logo; no implied endorsement."
+      ],
+      "verifiedFrom": [
+        "https://www.gleif.org/en/meta/lei-data-terms-of-use",
+        "https://documenter.getpostman.com/view/7679680/SVYrrxuU"
+      ],
+      "verifiedAt": "2026-11-01T11:00:00+02:00"
+    },
+    "eu_tedb": {
+      "status": "ALLOWED",
+      "publisher": "European Commission, DG TAXUD, Taxes in Europe Database (TEDB) VAT retrieval web service (ec.europa.eu/taxation_customs/tedb/ws/); data supplied by the EU Member States",
+      "licence": "Creative Commons Attribution 4.0 International (CC BY 4.0), European Commission reuse policy (Decision 2011/833/EU), per the Commission legal notice linked from the DG TAXUD site",
+      "licenceUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "termsUrl": "https://commission.europa.eu/legal-notice_en",
+      "attribution": "Source: European Commission, Taxes in Europe Database (TEDB), data provided by EU Member States, CC BY 4.0. Changes: SOAP response converted to JSON and filtered.",
+      "attributionStatus": "proposed",
+      "attributionRules": [
+        "CC BY 4.0: give appropriate credit, link the licence, indicate changes.",
+        "Information is provided by the Member States; not legal or tax advice."
+      ],
+      "apiKeyRequired": false,
+      "apiKeyNotes": "Public SOAP service, WSDL https://ec.europa.eu/taxation_customs/tedb/ws/VatRetrievalService.wsdl, operation retrieveVatRates.",
+      "rateLimits": "None published [unverified]. Tool caches responses for 12 h and sends at most 1 request/second.",
+      "restrictions": [
+        "No personal data.",
+        "No EU emblem/look-alike UI.",
+        "Rates are informational; the national VAT law prevails."
+      ],
+      "verifiedFrom": [
+        "https://commission.europa.eu/legal-notice_en",
+        "https://taxation-customs.ec.europa.eu/taxation/vat/vat-directive/vat-rates_en (footer links to the Commission legal notice; TEDB data provided by Member States)",
+        "https://ec.europa.eu/taxation_customs/tedb/ws/VatRetrievalService.wsdl"
+      ],
+      "verifiedAt": "2026-11-01T11:00:00+02:00"
+    },
+    "safety_gate": {
+      "status": "ALLOWED",
+      "publisher": "European Commission, DG JUST, Safety Gate - the EU rapid alert system for dangerous non-food products (weekly reports)",
+      "licence": "Creative Commons CC0 1.0 Universal (data.europa.eu distributions 'Weekly Reports - XML format' and 'Weekly Reports - Excel format' of dataset rapex-rapid-alert-system-non-food)",
+      "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "termsUrl": "https://data.europa.eu/data/datasets/rapex-rapid-alert-system-non-food",
+      "attribution": "Source: Safety Gate - the EU rapid alert system for dangerous non-food products (ec.europa.eu/safety-gate-alerts), European Commission, weekly reports, CC0 1.0. © European Union.",
+      "attributionStatus": "proposed",
+      "attributionRules": [
+        "CC0: no attribution required; courtesy attribution given with a link to each alert."
+      ],
+      "apiKeyRequired": false,
+      "apiKeyNotes": "Public XML: weekly-report list https://ec.europa.eu/safety-gate-alerts/api/download/weeklyReport/list/xml/en and per-report detail XML.",
+      "rateLimits": "None published [unverified]. Weekly report XML cached 6 h; max 1 request/second.",
+      "restrictions": [
+        "Product photos are only linked (picture URLs), not re-hosted: third-party rights may apply to images.",
+        "Other Safety Gate distributions (HTML search, statistics) are under the Commission reuse notice, not used.",
+        "Not legal advice; an alert match is a signal to check the official alert."
+      ],
+      "verifiedFrom": [
+        "https://data.europa.eu/api/hub/search/datasets/rapex-rapid-alert-system-non-food"
+      ],
+      "verifiedAt": "2026-11-01T11:00:00+02:00"
+    },
+    "brreg": {
+      "status": "ALLOWED (legal entities only; ENK sole proprietorships dropped)",
+      "publisher": "Brønnøysundregistrene (Brønnøysund Register Centre), Enhetsregisteret open data API data.brreg.no/enhetsregisteret/api",
+      "licence": "Norsk lisens for offentlige data (NLOD) 2.0",
+      "licenceUrl": "https://data.norge.no/nlod/no/2.0",
+      "termsUrl": "https://www.brreg.no/produkter-og-tjenester/apne-data/",
+      "attribution": "Inneholder data under Norsk lisens for offentlige data (NLOD) tilgjengeliggjort av Brønnøysundregistrene. (Contains data under the Norwegian licence for Open Government data (NLOD) made available by the Brønnøysund Register Centre.)",
+      "attributionStatus": "exact (NLOD 2.0 recommended attribution wording)",
+      "attributionRules": [
+        "NLOD 2.0: name the licensor and link to the licence; do not imply endorsement."
+      ],
+      "apiKeyRequired": false,
+      "apiKeyNotes": "'Det er ikke nødvendig å registrere seg' (no registration needed). OpenAPI spec licence field: NLOD 2.0.",
+      "rateLimits": "No number published [unverified]; search pagination capped at 10,000 results per query. Our client sends <=4 requests/second and backs off on 429/5xx.",
+      "restrictions": [
+        "GDPR: organisasjonsform ENK (enkeltpersonforetak, sole proprietorships) are natural persons: dropped. Roles (roller) endpoint is never called.",
+        "Addresses reduced to postnummer/poststed/kommunenummer (c/o and street lines can name persons).",
+        "Free-text 'aktivitet' and contact fields (e-mail, phone, mobile) are not output.",
+        "No Brreg logo; not affiliated."
+      ],
+      "verifiedFrom": [
+        "https://www.brreg.no/produkter-og-tjenester/apne-data/",
+        "https://data.brreg.no/enhetsregisteret/api/dokumentasjon/no/index.html (OpenAPI license: NLOD 2.0)"
+      ],
+      "verifiedAt": "2026-11-01T11:00:00+02:00"
+    }
+  }
+}

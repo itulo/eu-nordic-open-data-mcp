@@ -1,7 +1,7 @@
 // Apify actor entry point: FMI Severe Weather & Marine Alerts (CAP) + Live Weather & Sea-Level Observations (WFS).
 import { Actor, log } from 'apify';
 import { createFmiAlertsClient, fmiAlertsAttribution, DEFAULT_OBS_PLACES } from './lib/fmi-alerts.js';
-import { chargeSafe } from './lib/charge.js';
+import { chargeSafe, pushCharged } from './lib/charge.js';
 
 await Actor.init();
 try {
@@ -44,8 +44,9 @@ try {
   }
 
   for (const r of records) {
-    await Actor.pushData(r);
-    await chargeSafe('weather-alert-or-obs', 1);
+    // Write first, charge only for successfully stored items; stop at the user's charge limit.
+    const { stop } = await pushCharged(r, 'weather-alert-or-obs');
+    if (stop) break;
   }
 
   await Actor.setValue('OUTPUT_SUMMARY', {

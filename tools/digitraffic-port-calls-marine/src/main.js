@@ -6,7 +6,7 @@ import {
   buildPortCongestionSummary,
   digitrafficAttribution,
 } from './lib/digitraffic.js';
-import { chargeSafe } from './lib/charge.js';
+import { chargeSafe, pushCharged } from './lib/charge.js';
 
 await Actor.init();
 try {
@@ -36,8 +36,9 @@ try {
   }
 
   for (const r of records) {
-    await Actor.pushData(r);
-    await chargeSafe('port-call-record', 1);
+    // Write first, charge only for successfully stored items; stop at the user's charge limit.
+    const { stop } = await pushCharged(r, 'port-call-record');
+    if (stop) break;
   }
 
   await Actor.setValue('OUTPUT_SUMMARY', {

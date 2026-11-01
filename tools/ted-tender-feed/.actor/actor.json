@@ -36,27 +36,42 @@
         "type": "object",
         "properties": {
           "publicationNumber": {
-            "type": "string",
+            "type": [
+              "string",
+              "null"
+            ],
             "title": "Publication number",
             "description": "Official TED notice publication number (e.g., 123456-2026)."
           },
           "publicationDate": {
-            "type": "string",
+            "type": [
+              "string",
+              "null"
+            ],
             "title": "Publication date",
             "description": "ISO date of publication in the Official Journal S."
           },
           "noticeType": {
-            "type": "string",
+            "type": [
+              "string",
+              "null"
+            ],
             "title": "Notice type code",
             "description": "TED notice type code."
           },
           "noticeTypeLabel": {
-            "type": "string",
+            "type": [
+              "string",
+              "null"
+            ],
             "title": "Notice type",
             "description": "Human-readable notice type label."
           },
           "title": {
-            "type": "string",
+            "type": [
+              "string",
+              "null"
+            ],
             "title": "Title",
             "description": "Notice title in the requested language."
           },
@@ -77,7 +92,10 @@
             }
           },
           "mainCpv": {
-            "type": "string",
+            "type": [
+              "string",
+              "null"
+            ],
             "title": "Main CPV code",
             "description": "Primary Common Procurement Vocabulary (CPV) code."
           },
@@ -99,19 +117,22 @@
           },
           "estimatedValue": {
             "type": [
-              "number",
+              "object",
               "null"
             ],
             "title": "Estimated value",
-            "description": "Estimated contract value where published."
-          },
-          "currency": {
-            "type": [
-              "string",
-              "null"
-            ],
-            "title": "Currency",
-            "description": "Currency of the estimated value."
+            "description": "Estimated contract value where published: { amount, currency }.",
+            "properties": {
+              "amount": {
+                "type": "number"
+              },
+              "currency": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
           },
           "procedureId": {
             "type": [
@@ -122,7 +143,10 @@
             "description": "Procedure identifier used for deduplicating corrigenda."
           },
           "url": {
-            "type": "string",
+            "type": [
+              "string",
+              "null"
+            ],
             "title": "TED notice URL",
             "description": "Official link to the notice on ted.europa.eu."
           },

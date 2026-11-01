@@ -1,7 +1,7 @@
 // Apify actor entry point: EU Consolidated Financial Sanctions List (DG FISMA / FSF) screening.
 import { Actor, log } from 'apify';
 import { loadSanctionsList, screenBatch, lookupEntities, complianceEnvelope } from './lib/sanctions.js';
-import { chargeSafe } from './lib/charge.js';
+import { chargeSafe, pushCharged } from './lib/charge.js';
 
 await Actor.init();
 try {
@@ -33,10 +33,9 @@ try {
     });
 
     for (const row of batch.datasetRows) {
-      const c = await chargeSafe('screened-query');
-      if (c?.eventChargeLimitReached && c?.chargedCount === 0) break;
-      await Actor.pushData(row);
-      if (c?.eventChargeLimitReached) break;
+      // Write first, charge only for successfully stored rows; stop at the user's charge limit.
+      const { stop } = await pushCharged(row, 'screened-query');
+      if (stop) break;
     }
 
     const summary = {
@@ -61,17 +60,15 @@ try {
       limit: maxMatchesPerQuery || 25,
     });
     for (const ent of looked.entities) {
-      const c = await chargeSafe('screened-query');
-      if (c?.eventChargeLimitReached && c?.chargedCount === 0) break;
-      await Actor.pushData({
+      const { stop } = await pushCharged({
         query: '*',
         status: 'listed_entity',
         matchType: 'listed entity',
         matchLabel: 'listed entity (browse mode)',
         score: 1.0,
         ...ent,
-      });
-      if (c?.eventChargeLimitReached) break;
+      }, 'screened-query');
+      if (stop) break;
     }
     const summary = {
       mode: 'browse',

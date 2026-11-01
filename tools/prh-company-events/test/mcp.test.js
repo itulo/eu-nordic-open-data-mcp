@@ -13,12 +13,15 @@ test('MCP server lists tools and returns attribution', async () => {
   await client.connect(new StdioClientTransport({ command: process.execPath, args: [path.join(root, 'src/mcp-server.js')] }));
   try {
     const { tools } = await client.listTools();
-    assert.deepEqual(tools.map((t) => t.name).sort(), ['prh_company_events', 'prh_licence_info', 'prh_watch_companies']);
+    assert.deepEqual(tools.map((t) => t.name).sort(), ['brreg_company_events', 'brreg_company_lookup', 'prh_company_events', 'prh_licence_info', 'prh_watch_companies']);
     const res = await client.callTool({ name: 'prh_licence_info', arguments: {} });
     const body = JSON.parse(res.content[0].text);
     assert.match(body.attribution, /PRH/);
     const bad = await client.callTool({ name: 'prh_watch_companies', arguments: { businessIds: ['12'] } });
     assert.equal(bad.isError, true);
     assert.match(JSON.parse(bad.content[0].text).attribution, /PRH/);
+    const badNo = await client.callTool({ name: 'brreg_company_lookup', arguments: { orgNumber: '12' } });
+    assert.equal(badNo.isError, true);
+    assert.match(JSON.parse(badNo.content[0].text).attribution, /NLOD/);
   } finally { await client.close(); }
 });

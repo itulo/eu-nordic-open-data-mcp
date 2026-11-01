@@ -1,7 +1,7 @@
 // Apify actor entry point: Official European Commission VIES B2B VAT Batch Validator & Reverse-Charge Check.
 import { Actor, log } from 'apify';
 import { createViesClient, viesAttribution } from './lib/vies.js';
-import { chargeSafe } from './lib/charge.js';
+import { chargeSafe, pushCharged } from './lib/charge.js';
 
 await Actor.init();
 try {
@@ -34,8 +34,9 @@ try {
   }
 
   for (const r of records) {
-    await Actor.pushData(r);
-    await chargeSafe('vat-check', 1);
+    // Write first, charge only for successfully stored items; stop at the user's charge limit.
+    const { stop } = await pushCharged(r, 'vat-check');
+    if (stop) break;
   }
 
   const validCount = records.filter((r) => r.recordType === 'vies_vat_validation' && r.valid).length;

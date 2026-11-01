@@ -2,17 +2,17 @@
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
   "name": "io.github.itulo/eu-nordic-open-data-mcp",
   "title": "EU & Nordic Official Open-Data MCP Suite",
-  "description": "Official EU & Finnish open data for agents: TED tenders, sanctions, VIES, ECB, EUVD, Fingrid, FMI.",
+  "description": "Official EU & Nordic open data: TED, sanctions, VIES, VAT rates, GLEIF LEI, Safety Gate, ECB, EUVD, PRH, Brreg, FMI.",
   "repository": {
     "url": "https://github.com/itulo/eu-nordic-open-data-mcp",
     "source": "github"
   },
-  "version": "0.1.0",
+  "version": "0.2.0",
   "packages": [
     {
       "registryType": "npm",
       "identifier": "eu-nordic-open-data-mcp",
-      "version": "0.1.0",
+      "version": "0.2.0",
       "runtimeHint": "npx",
       "transport": {
         "type": "stdio"

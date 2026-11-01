@@ -4,7 +4,7 @@ import { StdioServerTransport } from '@modelcontextprotocol/sdk/server/stdio.js'
 
 const unifiedServer = new McpServer({
   name: 'eu-nordic-open-data-mcp',
-  version: '0.1.0',
+  version: '0.2.0',
 });
 
 const origRegisterTool = McpServer.prototype.registerTool;
@@ -33,6 +33,9 @@ const modules = [
   '../tools/ecb-fx-rates-macro/src/mcp-server.js',
   '../tools/digitraffic-port-calls-marine/src/mcp-server.js',
   '../tools/enisa-euvd-vulnerabilities/src/mcp-server.js',
+  '../tools/gleif-lei-lookup/src/mcp-server.js',
+  '../tools/eu-vat-rates/src/mcp-server.js',
+  '../tools/eu-safety-gate-alerts/src/mcp-server.js',
 ];
 
 for (const modPath of modules) {

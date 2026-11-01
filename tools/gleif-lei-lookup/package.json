@@ -1,0 +1,12 @@
+{
+  "name": "gleif-lei-lookup",
+  "version": "0.2.0",
+  "private": true,
+  "type": "module",
+  "description": "Open-Data Tool Factory: GLEIF LEI lookup, search and ownership chain (CC0) - MCP server",
+  "engines": { "node": ">=20" },
+  "bin": { "gleif-lei-lookup-mcp": "src/mcp-server.js" },
+  "scripts": { "mcp": "node src/mcp-server.js", "test": "node --test test/*.test.js" },
+  "dependencies": { "@modelcontextprotocol/sdk": "^1.32.1", "zod": "^3.25.0" },
+  "license": "UNLICENSED"
+}

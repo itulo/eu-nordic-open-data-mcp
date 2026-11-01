@@ -54,22 +54,33 @@ export class HttpError extends Error {
 }
 
 /**
- * fetch JSON with retry on 429/5xx (exponential backoff, honours Retry-After).
- * fetchImpl is injectable for tests.
+ * fetch JSON with retry on 429/5xx and on network errors / per-request timeouts
+ * (exponential backoff, honours Retry-After capped at 30 s). fetchImpl is injectable for tests.
  */
 export async function fetchJson(url, { fetchImpl = globalThis.fetch, limiter, retries = 3, timeoutMs = 30000, userAgent, ...init } = {}) {
   const headers = { accept: 'application/json', 'user-agent': userAgent || 'open-data-tool-factory/0.1 (+contact: maintainer)', ...(init.headers || {}) };
   let attempt = 0;
   for (;;) {
     const doFetch = () => fetchImpl(url, { ...init, headers, signal: AbortSignal.timeout(timeoutMs) });
-    const res = limiter ? await limiter(doFetch) : await doFetch();
-    const text = await res.text();
+    let res, text;
+    try {
+      res = limiter ? await limiter(doFetch) : await doFetch();
+      text = await res.text();
+    } catch (e) {
+      // Network failure or timeout (no HTTP response): retry, then surface the real error.
+      if (attempt < retries) {
+        await sleep(1000 * 2 ** attempt);
+        attempt++;
+        continue;
+      }
+      throw e;
+    }
     if (res.ok) {
       try { return text ? JSON.parse(text) : null; } catch (e) { throw new HttpError(res.status, `Invalid JSON: ${text.slice(0, 200)}`, url); }
     }
     if ((res.status === 429 || res.status >= 500) && attempt < retries) {
       const ra = Number(res.headers?.get?.('retry-after'));
-      await sleep(Number.isFinite(ra) && ra > 0 ? ra * 1000 : 1000 * 2 ** attempt);
+      await sleep(Math.min(Number.isFinite(ra) && ra > 0 ? ra * 1000 : 1000 * 2 ** attempt, 30000));
       attempt++;
       continue;
     }

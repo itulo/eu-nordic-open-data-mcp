@@ -7,7 +7,7 @@ import {
   DEFAULT_CURRENCIES,
   DEFAULT_INFLATION_AREAS,
 } from './lib/ecb.js';
-import { chargeSafe } from './lib/charge.js';
+import { chargeSafe, pushCharged } from './lib/charge.js';
 
 await Actor.init();
 try {
@@ -65,8 +65,9 @@ try {
   }
 
   for (const r of records) {
-    await Actor.pushData(r);
-    await chargeSafe('macro-or-fx-record', 1);
+    // Write first, charge only for successfully stored items; stop at the user's charge limit.
+    const { stop } = await pushCharged(r, 'macro-or-fx-record');
+    if (stop) break;
   }
 
   await Actor.setValue('OUTPUT_SUMMARY', {
