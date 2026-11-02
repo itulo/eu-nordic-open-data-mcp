@@ -1,6 +1,6 @@
 # EU & Nordic Official Open-Data MCP Servers & Apify Actors (`eu-nordic-open-data-mcp`)
 
-13 production-ready **Model Context Protocol (MCP) servers** (`@modelcontextprotocol/sdk` over stdio) and 12 hosted **Apify Actors** (15 tools in total) built on official European Union, Finnish, Norwegian, French and UK government open-data APIs. The unified server (`npx -y eu-nordic-open-data-mcp`) exposes all 49 tools over stdio.
+13 production-ready **Model Context Protocol (MCP) servers** (`@modelcontextprotocol/sdk` over stdio) and 13 public hosted **Apify Actors** on the [Apify Store](https://apify.com/itulo) (15 tools in total) built on official European Union, Finnish, Norwegian, French and UK government open-data APIs. The unified server (`npx -y eu-nordic-open-data-mcp`) exposes all 49 tools over stdio.
 
 Every tool shares a single core library (`src/lib/*`) across its **stdio MCP server** (`src/mcp-server.js`) and **Apify Actor** (`src/main.js`), and enforces:
 1. **Strict GDPR Personal-Data Redaction by Design:** Organisation-level whitelists strip sole-trader (`toiminimi`) personal names & residential addresses in VIES VAT checks, `c/o` names & street addresses in PRH Trade Register records, natural-person contact points in TED procurement notices, and ship master names in Digitraffic port calls.
@@ -24,7 +24,7 @@ Every tool shares a single core library (`src/lib/*`) across its **stdio MCP ser
 | **7** | [`tools/eu-vies-vat-validator`](./tools/eu-vies-vat-validator) | [`itulo/eu-vies-vat-validator`](https://apify.com/itulo/eu-vies-vat-validator) | European Commission VIES VAT REST API (`ec.europa.eu/taxation_customs/vies`) | Yes | `vies_validate_vat_batch`, `vies_member_state_status`, `vies_licence_info` |
 | **8** | [`tools/ecb-fx-rates-macro`](./tools/ecb-fx-rates-macro) | [`itulo/ecb-fx-rates-macro`](https://apify.com/itulo/ecb-fx-rates-macro) | European Central Bank (ECB) SDMX 2.1 Data Portal (`data-api.ecb.europa.eu`) | Yes | `ecb_fx_rates`, `ecb_policy_rates_and_inflation`, `ecb_convert_invoices`, `ecb_licence_info` |
 | **9** | [`tools/digitraffic-port-calls-marine`](./tools/digitraffic-port-calls-marine) | [`itulo/digitraffic-port-calls-marine`](https://apify.com/itulo/digitraffic-port-calls-marine) | Fintraffic Digitraffic Marine Port Call API (`meri.digitraffic.fi`) | Yes | `digitraffic_port_calls`, `digitraffic_port_congestion_summary`, `digitraffic_licence_info` |
-| **10** | [`tools/enisa-euvd-vulnerabilities`](./tools/enisa-euvd-vulnerabilities) | — (local MCP only) | EU Agency for Cybersecurity (ENISA) European Vulnerability Database (`euvd.enisa.europa.eu`) | Yes | `euvd_exploited_and_critical`, `euvd_search_vulnerabilities`, `euvd_lookup_by_id`, `euvd_licence_info` |
+| **10** | [`tools/enisa-euvd-vulnerabilities`](./tools/enisa-euvd-vulnerabilities) | [`itulo/enisa-euvd-vulnerabilities`](https://apify.com/itulo/enisa-euvd-vulnerabilities) | EU Agency for Cybersecurity (ENISA) European Vulnerability Database (`euvd.enisa.europa.eu`) | Yes | `euvd_exploited_and_critical`, `euvd_search_vulnerabilities`, `euvd_lookup_by_id`, `euvd_licence_info` |
 | **11** | [`tools/gleif-lei-lookup`](./tools/gleif-lei-lookup) | — (local MCP only) | GLEIF LEI API (`api.gleif.org`, CC0) incl. Level 2 direct/ultimate parent relationships | Yes | `gleif_lei_lookup`, `gleif_search`, `gleif_ownership_chain`, `gleif_licence_info` |
 | **12** | [`tools/eu-vat-rates`](./tools/eu-vat-rates) | — (local MCP only) | European Commission Taxes in Europe Database (TEDB) VAT retrieval web service (CC BY 4.0) | Yes | `eu_vat_standard_rates`, `eu_vat_rates_lookup`, `eu_vat_rates_licence_info` |
 | **13** | [`tools/eu-safety-gate-alerts`](./tools/eu-safety-gate-alerts) | [`itulo/eu-safety-gate-alerts`](https://apify.com/itulo/eu-safety-gate-alerts) | EU Safety Gate weekly reports (dangerous non-food products, CC0) | Yes | `eu_safety_gate_alerts`, `eu_safety_gate_match`, `eu_safety_gate_reports`, `eu_safety_gate_licence_info` |
@@ -35,7 +35,7 @@ Every tool shares a single core library (`src/lib/*`) across its **stdio MCP ser
 
 ## Quickstart 1: Zero-Install Hosted MCP in Claude Desktop & Cursor (`@apify/actors-mcp-server`)
 
-Add any combination of the hosted actors to your `claude_desktop_config.json` or `.cursor/mcp.json`:
+Add any combination of the 13 hosted actors (all 13 shown below) to your `claude_desktop_config.json` or `.cursor/mcp.json`:
 
 ```json
 {
@@ -46,7 +46,7 @@ Add any combination of the hosted actors to your `claude_desktop_config.json` or
         "-y",
         "@apify/actors-mcp-server",
         "--actors",
-        "itulo/ted-tender-feed,itulo/prh-company-events,itulo/eu-sanctions-screen,itulo/fingrid-grid-signals,itulo/fmi-fingrid-nowcast,itulo/fmi-weather-warnings-alerts,itulo/eu-vies-vat-validator,itulo/ecb-fx-rates-macro,itulo/digitraffic-port-calls-marine"
+        "itulo/ted-tender-feed,itulo/prh-company-events,itulo/eu-sanctions-screen,itulo/fingrid-grid-signals,itulo/fmi-fingrid-nowcast,itulo/fmi-weather-warnings-alerts,itulo/eu-vies-vat-validator,itulo/ecb-fx-rates-macro,itulo/digitraffic-port-calls-marine,itulo/enisa-euvd-vulnerabilities,itulo/eu-safety-gate-alerts,itulo/uk-companies-house-kyb,itulo/france-sirene-company-search"
       ],
       "env": {
         "APIFY_TOKEN": "YOUR_APIFY_API_TOKEN"
