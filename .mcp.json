@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "eu-nordic-open-data": {
+      "command": "npx",
+      "args": ["-y", "eu-nordic-open-data-mcp"],
+      "env": {
+        "FINGRID_API_KEY": "${FINGRID_API_KEY}"
+      }
+    }
+  }
+}

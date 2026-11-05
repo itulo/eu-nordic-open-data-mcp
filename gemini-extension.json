@@ -1,0 +1,11 @@
+{
+  "name": "eu-nordic-open-data-mcp",
+  "version": "0.2.0",
+  "description": "Stdio MCP server with tools over official EU and Nordic open data: TED tenders, EU financial sanctions, VIES VAT, ECB FX and HICP, ENISA EUVD, GLEIF LEI, EU Safety Gate, Finnish PRH and Norwegian Brreg company events, Fingrid, FMI and Digitraffic.",
+  "mcpServers": {
+    "eu-nordic-open-data": {
+      "command": "npx",
+      "args": ["-y", "eu-nordic-open-data-mcp"]
+    }
+  }
+}
