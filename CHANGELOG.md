@@ -1,5 +1,11 @@
 # Changelog
 
+## [0.2.1] - 2026-11-09
+
+### Fixed
+- `eu-sanctions-screen`: every EU FSF download is now validated (no HTML/maintenance pages, expected CSV header, plausible entity count) before use or caching; cookie-keeping redirect handling with bounded retries; the sorry.ec.europa.eu maintenance redirect is never parsed.
+- `eu-sanctions-screen`: persistent last-good cache (gzipped CSV + fetchedAt, fileGenerationDate, entity count, sha256). When the official download is unavailable, responses use the cached copy and carry `listStatus: "stale"`, `listFetchedAt`, `listAgeHours`, `upstreamError` and a `staleWarning`; with no cache the tool fails with a clear error.
+
 ## [0.2.0] - 2026-11-01
 
 ### Added

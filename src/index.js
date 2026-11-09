@@ -4,7 +4,7 @@ import { StdioServerTransport } from '@modelcontextprotocol/sdk/server/stdio.js'
 
 const unifiedServer = new McpServer({
   name: 'eu-nordic-open-data-mcp',
-  version: '0.2.0',
+  version: '0.2.1',
 });
 
 const origRegisterTool = McpServer.prototype.registerTool;
