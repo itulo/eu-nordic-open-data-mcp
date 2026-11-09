@@ -1,6 +1,6 @@
 {
   "name": "eu-sanctions-screen",
-  "version": "0.1.0",
+  "version": "0.1.7",
   "private": true,
   "type": "module",
   "description": "Open-Data Tool Factory: eu-sanctions-screen (Apify actor + MCP server sharing one core library)",

@@ -13,6 +13,7 @@ import {
   screenBatch,
   lookupEntities,
   complianceEnvelope,
+  listStatusFields,
 } from './lib/sanctions.js';
 
 export function sanctionsJsonResult(fileGenerationDate, payload) {
@@ -36,7 +37,7 @@ export function sanctionsErrorResult(fileGenerationDate, err) {
 }
 
 export function buildServer(loaderOpts = {}) {
-  const srv = new McpServer({ name: 'eu-sanctions-screen', version: '0.1.0' });
+  const srv = new McpServer({ name: 'eu-sanctions-screen', version: '0.1.7' });
 
   srv.tool(
     'eu_sanctions_screen',
@@ -68,6 +69,7 @@ export function buildServer(loaderOpts = {}) {
           queriesWithPossibleMatch: batch.queriesWithPossibleMatch,
           queriesClear: batch.queriesClear,
           results: batch.results,
+          ...listStatusFields(index),
         });
       } catch (e) {
         return sanctionsErrorResult(genDate, e);
@@ -120,6 +122,7 @@ export function buildServer(loaderOpts = {}) {
           enterprises,
           other: index.totalEntities - persons - enterprises,
           programmes: index.programmes,
+          ...listStatusFields(index),
         });
       } catch (e) {
         return sanctionsErrorResult(genDate, e);

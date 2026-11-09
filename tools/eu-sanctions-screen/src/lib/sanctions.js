@@ -14,6 +14,8 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import os from 'node:os';
+import zlib from 'node:zlib';
+import crypto from 'node:crypto';
 import { attributionFor } from './common.js';
 
 export const FSF_CSV_1_1_URL =
@@ -355,49 +357,334 @@ export function parseSanctionsCsv(csvText) {
   };
 }
 
+// ---------------------------------------------------------------------------
+// Download, validation and persistent last-good cache
+// ---------------------------------------------------------------------------
+// The official FSF download has had multi-day outages (HTTP 500, or a 307 redirect to
+// sorry.ec.europa.eu that answers 200 HTML). We therefore:
+//   1. fetch with a cookie-keeping, manual-redirect client and bounded retries;
+//   2. validate every payload (not HTML, expected CSV header, plausible entity count)
+//      BEFORE using or caching it; maintenance pages are never parsed or cached;
+//   3. keep a persistent "last good" copy (gzipped CSV + metadata) in a cache store
+//      (Apify named key-value store in the actor, a tmp-dir file store for the MCP server);
+//   4. on upstream failure, serve the cached copy marked listStatus "stale".
+
+export const CACHE_DATA_KEY = 'EU_FSF_CSV_1_1_GZ';
+export const CACHE_META_KEY = 'EU_FSF_CSV_1_1_META';
+export const DEFAULT_MIN_ENTITIES = 3000; // fixed sanity floor when no cache exists (list had 6,269 on 23/10/2026)
+export const MIN_ENTITY_RATIO = 0.7; // a fresh file must have >= 70% of the cached entity count
+const USER_AGENT = 'open-data-factory-eu-sanctions-screen/0.2 (+https://data.europa.eu)';
+
+export class SanctionsListError extends Error {
+  constructor(message, { kind = 'error', status = null } = {}) {
+    super(message);
+    this.name = 'SanctionsListError';
+    this.kind = kind;
+    this.status = status;
+  }
+}
+
+const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+
+function getSetCookies(headers) {
+  if (!headers) return [];
+  if (typeof headers.getSetCookie === 'function') return headers.getSetCookie();
+  const raw = typeof headers.get === 'function' ? headers.get('set-cookie') : null;
+  return raw ? raw.split(/,(?=\s*[^;,=\s]+=)/) : [];
+}
+
+// Single download attempt: keeps cookies across redirects (EU Login / ECAS style hops)
+// and refuses to follow into the sorry.ec.europa.eu maintenance page.
+export async function fetchWithCookies(url, { fetchImpl = globalThis.fetch, maxRedirects = 6, timeoutMs = 120000 } = {}) {
+  const jar = new Map();
+  let current = url;
+  for (let hop = 0; hop <= maxRedirects; hop++) {
+    const host = new URL(current).hostname;
+    if (/^sorry\./i.test(host) || /sorry\.ec\.europa\.eu/i.test(current)) {
+      throw new SanctionsListError(`EU FSF download redirected to maintenance page (${host}); upstream temporarily unavailable`, { kind: 'maintenance' });
+    }
+    const cookie = [...jar.entries()].map(([k, v]) => `${k}=${v}`).join('; ');
+    const ctrl = typeof AbortController !== 'undefined' ? new AbortController() : null;
+    const timer = ctrl ? setTimeout(() => ctrl.abort(), timeoutMs) : null;
+    let res;
+    try {
+      res = await fetchImpl(current, {
+        redirect: 'manual',
+        signal: ctrl?.signal,
+        headers: {
+          'User-Agent': USER_AGENT,
+          Accept: 'text/csv, text/plain;q=0.9, */*;q=0.1',
+          ...(cookie ? { Cookie: cookie } : {}),
+        },
+      });
+    } catch (e) {
+      throw new SanctionsListError(`EU FSF download network error: ${e?.name === 'AbortError' ? `timeout after ${timeoutMs} ms` : e?.message || e}`, { kind: 'network' });
+    } finally {
+      if (timer) clearTimeout(timer);
+    }
+    for (const sc of getSetCookies(res.headers)) {
+      const m = /^\s*([^=;\s]+)=([^;]*)/.exec(sc);
+      if (m) jar.set(m[1], m[2]);
+    }
+    if (res.status >= 300 && res.status < 400) {
+      const loc = res.headers?.get?.('location');
+      if (!loc) throw new SanctionsListError(`EU FSF download: HTTP ${res.status} redirect without Location`, { kind: 'http', status: res.status });
+      current = new URL(loc, current).toString();
+      continue;
+    }
+    if (!res.ok) {
+      throw new SanctionsListError(`EU FSF CSV download failed: HTTP ${res.status}`, { kind: 'http', status: res.status });
+    }
+    const contentType = res.headers?.get?.('content-type') || '';
+    const text = await res.text();
+    return { text, contentType, finalUrl: current, status: res.status };
+  }
+  throw new SanctionsListError(`EU FSF download: too many redirects (>${maxRedirects})`, { kind: 'http' });
+}
+
+// Validate a downloaded payload; returns the parsed index or throws SanctionsListError.
+export function validateSanctionsPayload({ text, contentType = '' }, { minEntities = DEFAULT_MIN_ENTITIES } = {}) {
+  const ct = String(contentType || '').toLowerCase();
+  const head = String(text || '').slice(0, 512).replace(/^\uFEFF/, '').trimStart().toLowerCase();
+  if (ct.includes('html') || head.startsWith('<!doctype') || head.startsWith('<html') || head.startsWith('<?xml') || head.startsWith('<')) {
+    throw new SanctionsListError(`EU FSF download returned HTML/markup instead of CSV (content-type "${contentType || 'none'}"); probably a maintenance page`, { kind: 'invalid' });
+  }
+  let index;
+  try {
+    index = parseSanctionsCsv(text);
+  } catch (e) {
+    throw new SanctionsListError(`EU FSF CSV failed validation: ${e.message}`, { kind: 'invalid' });
+  }
+  if (!index.fileGenerationDate || index.fileGenerationDate === 'unknown') {
+    throw new SanctionsListError('EU FSF CSV failed validation: no fileGenerationDate in rows', { kind: 'invalid' });
+  }
+  if (index.totalEntities < minEntities) {
+    throw new SanctionsListError(`EU FSF CSV failed validation: implausibly small list (${index.totalEntities} entities < sanity floor ${minEntities})`, { kind: 'invalid' });
+  }
+  return index;
+}
+
+// Download + validate with bounded retries (default waits 5 s, 20 s, 60 s).
+export async function downloadValidatedList({
+  url = FSF_CSV_1_1_URL,
+  fetchImpl = globalThis.fetch,
+  minEntities = DEFAULT_MIN_ENTITIES,
+  retryDelaysMs = [5000, 20000, 60000],
+  timeoutMs = 120000,
+  logger = null,
+} = {}) {
+  let lastErr;
+  for (let attempt = 0; attempt <= retryDelaysMs.length; attempt++) {
+    try {
+      const payload = await fetchWithCookies(url, { fetchImpl, timeoutMs });
+      const index = validateSanctionsPayload(payload, { minEntities });
+      return { text: payload.text, index };
+    } catch (e) {
+      lastErr = e instanceof SanctionsListError ? e : new SanctionsListError(String(e?.message || e));
+      if (attempt < retryDelaysMs.length) {
+        logger?.warning?.(`EU FSF download attempt ${attempt + 1} failed (${lastErr.message}); retrying in ${Math.round(retryDelaysMs[attempt] / 1000)} s`);
+        await sleep(retryDelaysMs[attempt]);
+      }
+    }
+  }
+  throw lastErr;
+}
+
+// --- cache stores ----------------------------------------------------------
+// Interface: { name, read(): Promise<{gz:Buffer, meta}|null>, write(gz:Buffer, meta, {dataChanged}): Promise<void> }
+
+export function createKvsCacheStore(kvs, name = 'apify-kvs') {
+  return {
+    name,
+    async read() {
+      const meta = await kvs.getValue(CACHE_META_KEY);
+      if (!meta) return null;
+      const gz = await kvs.getValue(CACHE_DATA_KEY);
+      if (!gz) return null;
+      return { gz: Buffer.isBuffer(gz) ? gz : Buffer.from(gz), meta };
+    },
+    async write(gz, meta, { dataChanged = true } = {}) {
+      if (dataChanged) await kvs.setValue(CACHE_DATA_KEY, gz, { contentType: 'application/gzip' });
+      await kvs.setValue(CACHE_META_KEY, meta);
+    },
+  };
+}
+
+export function createFileCacheStore(dir = path.join(os.tmpdir(), 'eu-fsf-sanctions-cache'), { readOnly = false, name } = {}) {
+  const dataPath = path.join(dir, 'eu-fsf-csv-1_1.csv.gz');
+  const metaPath = path.join(dir, 'eu-fsf-csv-1_1.meta.json');
+  return {
+    name: name || `file:${dir}`,
+    readOnly,
+    async read() {
+      if (!fs.existsSync(metaPath) || !fs.existsSync(dataPath)) return null;
+      return { gz: fs.readFileSync(dataPath), meta: JSON.parse(fs.readFileSync(metaPath, 'utf8')) };
+    },
+    async write(gz, meta, { dataChanged = true } = {}) {
+      fs.mkdirSync(dir, { recursive: true });
+      if (dataChanged) fs.writeFileSync(dataPath, gz);
+      fs.writeFileSync(metaPath, JSON.stringify(meta, null, 2));
+    },
+  };
+}
+
+// Read-only store backed by public HTTP record URLs (e.g. a shared seed key-value store).
+export function createHttpReadOnlyCacheStore(baseUrl, { fetchImpl = globalThis.fetch } = {}) {
+  return {
+    name: `http:${baseUrl}`,
+    readOnly: true,
+    async read() {
+      const mr = await fetchImpl(`${baseUrl}/records/${CACHE_META_KEY}`);
+      if (!mr.ok) return null;
+      const meta = await mr.json();
+      const dr = await fetchImpl(`${baseUrl}/records/${CACHE_DATA_KEY}`);
+      if (!dr.ok) return null;
+      return { gz: Buffer.from(await dr.arrayBuffer()), meta };
+    },
+    async write() {},
+  };
+}
+
+export const KVS_RECORD_LIMIT_BYTES = 9 * 1024 * 1024; // Apify key-value store record limit
+const MAX_CACHE_GZ_BYTES = 8.5 * 1024 * 1024;
+
+function sha256(text) {
+  return crypto.createHash('sha256').update(text).digest('hex');
+}
+
+function ageHours(iso, now = Date.now()) {
+  const t = Date.parse(iso);
+  return Number.isFinite(t) ? Number(((now - t) / 3600000).toFixed(1)) : null;
+}
+
+export function staleWarningText(fileGenerationDate, fetchedAt) {
+  return `STALE LIST: the official EU FSF download is currently unavailable, so this result uses the last successfully downloaded copy (file generated ${fileGenerationDate}, fetched ${fetchedAt}). Designations, amendments and delistings published after that date are NOT included. Re-screen once the official list is available again.`;
+}
+
+// Fields describing list freshness; spread into every output row/response.
+export function listStatusFields(index) {
+  const f = index?.listFreshness;
+  if (!f) return { listStatus: 'fresh', listFetchedAt: null, listAgeHours: null, upstreamError: null, staleWarning: null };
+  return {
+    listStatus: f.listStatus,
+    listFetchedAt: f.listFetchedAt,
+    listAgeHours: f.listFetchedAt ? ageHours(f.listFetchedAt) : null,
+    upstreamError: f.upstreamError || null,
+    staleWarning: f.listStatus === 'stale' ? staleWarningText(index.fileGenerationDate, f.listFetchedAt) : null,
+  };
+}
+
+function withFreshness(index, freshness) {
+  index.listFreshness = freshness;
+  return index;
+}
+
 let _memCache = null;
+
+export function _resetMemCache() {
+  _memCache = null;
+}
 
 export async function loadSanctionsList({
   csvText,
   fetchImpl = globalThis.fetch,
   url = FSF_CSV_1_1_URL,
-  cachePath = path.join(os.tmpdir(), 'eu-fsf-sanctions-1_1.csv'),
-  maxAgeMs = 12 * 3600 * 1000,
+  cacheStores, // array, first = primary (written), others = read-only fallbacks
+  cacheStore,
+  maxAgeMs = 12 * 3600 * 1000, // in-process memory cache window (MCP server)
+  freshCacheMaxAgeMs = 0, // use a persistent cache younger than this without downloading
   forceRefresh = false,
+  retryDelaysMs = [5000, 20000, 60000],
+  timeoutMs = 120000,
+  logger = null,
 } = {}) {
   if (csvText) {
-    return parseSanctionsCsv(csvText);
+    return withFreshness(parseSanctionsCsv(csvText), { listStatus: 'fresh', listFetchedAt: null, source: 'inline' });
   }
-  if (!forceRefresh && _memCache && Date.now() - _memCache.loadedAt < maxAgeMs) {
+  if (!forceRefresh && _memCache && Date.now() - _memCache.loadedAt < maxAgeMs && _memCache.index.listFreshness?.listStatus === 'fresh') {
     return _memCache.index;
   }
-  if (!forceRefresh && cachePath && fs.existsSync(cachePath)) {
-    const stat = fs.statSync(cachePath);
-    if (Date.now() - stat.mtimeMs < maxAgeMs && stat.size > 1000) {
-      const cachedTxt = fs.readFileSync(cachePath, 'utf8');
-      const index = parseSanctionsCsv(cachedTxt);
-      _memCache = { loadedAt: Date.now(), index };
-      return index;
+
+  const stores = (cacheStores || (cacheStore ? [cacheStore] : [createFileCacheStore()])).filter(Boolean);
+  const primary = stores.find((s) => !s.readOnly) || null;
+
+  // Read the last-good cache (first store that has one).
+  let cached = null;
+  for (const store of stores) {
+    try {
+      const c = await store.read();
+      if (c && c.gz && c.meta) {
+        cached = { ...c, store };
+        break;
+      }
+    } catch (e) {
+      logger?.warning?.(`Sanctions cache read failed (${store.name}): ${e.message}`);
     }
   }
 
-  const res = await fetchImpl(url, {
-    headers: { 'User-Agent': 'open-data-factory-eu-sanctions-screen/0.1 (+https://data.europa.eu)' },
-  });
-  if (!res.ok) {
-    throw new Error(`EU FSF CSV download failed: HTTP ${res.status}`);
-  }
-  const text = await res.text();
-  if (cachePath) {
-    try {
-      fs.writeFileSync(cachePath, text, 'utf8');
-    } catch {
-      // Ignore cache write errors on read-only filesystems
+  const parseCached = () => {
+    const text = zlib.gunzipSync(cached.gz).toString('utf8');
+    if (cached.meta.sha256 && sha256(text) !== cached.meta.sha256) {
+      throw new SanctionsListError(`Cached list failed integrity check (sha256 mismatch, ${cached.store.name})`, { kind: 'cache' });
     }
+    return parseSanctionsCsv(text);
+  };
+
+  if (!forceRefresh && cached && freshCacheMaxAgeMs > 0 && Date.now() - Date.parse(cached.meta.fetchedAt) < freshCacheMaxAgeMs) {
+    const index = withFreshness(parseCached(), { listStatus: 'fresh', listFetchedAt: cached.meta.fetchedAt, source: `cache:${cached.store.name}` });
+    _memCache = { loadedAt: Date.now(), index };
+    return index;
   }
-  const index = parseSanctionsCsv(text);
-  _memCache = { loadedAt: Date.now(), index };
-  return index;
+
+  const cachedCount = Number(cached?.meta?.entityCount) || 0;
+  const minEntities = cachedCount > 0 ? Math.max(1, Math.floor(cachedCount * MIN_ENTITY_RATIO)) : DEFAULT_MIN_ENTITIES;
+
+  try {
+    const { text, index } = await downloadValidatedList({ url, fetchImpl, minEntities, retryDelaysMs, timeoutMs, logger });
+    const fetchedAt = new Date().toISOString();
+    const hash = sha256(text);
+    const meta = {
+      fetchedAt,
+      fileGenerationDate: index.fileGenerationDate,
+      listPublicationDate: index.listPublicationDate,
+      entityCount: index.totalEntities,
+      sha256: hash,
+      sourceUrl: url.replace(/token=[^&]+/, 'token=<documented-public-token>'),
+      format: 'csvFullSanctionsList_1_1',
+    };
+    if (primary) {
+      try {
+        const dataChanged = !cached || cached.store !== primary || cached.meta.sha256 !== hash;
+        const gz = dataChanged ? zlib.gzipSync(text, { level: 9 }) : null;
+        if (gz && gz.length > MAX_CACHE_GZ_BYTES) {
+          logger?.warning?.(`Sanctions cache not updated: gzipped list ${gz.length} bytes exceeds record limit`);
+        } else {
+          await primary.write(gz, { ...meta, gzBytes: gz ? gz.length : cached?.meta?.gzBytes ?? null }, { dataChanged });
+        }
+      } catch (e) {
+        logger?.warning?.(`Sanctions cache write failed (${primary.name}): ${e.message}`);
+      }
+    }
+    withFreshness(index, { listStatus: 'fresh', listFetchedAt: fetchedAt, source: 'download' });
+    _memCache = { loadedAt: Date.now(), index };
+    return index;
+  } catch (err) {
+    const upstreamError = String(err?.message || err);
+    if (!cached) {
+      throw new SanctionsListError(
+        `EU sanctions list unavailable: the official EU FSF download failed (${upstreamError}) and no previously downloaded copy is cached yet. Screening cannot run without the list; please retry later.`,
+        { kind: 'no-cache' }
+      );
+    }
+    const index = withFreshness(parseCached(), {
+      listStatus: 'stale',
+      listFetchedAt: cached.meta.fetchedAt,
+      upstreamError,
+      source: `cache:${cached.store.name}`,
+    });
+    logger?.warning?.(staleWarningText(index.fileGenerationDate, cached.meta.fetchedAt));
+    return index; // not memoised: retry upstream on the next call
+  }
 }
 
 export function formatEntityPublic(ent) {
@@ -435,7 +722,7 @@ export function screenOne(index, rawQuery, {
   fuzzyThreshold = 0.78,
   maxMatches = 5,
 } = {}) {
-  const env = complianceEnvelope(index.fileGenerationDate);
+  const env = { ...complianceEnvelope(index.fileGenerationDate), ...listStatusFields(index) };
   const qObj = typeof rawQuery === 'string' ? { name: rawQuery } : (rawQuery || {});
   const queryStr = String(qObj.name || qObj.query || qObj.idNumber || '').trim();
   const queryIdNorm = normalizeId(qObj.idNumber || queryStr);
@@ -546,7 +833,7 @@ export function screenOne(index, rawQuery, {
 }
 
 export function screenBatch(index, queries = [], options = {}) {
-  const env = complianceEnvelope(index.fileGenerationDate);
+  const env = { ...complianceEnvelope(index.fileGenerationDate), ...listStatusFields(index) };
   const includeClearQueries = options.includeClearQueries !== false;
   const results = [];
   const datasetRows = [];
@@ -605,7 +892,7 @@ export function lookupEntities(index, {
   country,
   limit = 25,
 } = {}) {
-  const env = complianceEnvelope(index.fileGenerationDate);
+  const env = { ...complianceEnvelope(index.fileGenerationDate), ...listStatusFields(index) };
   const refNorm = euReferenceNumber ? normalizeId(euReferenceNumber) : null;
   const idStr = logicalId ? String(logicalId).trim() : null;
   const progUpper = programme ? String(programme).toUpperCase().trim() : null;
